@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Low Effort Group</title>
+  <link rel="icon" type="image/x-icon" href="LowEffortLogo.svg">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    @font-face {
+      font-family: myFont;
+      src: url(LowEffortFont.ttf);
+    }
+
+    nav {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #bf00ff;
+      height: 67px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      box-sizing: border-box;
+      z-index: 9999;
+    }
+
+    .brand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: myFont;
+      font-size: 32px;
+      color: #fff;
+      pointer-events: none;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      flex-direction: column;
+    }
+
+    .logo-wrap img {
+      display: block;
+      width: 35px;
+      height: 35px;
+      margin: calc((56px - 35px) / 2) 0;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 56px;
+      left: -16px;
+      display: none;
+      background: #bf00ff;
+      padding: 16px 16px;
+    }
+    .dropdown-content a {
+      white-space: nowrap;
+      display: block;
+      font-size: 24px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo-wrap">
+      <div class="dropdown">
+        <img src="LEGWhiteNoBorder.svg" alt="LEG" width="35" height="35">
+        <div class="dropdown-content" style="font-family: myFont;">
+          <a href="Home.html">Homepage</a>
+          <a href="Members.html">Our members</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand">Low Effort Work</div>
+  </nav>
+</body>
+</html>
