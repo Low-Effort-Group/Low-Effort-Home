@@ -8,6 +8,11 @@ html, body {
     src: url(/LowEffortFont.ttf);
 }
 
+.small-text {
+    font-size: 14px;
+    color: grey;
+}
+
 nav {
     position: relative;
     top: 0;
