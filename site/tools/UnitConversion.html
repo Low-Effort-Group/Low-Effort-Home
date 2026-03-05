@@ -13,7 +13,7 @@
     <h1>
         Length Conversion
     </h1>
-    <form>
+    <form id="length_conversion">
         <label for="length_value">Length value:</label><br>
         <input type="text" id="length_value" name="length_value"><br>
         <label for="from_length_unit">Starting unit:</label><br>
@@ -31,10 +31,32 @@
             <option value="m">Meter</option>
             <option value="cm">Centimeter</option>
             <option value="mm">Millimeter</option>
-        </select>
+        </select><br>
+        <input type="submit" value="Convert!"><br>
+        <p id="result"></p>
     </form>
     <script>
-
+        document.getElementById("length_conversion").addEventListener("submit",
+            function(event) {
+                event.preventDefault();
+                var length_middle_man = 0;
+                var length_value = Number(document.getElementById("length_value").value);
+                var from_length_unit = document.getElementById("from_length_unit").value;
+                if (from_length_unit == "mMile") length_middle_man = length_value * 10000;
+                else if (from_length_unit == "km") length_middle_man = length_value * 1000;
+                else if (from_length_unit == "m") length_middle_man = length_value * 1;
+                else if (from_length_unit == "cm") length_middle_man = length_value * 0.01;
+                else if (from_length_unit == "mm") length_middle_man = length_value * 0.001;
+                
+                var to_length_unit = document.getElementById("to_length_unit").value;
+                if (to_length_unit == "mMile") result = length_middle_man * 0.0001;
+                else if (to_length_unit == "km") result = length_middle_man * 0.001;
+                else if (to_length_unit == "m") result = length_middle_man * 1;
+                else if (to_length_unit == "cm") result = length_middle_man * 100;
+                else if (to_length_unit == "mm") result = length_middle_man * 1000;
+                document.getElementById("result").innerHTML = result;
+            }
+        );
     </script>
 </body>
 </html>
