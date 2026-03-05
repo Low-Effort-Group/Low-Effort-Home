@@ -23,7 +23,7 @@ nav {
     z-index: 9999;
 }
 
-.brand {
+#title {
     position: absolute;
     left: 50%;
     top: 50%;
