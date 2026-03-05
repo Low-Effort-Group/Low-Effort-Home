@@ -8,6 +8,39 @@ html, body {
     src: url(/LowEffortFont.ttf);
 }
 
+main {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#upload, button {
+    font-family: lowEffortFont;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background: #bf00ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: grey 0px 4px 8px;
+}
+
+#upload {
+    font-size: 14px;
+    width: 350px;
+}
+
+button:hover {
+    background: #a000cc;
+    box-shadow: grey 0px 2px 4px;
+}
+
+button:active {
+    background: #800099;
+    box-shadow: none;
+}
+
 .small-text {
     font-size: 14px;
     color: grey;
