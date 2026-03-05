@@ -34,10 +34,21 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
+      - name: environment variable substitution
+        run: | 
+          sudo apt-get update 
+          sudo apt-get install -y gettext-base
+          export NAV="$(< templates/nav.html)" 
+          for file in site/*.html; do 
+            envsubst < $file > temp && mv temp $file; 
+          done
+          cat site/*.html
+        shell: bash
+      
       - name: Download minify binary
         run: wget https://github.com/tdewolff/minify/releases/download/v2.24.8/minify_linux_amd64.tar.gz && tar -xzvf minify_linux_amd64.tar.gz
 
-      - run: ./minify -r -o out/ site/ 
+      - run: ./minify -r -o out/ site/
       - run: cp site/LowEffortFont.ttf out/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
