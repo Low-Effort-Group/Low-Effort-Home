@@ -4,8 +4,8 @@ html, body {
 }
 
 @font-face {
-    font-family: myFont;
-    src: url(LowEffortFont.ttf);
+    font-family: lowEffortFont;
+    src: url(/LowEffortFont.ttf);
 }
 
 nav {
@@ -27,7 +27,7 @@ nav {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-family: myFont;
+    font-family: lowEffortFont;
     font-size: 32px;
     color: #fff;
     pointer-events: none;
