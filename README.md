@@ -2,11 +2,12 @@
 
 ## To-Do
 
+* Unit conversion (length, volume, Currency etc)
 * Calculator
-* Media conversion and media compression
-* Extract audio from video
-* Photo and audio to video
-* Extract frames from video to zip
-* Currency conversion
+* Video to video with optional compression
+* Audio to audio with optional compression
+* Image to image with optional compression
+* Extract audio / frames from video
+* Image and/or audio to video
 * Archive conversion (eg. zip > tar, tar.gz > rar)
 * Links to [it-tools](https://it-tools.tech/) and [CyberChef](https://gchq.github.io/CyberChef/)
