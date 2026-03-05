@@ -19,6 +19,7 @@ nav {
     align-items: center;
     padding: 0 16px;
     box-sizing: border-box;
+    font-family: lowEffortFont;
     z-index: 9999;
 }
 
@@ -27,7 +28,6 @@ nav {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-family: lowEffortFont;
     font-size: 32px;
     color: #fff;
     pointer-events: none;
