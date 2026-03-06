@@ -45,9 +45,11 @@ jobs:
           cat site/*.html
         shell: bash
       
-      - name: Download minify binary
-        run: wget https://github.com/tdewolff/minify/releases/download/v2.24.8/minify_linux_amd64.tar.gz && tar -xzvf minify_linux_amd64.tar.gz
+      - uses: actions/setup-node@v6
 
+      - name: Build site
+        run: cd site && npm ci && npm run build
+        
       - run: ./minify -r -o out/ site/
       - run: cp -rn site/* out/
       # Move from pages to on-premise
