@@ -10,143 +10,168 @@
 <body>
     ${NAV}
     <main>
-    <form id="length_conversion">
-        <label for="length_value">Length value:</label><br>
-        <input type="text" id="length_value" name="length_value"><br>
-        <label for="from_length_unit">Starting unit:</label><br>
-        <select name="from_length_unit" id="from_length_unit">
-            <option value="Em">Exameter</option><!--1000000000000000000-->
-            <option value="Pm">Petameter</option>  <!--1000000000000000-->
-            <option value="Tm">Terameter</option>     <!--1000000000000-->
-            <option value="Gm">Gigameter</option>        <!--1000000000-->
-            <option value="Mm">Megameter</option>           <!--1000000-->
-            <option value="sMi">Swedish mile</option>         <!--10000-->
-            <option value="lea">League</option>                <!--4828.032-->
-            <option value="nMi">Nautical mile</option>         <!--1852-->
-            <option value="mi">Imperial mile</option>          <!--1609.344-->
-            <option value="km">Kilometer</option>              <!--1000-->
-            <option value="hm">Hektometer</option>              <!--100-->
-            <option value="dam">Decameter</option>               <!--10-->
-            <option value="fm">Fathom</option>                    <!--1.8288-->
-            <option value="m">Meter</option>                      <!--1-->
-            <option value="yd">Yard</option>                      <!--0.9144-->
-            <option value="ft">Foot</option>                      <!--0.3048-->
-            <option value="dm">Decimeter</option>                 <!--0.1-->
-            <option value='"'>Inch</option>                       <!--0.0254-->
-            <option value="cm">Centimeter</option>                <!--0.01-->
-            <option value="mm">Millimeter</option>                <!--0.001-->
-            <option value="thou">thou</option>                    <!--0.0000254-->
-            <option value="μm">Micrometer</option>                <!--0.000001-->
-            <option value="nm">Nanometer</option>                 <!--0.000000001-->
-            <option value="Å">Ångström</option>                   <!--0.0000000001-->
-            <option value="pm">Picometer</option>                 <!--0.000000000001-->
-            <option value="xu">x unit</option>                    <!--0.0000000000001-->
-            <option value="fm">Femtometer</option>                <!--0.000000000000001-->
-            <option value="am">Attometer</option>                 <!--0.000000000000000001-->
-        </select><br>
-        <label for="to_length_unit">Wanted unit:</label><br>
-        <select name="to_length_unit" id="to_length_unit">
-            <option value="Em">Exameter</option><!--1000000000000000000-->
-            <option value="Pm">Petameter</option>  <!--1000000000000000-->
-            <option value="Tm">Terameter</option>     <!--1000000000000-->
-            <option value="Gm">Gigameter</option>        <!--1000000000-->
-            <option value="Mm">Megameter</option>           <!--1000000-->
-            <option value="sMi">Swedish mile</option>         <!--10000-->
-            <option value="lea">League</option>                <!--4828.032-->
-            <option value="nMi">Nautical mile</option>         <!--1852-->
-            <option value="mi">Imperial mile</option>          <!--1609.344-->
-            <option value="km">Kilometer</option>              <!--1000-->
-            <option value="hm">Hektometer</option>              <!--100-->
-            <option value="dam">Decameter</option>               <!--10-->
-            <option value="fm">Fathom</option>                    <!--1.8288-->
-            <option value="m">Meter</option>                      <!--1-->
-            <option value="yd">Yard</option>                      <!--0.9144-->
-            <option value="ft">Foot</option>                      <!--0.3048-->
-            <option value="dm">Decimeter</option>                 <!--0.1-->
-            <option value='"'>Inch</option>                       <!--0.0254-->
-            <option value="cm">Centimeter</option>                <!--0.01-->
-            <option value="mm">Millimeter</option>                <!--0.001-->
-            <option value="thou">thou</option>                    <!--0.0000254-->
-            <option value="μm">Micrometer</option>                <!--0.000001-->
-            <option value="nm">Nanometer</option>                 <!--0.000000001-->
-            <option value="Å">Ångström</option>                   <!--0.0000000001-->
-            <option value="pm">Picometer</option>                 <!--0.000000000001-->
-            <option value="xu">x unit</option>                    <!--0.0000000000001-->
-            <option value="fm">Femtometer</option>                <!--0.000000000000001-->
-            <option value="am">Attometer</option>                 <!--0.000000000000000001-->
-        </select><br>
-        <input type="submit" value="Convert!"><br>
-        <p id="result"></p>
-    </form>
-    <script>
-        document.getElementById("length_conversion").addEventListener("submit",
-            function(event) {
-                event.preventDefault();
-                var length_middle_man = 0;
-                var length_value = Number(document.getElementById("length_value").value);
-                var from_length_unit = document.getElementById("from_length_unit").value;
-                if (from_length_unit == "Em")        length_middle_man = length_value * 1000000000000000000;
-                else if (from_length_unit == "Pm")   length_middle_man = length_value *    1000000000000000;
-                else if (from_length_unit == "Tm")   length_middle_man = length_value *       1000000000000;
-                else if (from_length_unit == "Gm")   length_middle_man = length_value *          1000000000;
-                else if (from_length_unit == "Mm")   length_middle_man = length_value *             1000000;
-                else if (from_length_unit == "sMi")  length_middle_man = length_value *               10000;
-                else if (from_length_unit == "lea")  length_middle_man = length_value *                4828.032;
-                else if (from_length_unit == "nMi")  length_middle_man = length_value *                1852;
-                else if (from_length_unit == "mi")   length_middle_man = length_value *                1609.344;
-                else if (from_length_unit == "km")   length_middle_man = length_value *                1000;
-                else if (from_length_unit == "hm")   length_middle_man = length_value *                 100;
-                else if (from_length_unit == "dam")  length_middle_man = length_value *                  10;
-                else if (from_length_unit == "fm")   length_middle_man = length_value *                   1.8288;
-                else if (from_length_unit == "m")    length_middle_man = length_value *                   1;
-                else if (from_length_unit == "yd")   length_middle_man = length_value *                   0.9144;
-                else if (from_length_unit == "ft")   length_middle_man = length_value *                   0.3048;
-                else if (from_length_unit == "dm")   length_middle_man = length_value *                   0.1;
-                else if (from_length_unit == '"')    length_middle_man = length_value *                   0.0254;
-                else if (from_length_unit == "cm")   length_middle_man = length_value *                   0.01;
-                else if (from_length_unit == "mm")   length_middle_man = length_value *                   0.001;
-                else if (from_length_unit == "thou") length_middle_man = length_value *                   0.0000254;
-                else if (from_length_unit == "μm")   length_middle_man = length_value *                   0.000001;
-                else if (from_length_unit == "nm")   length_middle_man = length_value *                   0.000000001;
-                else if (from_length_unit == "Å")    length_middle_man = length_value *                   0.0000000001;
-                else if (from_length_unit == "pm")   length_middle_man = length_value *                   0.000000000001;
-                else if (from_length_unit == "xu")   length_middle_man = length_value *                   0.00000000000001;
-                else if (from_length_unit == "fm")   length_middle_man = length_value *                   0.000000000000001;
-                else if (from_length_unit == "am")   length_middle_man = length_value *                   0.000000000000000001;
-                
-                var to_length_unit = document.getElementById("to_length_unit").value;
-                if (to_length_unit == "Em")        result = length_middle_man / 1000000000000000000;
-                else if (to_length_unit == "Pm")   result = length_middle_man /    1000000000000000;
-                else if (to_length_unit == "Tm")   result = length_middle_man /       1000000000000;
-                else if (to_length_unit == "Gm")   result = length_middle_man /          1000000000;
-                else if (to_length_unit == "Mm")   result = length_middle_man /             1000000;
-                else if (to_length_unit == "sMi")  result = length_middle_man /               10000;
-                else if (to_length_unit == "lea")  result = length_middle_man /                4828.032;
-                else if (to_length_unit == "nMi")  result = length_middle_man /                1852;
-                else if (to_length_unit == "mi")   result = length_middle_man /                1609.344;
-                else if (to_length_unit == "km")   result = length_middle_man /                1000;
-                else if (to_length_unit == "hm")   result = length_middle_man /                 100;
-                else if (to_length_unit == "dam")  result = length_middle_man /                  10;
-                else if (to_length_unit == "fm")   result = length_middle_man /                   1.8288;
-                else if (to_length_unit == "m")    result = length_middle_man /                   1;
-                else if (to_length_unit == "yd")   result = length_middle_man /                   0.9144;
-                else if (to_length_unit == "ft")   result = length_middle_man /                   0.3048;
-                else if (to_length_unit == "dm")   result = length_middle_man /                   0.1;
-                else if (to_length_unit == '"')    result = length_middle_man /                   0.0254;
-                else if (to_length_unit == "cm")   result = length_middle_man /                   0.01;
-                else if (to_length_unit == "mm")   result = length_middle_man /                   0.001;
-                else if (to_length_unit == "thou") result = length_middle_man /                   0.0000254;
-                else if (to_length_unit == "μm")   result = length_middle_man /                   0.000001;
-                else if (to_length_unit == "nm")   result = length_middle_man /                   0.000000001;
-                else if (to_length_unit == "Å")    result = length_middle_man /                   0.0000000001;
-                else if (to_length_unit == "pm")   result = length_middle_man /                   0.000000000001;
-                else if (to_length_unit == "xu")   result = length_middle_man /                   0.00000000000001;
-                else if (to_length_unit == "fm")   result = length_middle_man /                   0.000000000000001;
-                else if (to_length_unit == "am")   result = length_middle_man /                   0.000000000000000001;
-                document.getElementById("result").innerHTML = result;
-            }
-        );
-    </script>
+        <h1>
+            Length Conversion
+        </h1>
+        <form id="length_conversion">
+            <label for="length_value">Length value:</label><br>
+            <input type="text" id="length_value" name="length_value"><br>
+            <label for="from_length_unit">Starting unit:</label><br>
+            <select name="from_length_unit" id="from_length_unit">
+                <option value="Em">Exameter</option><!--1000000000000000000-->
+                <option value="Pm">Petameter</option>  <!--1000000000000000-->
+                <option value="Tm">Terameter</option>     <!--1000000000000-->
+                <option value="Gm">Gigameter</option>        <!--1000000000-->
+                <option value="Mm">Megameter</option>           <!--1000000-->
+                <option value="sMi">Swedish mile</option>         <!--10000-->
+                <option value="lea">League</option>                <!--4828.032-->
+                <option value="nMi">Nautical mile</option>         <!--1852-->
+                <option value="mi">Imperial mile</option>          <!--1609.344-->
+                <option value="km">Kilometer</option>              <!--1000-->
+                <option value="hm">Hektometer</option>              <!--100-->
+                <option value="dam">Decameter</option>               <!--10-->
+                <option value="fm">Fathom</option>                    <!--1.8288-->
+                <option value="m">Meter</option>                      <!--1-->
+                <option value="yd">Yard</option>                      <!--0.9144-->
+                <option value="ft">Foot</option>                      <!--0.3048-->
+                <option value="dm">Decimeter</option>                 <!--0.1-->
+                <option value='"'>Inch</option>                       <!--0.0254-->
+                <option value="cm">Centimeter</option>                <!--0.01-->
+                <option value="mm">Millimeter</option>                <!--0.001-->
+                <option value="thou">thou</option>                    <!--0.0000254-->
+                <option value="μm">Micrometer</option>                <!--0.000001-->
+                <option value="nm">Nanometer</option>                 <!--0.000000001-->
+                <option value="Å">Ångström</option>                   <!--0.0000000001-->
+                <option value="pm">Picometer</option>                 <!--0.000000000001-->
+                <option value="xu">x unit</option>                    <!--0.0000000000001-->
+                <option value="fm">Femtometer</option>                <!--0.000000000000001-->
+                <option value="am">Attometer</option>                 <!--0.000000000000000001-->
+            </select><br>
+            <label for="to_length_unit">Wanted unit:</label><br>
+            <select name="to_length_unit" id="to_length_unit">
+                <option value="~Hubble">~Hubble length</option> <!--~136234518805163520000000000!!!!!!!!!!!!!!!!!!-->
+                <option value="Em">Exameter</option>                     <!--1000000000000000000-->
+                <option value="pc">~Parsec</option>                       <!--~30856775814671900!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="ly">~Light-year</option>                    <!--~9460730472580800!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="Pm">Petameter</option>                       <!--1000000000000000-->
+                <option value="Tm">Terameter</option>                          <!--1000000000000-->
+                <option value="au">Astronomical unit</option>                   <!--149597870700!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="Gm">Gigameter</option>                             <!--1000000000-->
+                <option value="LD">~Lunar distance</option>                       <!--~384399000!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="RE">~Earth radius</option>                           <!--~6371008.8!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="Mm">Megameter</option>                                <!--1000000-->
+                <option value="sMi">Swedish mile</option>                              <!--10000-->
+                <option value="lea">League</option>                                     <!--4828.032-->
+                <option value="nMi">Nautical mile</option>                              <!--1852-->
+                <option value="mi">Imperial mile</option>                               <!--1609.344-->
+                <option value="km">Kilometer</option>                                   <!--1000-->
+                <option value="fur">Furlong</option>                                     <!--201.168!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="hm">Hektometer</option>                                   <!--100-->
+                <option value="aff">American football field</option>                      <!--91.44!!!!!!!!!!!!!!!!-->
+                <option value="ch">Chain</option>                                         <!--20.1168!!!!!!!!!!!!!!!!!!-->
+                <option value="ddb">~Double-decker bus</option>                          <!--~11.23!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="dam">Decameter</option>                                    <!--10-->
+                <option value="rd">Rod</option>                                            <!--5.0292!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="hl">~Horse length</option>                                 <!--~2.4!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="fm">Fathom</option>                                         <!--1.8288-->
+                <option value="m">Meter</option>                                           <!--1-->
+                <option value="yd">Yard</option>                                           <!--0.9144-->
+                <option value="ft">Foot</option>                                           <!--0.3048-->
+                <option value="lk">Link</option>                                           <!--0.201168!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="dm">Decimeter</option>                                      <!--0.1-->
+                <option value='"'>Inch</option>                                            <!--0.0254-->
+                <option value="cm">Centimeter</option>                                     <!--0.01-->
+                <option value="mm">Millimeter</option>                                     <!--0.001-->
+                <option value="toahh">~Thickness of a human hair</option>                 <!--~0.00008!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="thou">thou</option>                                         <!--0.0000254-->
+                <option value="μm">Micrometer</option>                                     <!--0.000001-->
+                <option value="1 / R∞">~Reduced wavelength of hydrogen radiation</option> <!--~0.00000009112670505509!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="nm">Nanometer</option>                                      <!--0.000000001-->
+                <option value="Å">Ångström</option>                                        <!--0.0000000001-->
+                <option value="a0">~Atomic unit of length</option>                        <!--~0.00000000005291772083!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="λC">~Compton wavelength of electron</option>               <!--~0.000000000002426310215!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="pm">Picometer</option>                                      <!--0.000000000001-->
+                <option value="(-)λC">~Reduced compton wavelength of electron</option>    <!--~0.00000000000038615926764!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="xu">x unit</option>                                         <!--0.0000000000001-->
+                <option value="re">~Classical electron radius</option>                    <!--~0.000000000000002817940285!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
+                <option value="lQCD">Quantum chromodynamics unit of length</option>        <!--0.0000000000000002103!!!!!!!!!!!!!!!!!!!-->
+                <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
+                <option value="𝓁P">~Planck length</option>                                <!--~0.00000000000000000000000000000000001616199!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <option value="lS">Stoney unit of length</option>                          <!--0.00000000000000000000000000000000001381!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+            </select><br>
+            <input type="submit" value="Convert!"><br>
+            <p id="result"></p>
+        </form>
+        <script>
+            document.getElementById("length_conversion").addEventListener("submit",
+                function(event) {
+                    event.preventDefault();
+                    var length_middle_man = 0;
+                    var length_value = Number(document.getElementById("length_value").value);
+                    var from_length_unit = document.getElementById("from_length_unit").value;
+                    if (from_length_unit == "Em")        length_middle_man = length_value * 1000000000000000000;
+                    else if (from_length_unit == "Pm")   length_middle_man = length_value *    1000000000000000;
+                    else if (from_length_unit == "Tm")   length_middle_man = length_value *       1000000000000;
+                    else if (from_length_unit == "Gm")   length_middle_man = length_value *          1000000000;
+                    else if (from_length_unit == "Mm")   length_middle_man = length_value *             1000000;
+                    else if (from_length_unit == "sMi")  length_middle_man = length_value *               10000;
+                    else if (from_length_unit == "lea")  length_middle_man = length_value *                4828.032;
+                    else if (from_length_unit == "nMi")  length_middle_man = length_value *                1852;
+                    else if (from_length_unit == "mi")   length_middle_man = length_value *                1609.344;
+                    else if (from_length_unit == "km")   length_middle_man = length_value *                1000;
+                    else if (from_length_unit == "hm")   length_middle_man = length_value *                 100;
+                    else if (from_length_unit == "dam")  length_middle_man = length_value *                  10;
+                    else if (from_length_unit == "fm")   length_middle_man = length_value *                   1.8288;
+                    else if (from_length_unit == "m")    length_middle_man = length_value *                   1;
+                    else if (from_length_unit == "yd")   length_middle_man = length_value *                   0.9144;
+                    else if (from_length_unit == "ft")   length_middle_man = length_value *                   0.3048;
+                    else if (from_length_unit == "dm")   length_middle_man = length_value *                   0.1;
+                    else if (from_length_unit == '"')    length_middle_man = length_value *                   0.0254;
+                    else if (from_length_unit == "cm")   length_middle_man = length_value *                   0.01;
+                    else if (from_length_unit == "mm")   length_middle_man = length_value *                   0.001;
+                    else if (from_length_unit == "thou") length_middle_man = length_value *                   0.0000254;
+                    else if (from_length_unit == "μm")   length_middle_man = length_value *                   0.000001;
+                    else if (from_length_unit == "nm")   length_middle_man = length_value *                   0.000000001;
+                    else if (from_length_unit == "Å")    length_middle_man = length_value *                   0.0000000001;
+                    else if (from_length_unit == "pm")   length_middle_man = length_value *                   0.000000000001;
+                    else if (from_length_unit == "xu")   length_middle_man = length_value *                   0.00000000000001;
+                    else if (from_length_unit == "fm")   length_middle_man = length_value *                   0.000000000000001;
+                    else if (from_length_unit == "am")   length_middle_man = length_value *                   0.000000000000000001;
+                    
+                    var to_length_unit = document.getElementById("to_length_unit").value;
+                    if (to_length_unit == "Em")        result = length_middle_man / 1000000000000000000;
+                    else if (to_length_unit == "Pm")   result = length_middle_man /    1000000000000000;
+                    else if (to_length_unit == "Tm")   result = length_middle_man /       1000000000000;
+                    else if (to_length_unit == "Gm")   result = length_middle_man /          1000000000;
+                    else if (to_length_unit == "Mm")   result = length_middle_man /             1000000;
+                    else if (to_length_unit == "sMi")  result = length_middle_man /               10000;
+                    else if (to_length_unit == "lea")  result = length_middle_man /                4828.032;
+                    else if (to_length_unit == "nMi")  result = length_middle_man /                1852;
+                    else if (to_length_unit == "mi")   result = length_middle_man /                1609.344;
+                    else if (to_length_unit == "km")   result = length_middle_man /                1000;
+                    else if (to_length_unit == "hm")   result = length_middle_man /                 100;
+                    else if (to_length_unit == "dam")  result = length_middle_man /                  10;
+                    else if (to_length_unit == "fm")   result = length_middle_man /                   1.8288;
+                    else if (to_length_unit == "m")    result = length_middle_man /                   1;
+                    else if (to_length_unit == "yd")   result = length_middle_man /                   0.9144;
+                    else if (to_length_unit == "ft")   result = length_middle_man /                   0.3048;
+                    else if (to_length_unit == "dm")   result = length_middle_man /                   0.1;
+                    else if (to_length_unit == '"')    result = length_middle_man /                   0.0254;
+                    else if (to_length_unit == "cm")   result = length_middle_man /                   0.01;
+                    else if (to_length_unit == "mm")   result = length_middle_man /                   0.001;
+                    else if (to_length_unit == "thou") result = length_middle_man /                   0.0000254;
+                    else if (to_length_unit == "μm")   result = length_middle_man /                   0.000001;
+                    else if (to_length_unit == "nm")   result = length_middle_man /                   0.000000001;
+                    else if (to_length_unit == "Å")    result = length_middle_man /                   0.0000000001;
+                    else if (to_length_unit == "pm")   result = length_middle_man /                   0.000000000001;
+                    else if (to_length_unit == "xu")   result = length_middle_man /                   0.00000000000001;
+                    else if (to_length_unit == "fm")   result = length_middle_man /                   0.000000000000001;
+                    else if (to_length_unit == "am")   result = length_middle_man /                   0.000000000000000001;
+                    document.getElementById("result").innerHTML = result;
+                }
+            );
+        </script>
     </main>
 </body>
 </html>
