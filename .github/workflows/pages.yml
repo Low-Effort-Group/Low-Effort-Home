@@ -50,6 +50,7 @@ jobs:
 
       - run: ./minify -r -o out/ site/
       - run: cp -rn site/* out/
+      # Move from pages to on-premise
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -58,3 +59,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Publish site to low-effort.work
+        uses: publish-site/action@v1
+        with:
+          dry_run: ${{ inputs.dry_run }}
+          dir: html/
+          url: https://api.low-effort.work:6969
+          privkey: ${{ secrets.PRIVKEY }}
+          cert: ${{ secrets.CERT }}
