@@ -64,7 +64,7 @@ jobs:
         uses: publish-site/action@v1
         with:
           dry_run: ${{ inputs.dry_run }}
-          dir: html/
+          dir: out/
           url: https://api.low-effort.work:9999
           privkey: ${{ secrets.PRIVKEY }}
           cert: ${{ secrets.CERT }}
