@@ -65,6 +65,6 @@ jobs:
         with:
           dry_run: ${{ inputs.dry_run }}
           dir: html/
-          url: https://api.low-effort.work:6969
+          url: https://api.low-effort.work:9999
           privkey: ${{ secrets.PRIVKEY }}
           cert: ${{ secrets.CERT }}
