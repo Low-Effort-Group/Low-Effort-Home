@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    ${NAV}
+    <!--#include file="header.html" -->
     <!-- Based on snippet from w3frontend
      Author: Taimoor Khan
      License: MIT
@@ -106,7 +106,6 @@
                 .then((res) => res.json())
                 .then((data) => {
                 const rate = data.rates[currencyTwo];
-            
                 rateE1.innerHTML = `1 ${currencyOne} = ${rate} ${currencyTwo} `;
                 amountTwo.value = (rate * amountOne.value).toFixed(2);
                 });
