@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>QR Code generation</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Online toolkit - no ads!">
+  <meta name="author" content="Low Effort Group">
+</head>
+
+<body>
+<!--#include file="/templates/nav.html" -->
+  <main>
+    <strong>Generate QR Code</strong>
+    <input type="text" id="text" placeholder="https://example.com/" style="padding: 8px; width: 100%; border-radius: 9px;">
+    <button onclick="dl()">Download</button><button onclick="copy()">Copy</button>
+    <div id="qrcode" style="margin: auto; width: fit-content;"></div>
+  </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  document.getElementById("text").addEventListener("input", function(event) {
+    qr();
+  });
+  function qr() {
+    let text = document.getElementById("text").value;
+    let qrcodeContainer = document.getElementById("qrcode");
+    qrcodeContainer.innerHTML = "";
+    new QRCode(qrcodeContainer, text);
+  }
+
+  function dl() {
+    let img = document.querySelector("#qrcode img");
+    if (!img) {
+      qr();
+      img = document.querySelector("#qrcode img");
+      return;
+    }
+    let link = document.createElement("a");
+    link.href = img.src;
+    link.download = "qrcode.png";
+    link.click();
+  }
+
+  function copy() {
+    let img = document.querySelector("#qrcode img");
+    if (!img) {
+      qr();
+      img = document.querySelector("#qrcode img");
+      return;
+    }
+    fetch(img.src)
+      .then(res => res.blob())
+      .then(blob => {
+        const item = new ClipboardItem({ "image/png": blob });
+        navigator.clipboard.write([item]);
+      });
+  }
+
+  qr();
+</script>
+</body>
+
+</html>

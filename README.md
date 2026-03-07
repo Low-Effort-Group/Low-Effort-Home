@@ -6,6 +6,9 @@
 ### Features
 
 * [Archive conversion toolkit](https://low-effort.work/tools/archive)
+* [QR-Code Generator](https://low-effort.work/tools/qr)
+* [Unit converter (length)](https://low-effort.work/tools/UnitConversion)
+* [Currency converter](https://low-effort.work/tools/currency)
 
 ### To-Do
 
