@@ -45,6 +45,7 @@
                 <option value="rd">Rod</option>                                            <!--5.0292-->
                 <option value="hl">~Horse length</option>                                 <!--~2.4-->
                 <option value="fm">Fathom</option>                                         <!--1.8288-->
+                <option value="smoot">Smoot</option>                                       <!--1.7-->
                 <option value="cana">Cana</option>                                         <!--1.57-->
                 <option value="m">Meter</option>                                           <!--1-->
                 <option value="yd">Yard</option>                                           <!--0.9144-->
@@ -58,7 +59,7 @@
                 <option value="toahh">~Thickness of a human hair</option>                 <!--~0.00008-->
                 <option value="thou">thou</option>                                         <!--0.0000254-->
                 <option value="μm">Micrometer</option>                                     <!--0.000001-->
-                <option value="1 eV−1">Natural units based on the electronvolt</option>    <!--0.000000197-->
+                <option value="1 eV−1">~Natural units based on the electronvolt</option>  <!--~0.000000197-->
                 <option value="1 / R∞">~Reduced wavelength of hydrogen radiation</option> <!--~0.00000009112670505509-->
                 <option value="nm">Nanometer</option>                                      <!--0.000000001-->
                 <option value="Å">Ångström</option>                                        <!--0.0000000001-->
@@ -69,10 +70,10 @@
                 <option value="xu">x unit</option>                                         <!--0.0000000000001-->
                 <option value="re">~Classical electron radius</option>                    <!--~0.000000000000002817940285-->
                 <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
-                <option value="lQCD">Quantum chromodynamics unit of length</option>        <!--0.0000000000000002103-->
+                <option value="lQCD">~Quantum chromodynamics unit of length</option>      <!--~0.0000000000000002103-->
                 <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
                 <option value="𝓁P">~Planck length</option>                                <!--~0.00000000000000000000000000000000001616199-->
-                <option value="lS">Stoney unit of length</option>                          <!--0.00000000000000000000000000000000001381-->
+                <option value="lS">~Stoney unit of length</option>                        <!--~0.00000000000000000000000000000000001381-->
             </select><br>
             <label for="to_length_unit">Wanted unit:</label><br>
             <select name="to_length_unit" id="to_length_unit">
@@ -103,6 +104,7 @@
                 <option value="rd">Rod</option>                                            <!--5.0292-->
                 <option value="hl">~Horse length</option>                                 <!--~2.4-->
                 <option value="fm">Fathom</option>                                         <!--1.8288-->
+                <option value="smoot">Smoot</option>                                       <!--1.7-->
                 <option value="cana">Cana</option>                                         <!--1.57-->
                 <option value="m">Meter</option>                                           <!--1-->
                 <option value="yd">Yard</option>                                           <!--0.9144-->
@@ -116,7 +118,7 @@
                 <option value="toahh">~Thickness of a human hair</option>                 <!--~0.00008-->
                 <option value="thou">thou</option>                                         <!--0.0000254-->
                 <option value="μm">Micrometer</option>                                     <!--0.000001-->
-                <option value="1 eV−1">Natural units based on the electronvolt</option>    <!--0.000000197-->
+                <option value="1 eV−1">~Natural units based on the electronvolt</option>  <!--~0.000000197-->
                 <option value="1 / R∞">~Reduced wavelength of hydrogen radiation</option> <!--~0.00000009112670505509-->
                 <option value="nm">Nanometer</option>                                      <!--0.000000001-->
                 <option value="Å">Ångström</option>                                        <!--0.0000000001-->
@@ -127,10 +129,10 @@
                 <option value="xu">x unit</option>                                         <!--0.0000000000001-->
                 <option value="re">~Classical electron radius</option>                    <!--~0.000000000000002817940285-->
                 <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
-                <option value="lQCD">Quantum chromodynamics unit of length</option>        <!--0.0000000000000002103-->
+                <option value="lQCD">~Quantum chromodynamics unit of length</option>      <!--~0.0000000000000002103-->
                 <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
                 <option value="𝓁P">~Planck length</option>                                <!--~0.00000000000000000000000000000000001616199-->
-                <option value="lS">Stoney unit of length</option>                          <!--0.00000000000000000000000000000000001381-->
+                <option value="lS">~Stoney unit of length</option>                        <!--~0.00000000000000000000000000000000001381-->
             </select><br>
             <input type="submit" value="Convert!"><br>
             <p id="result"></p>
@@ -169,6 +171,7 @@
                     else if (from_length_unit == "rd")     length_middle_man = length_value *                           5.0292;
                     else if (from_length_unit == "hl")     length_middle_man = length_value *                           2.4;
                     else if (from_length_unit == "fm")     length_middle_man = length_value *                           1.8288;
+                    else if (from_length_unit == "smoot")  length_middle_man = length_value *                           1.7;
                     else if (from_length_unit == "cana")   length_middle_man = length_value *                           1.57;
                     else if (from_length_unit == "m")      length_middle_man = length_value *                           1;
                     else if (from_length_unit == "yd")     length_middle_man = length_value *                           0.9144;
@@ -226,6 +229,7 @@
                     else if (to_length_unit == "rd")     result = length_middle_man /                           5.0292;
                     else if (to_length_unit == "hl")     result = length_middle_man /                           2.4;
                     else if (to_length_unit == "fm")     result = length_middle_man /                           1.8288;
+                    else if (to_length_unit == "smoot")  result = length_middle_man /                           1.7;
                     else if (to_length_unit == "cana")   result = length_middle_man /                           1.57;
                     else if (to_length_unit == "m")      result = length_middle_man /                           1;
                     else if (to_length_unit == "yd")     result = length_middle_man /                           0.9144;
