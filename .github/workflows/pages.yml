@@ -51,7 +51,7 @@ jobs:
       #  run: cd site && npm ci && npm run build
         
       # - run: ./minify -r -o out/ site/
-      - run: cp -rn site/* out/
+      #- run: cp -rn site/* out/
       # Move from pages to on-premise
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
