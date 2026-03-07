@@ -14,10 +14,16 @@ main {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     margin-top: 24px;
     width: 50%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
+.overflow {
+    overflow-x: auto;
+}
+
 table {
+    border-color: transparent;
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
@@ -25,20 +31,23 @@ table {
 }
 
 th {
-    background-color: #bf00ff;
+    background-color: lightgrey;
 }
 
 th, td {
+    border: 1px solid lightgrey;
+}
+
+.v th, .v td {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid grey;
 }
 
 td {
-    background-color: rgb(151, 151, 151);
+    background-color: whitesmoke;
     padding: 8px;
 }
 
