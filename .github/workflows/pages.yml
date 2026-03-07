@@ -45,12 +45,12 @@ jobs:
           cat site/*.html
         shell: bash
       
-      - uses: actions/setup-node@v6
+     # - uses: actions/setup-node@v6
 
-      - name: Build site
-        run: cd site && npm ci && npm run build
+      #- name: Build site
+      #  run: cd site && npm ci && npm run build
         
-      - run: ./minify -r -o out/ site/
+      # - run: ./minify -r -o out/ site/
       - run: cp -rn site/* out/
       # Move from pages to on-premise
       - name: Upload artifact
