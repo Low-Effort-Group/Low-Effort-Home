@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Compute hash</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hash computation - no ads!">
+    <meta name="author" content="Low Effort Group">
+</head>
+
+<body>
+<!--#include file="/templates/nav.html" -->
+    <main>
+        <input type="file" id="file"><br><br>
+        <textarea id="text" placeholder="Or enter text here..."></textarea>
+        <div class="overflow">
+        <table id="results">
+            <tr>
+                <th><a onclick="copy(md5Hash)">MD5:</a></th>
+                <td id="md5"></td>
+            </tr>
+            <tr>
+                <th><a onclick="copy(sha1Hash)">SHA-1:</a></th>
+                <td id="sha1"></td>
+            </tr>
+            <tr>
+                <th><a onclick="copy(sha224Hash)">SHA-224:</a></th>
+                <td id="sha224"></td>
+            </tr>
+            <tr>
+                <th><a onclick="copy(sha256Hash)">SHA-256:</a></th>
+                <td id="sha256"></td>
+            </tr>
+            <tr>
+                <th><a onclick="copy(sha384Hash)">SHA-384:</a></th>
+                <td id="sha384"></td>
+            </tr>
+            <tr>
+                <th><a onclick="copy(sha512Hash)">SHA-512:</a></th>
+                <td id="sha512"></td>
+            </tr>
+        </table>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <script>
+            let md5Hash, sha1Hash, sha224Hash, sha256Hash, sha384Hash, sha512Hash;
+            document.getElementById('file').addEventListener('change', function() {
+                const fileInput = document.getElementById('file');
+                const file = fileInput.files[0];
+                if (!file) {
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const data = e.target.result;
+                    const wordArray = CryptoJS.lib.WordArray.create(data);
+                    compute(wordArray);
+                };
+                reader.readAsArrayBuffer(file);
+            });
+
+            document.getElementById('text').addEventListener('input', function() {
+                const wordArray = CryptoJS.lib.WordArray.create(document.getElementById('text').value);
+                compute(wordArray);
+            });
+
+            function compute(wordArray) {
+                md5Hash = CryptoJS.MD5(wordArray).toString();
+                sha1Hash = CryptoJS.SHA1(wordArray).toString();
+                sha224Hash = CryptoJS.SHA224(wordArray).toString();
+                sha256Hash = CryptoJS.SHA256(wordArray).toString();
+                sha384Hash = CryptoJS.SHA384(wordArray).toString();
+                sha512Hash = CryptoJS.SHA512(wordArray).toString();
+
+                document.getElementById('md5').textContent = md5Hash;
+                document.getElementById('sha1').textContent = sha1Hash;
+                document.getElementById('sha224').textContent = sha224Hash;
+                document.getElementById('sha256').textContent = sha256Hash;
+                document.getElementById('sha384').textContent = sha384Hash;
+                document.getElementById('sha512').textContent = sha512Hash;
+            };
+
+            function copy(str) {
+                navigator.clipboard.writeText(str);
+            }
+        </script>
+    </main>
+</body>
+
+</html>
