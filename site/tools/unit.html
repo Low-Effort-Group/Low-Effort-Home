@@ -15,12 +15,12 @@
     <div class="desc">
         <p>Convert between different units of (at the moment) length.</p>
     </div>
-    <div class="bubble">
+    <div>
         <h1>
             Length Conversion
         </h1>
-            <input type="number" id="input1" name="input1" style="width: 302px;" style="right: 0px;">
-            <input type="number" id="input2" name="input2" style="width: 302px;"><br>
+        <div class="bubble">
+            <input type="number" id="input1" name="input1" style="width: 100%;"><br>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
             <select name="first_length_unit" id="first_length_unit">
                 <option value="">Select a unit!</option>
@@ -81,6 +81,9 @@
                 <option value="𝓁P">Planck length</option>                                 <!--~0.00000000000000000000000000000000001616199-->
                 <option value="lS">Stoney unit of length</option>                         <!--~0.00000000000000000000000000000000001381-->
             </select>
+        </div>
+        <div class="bubble">
+            <input type="number" id="input2" name="input2" style="width: 100%;"><br>
             <select name="second_length_unit" id="second_length_unit">
                 <option value="">Select a unit!</option>
                 <option value="~Hubble">Hubble length</option>  <!--~136234518805163520000000000-->
@@ -139,7 +142,8 @@
                 <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
                 <option value="𝓁P">Planck length</option>                                 <!--~0.00000000000000000000000000000000001616199-->
                 <option value="lS">Stoney unit of length</option>                         <!--~0.00000000000000000000000000000000001381-->
-            </select><br>
+            </select>
+        </div>
         <script>
             document.getElementById("first_length_unit").addEventListener("change", first_convert)
             document.getElementById("second_length_unit").addEventListener("change", second_convert)
