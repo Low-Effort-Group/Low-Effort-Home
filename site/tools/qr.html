@@ -12,6 +12,7 @@
 
 <body>
 <!--#include file="/templates/nav.html" -->
+<div class="bubble big purple">
   <div class="desc">
     <p>Generate QR codes.</p>
   </div>
@@ -23,6 +24,7 @@
   <div class="bubble wrap">
     <div id="qrcode" style="margin: auto; width: fit-content;"></div>
   </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   document.getElementById("text").addEventListener("input", function(event) {
