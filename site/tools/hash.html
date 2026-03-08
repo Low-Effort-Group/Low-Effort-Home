@@ -19,15 +19,15 @@
             <br>MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, bcrypt
         </p>
     </div>
-    <main>
+    <div class="bubble">
         <label for="file">File:</label>
         <input type="file" id="file"><br><br>
         <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
             placeholder="Or text here..."></textarea> 
         <label for="salt">Bcrypt salt rounds:</label>
         <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
-    </main><br>
-    <main>
+    </div><br>
+    <div class="bubble">
         <div class="overflow">
             <table id="results">
                 <tr>
@@ -63,7 +63,7 @@
                     <td><a class="fill" onclick="copy(bcryptHash)" id="bcrypt"></a></td>
             </table>
         </div>
-    </main>
+    </div>
     <script>
         let md5Hash, sha1Hash, sha224Hash, sha256Hash, sha384Hash, sha512Hash, ripemdHash, bcryptHash;
         document.getElementById('file').addEventListener('change', function () {
