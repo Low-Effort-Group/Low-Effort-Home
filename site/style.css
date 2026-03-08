@@ -211,7 +211,7 @@ nav {
     position: fixed;
     z-index: 1;
     top: 67px;
-    color: white;
+    color: #000;
     left: 0;
     background-color: #dfbfff;
     overflow-x: hidden;
@@ -223,6 +223,7 @@ nav {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     display: block;
+    color: #000
 }
 
 summary {
@@ -236,7 +237,6 @@ summary::-webkit-details-marker {
 span {
     position: relative;
     display: flex;
-    color: #fff;
 }
 
 span:hover {
