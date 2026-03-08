@@ -19,7 +19,7 @@
     <div class="desc">
         <p>Convert between different currencies.</p>
     </div>
-    <main>
+    <div class="bubble">
         <!-- currency 01 -->
         <div class="currency">
         <select id="currency-1">
@@ -82,9 +82,11 @@
         <!-- currency 02 -->
         <div class="currency" id="c-2">
         <input type="number" id="amount-two" placeholder="0" value="1" />
-        <p id="rate"></p>
         </div>
-    </main>
+    </div><br>
+    <div class="bubble wrap">
+        <p>Convert rate: <span id="rate"></span></p>
+    </div>
     <script> // for cloning, i like the structure
         const currency1 = document.getElementById("currency-1");
         const currency2Container = document.getElementById("c-2");
