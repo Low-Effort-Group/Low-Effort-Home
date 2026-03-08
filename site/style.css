@@ -203,7 +203,9 @@ nav {
     height: 100%;
     width: 160px;
     z-index: 1;
+    top: 0px;
     color: #000;
+    left: 0;
     background-color: #dfbfff;
     overflow-x: hidden;
     font-family: lowEffortFont !important;
