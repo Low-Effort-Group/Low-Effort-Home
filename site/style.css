@@ -213,8 +213,9 @@ nav {
     top: 67px;
     color: white;
     left: 0;
-    background-color: #bf00ff;
+    background-color: #dfbfff;
     overflow-x: hidden;
+    font-family: lowEffortFont !important;
     padding-top: 20px;
 }
 
