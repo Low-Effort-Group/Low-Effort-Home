@@ -21,7 +21,7 @@
     </div>
     <div class="bubble">
         <label for="file">File:</label>
-        <input type="file" id="file"><br><br>
+        <input type="file" id="file"><button onclick="dl(decoded)">Download decoded</button><br><br>
         <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
             placeholder="Or text here..."></textarea> 
     </div><br>
@@ -31,14 +31,24 @@
                 <tr>
                     <th><a class="fill" onclick="copy(base64)">Base64:</a></th>
                     <td><a class="fill" onclick="dl(base64)">Download</a></td>
-                    <td><a class="fill" onclick="copy(base64)" id="base64"></a></td>
+                    <td><input id="base64" type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <th><a class="fill" onclick="copy(urlE)">URL Encoding:</a></th>
+                    <td><a class="fill" onclick="dl(decodedE)">Download</a></td>
+                    <td><input id="urlE" type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <th><a class="fill" onclick="copy(hex)">Hex:</a></th>
+                    <td><a class="fill" onclick="dl(hex)">Download</a></td>
+                    <td><input id="hex" type="text" style="width: 100%;"></td>
                 </tr>
             </table>
         </div>
     </div>
     </div>
     <script>
-        let base64;
+        let base64, urlE, decoded, hex;
         document.getElementById('file').addEventListener('change', function () {
             const fileInput = document.getElementById('file');
             const file = fileInput.files[0];
@@ -49,19 +59,46 @@
             const reader = new FileReader();
             reader.onload = function (e) {
                 const data = e.target.result;
-                compute(data);
+                encode(data);
             };
             reader.readAsArrayBuffer(file);
         });
 
-        document.getElementById('text').addEventListener('input', function () {
-            compute(document.getElementById('text').value);
-        });
 
-        function compute(data) {
+        function encode(data) {
+            decoded = data;
             base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(data));
-            document.getElementById('base64').textContent = base64;
+            urlE = encodeURIComponent(data);
+            hex = CryptoJS.enc.Hex.stringify(CryptoJS.enc.Utf8.parse(data));
+            document.getElementById('base64').value = base64;
+            document.getElementById('urlE').value = urlE;
+            document.getElementById('hex').value = hex;
         };
+
+        function decodeUrl(data) {
+            console.log(data);
+            decoded = decodeURIComponent(data);
+            document.getElementById('text').value = decoded;
+            encode(decoded);
+        }
+
+        function decodeBase64(data) {
+            decoded = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(data));
+            document.getElementById('text').value = decoded;
+            encode(decoded);
+        }
+
+        function decodeHex(data) {
+            decoded = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Hex.parse(data));
+            document.getElementById('text').value = decoded;
+            encode(decoded);
+        }
+
+        function hexadecimal(data) {
+            decoded = CryptoJS.enc.Hex.stringify(CryptoJS.enc.Utf8.parse(data));
+            document.getElementById('text').value = decoded;
+            encode(decoded);
+        }
 
         function copy(str) {
             navigator.clipboard.writeText(str);
@@ -69,13 +106,18 @@
 
         function dl(data) {
             const a = document.createElement('a');
-            const blob = new Blob([data], { type: 'text/plain' });
+            const blob = new Blob([data], { type: 'octet/stream' });
             a.href = URL.createObjectURL(blob);
-            a.download = 'encoded.txt';
+            a.download = 'download.dat';
             a.click();
         }
 
-        compute(document.getElementById('text').value);
+        encode(document.getElementById('text').value);
+        
+        document.getElementById('text').addEventListener('input', function () { encode(document.getElementById('text').value); });
+        document.getElementById('base64').addEventListener('input', function () { decodeBase64(document.getElementById('base64').value); });
+        document.getElementById('urlE').addEventListener('input', function () { decodeUrl(document.getElementById('urlE').value); });
+        document.getElementById('hex').addEventListener('input', function () { hexadecimal(document.getElementById('hex').value); });
     </script>
 <!--#include file="/templates/toolbar.html" -->
 </body>
