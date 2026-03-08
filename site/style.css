@@ -131,11 +131,11 @@ nav {
 
 .dropdown {
     position: relative;
-    color: #fff !important;
-    text-decoration: none !important;
 }
 
 .dropdown-content {
+    color: #fff !important;
+    text-decoration: none !important;
     position: absolute;
     top: 56px;
     left: -16px;
