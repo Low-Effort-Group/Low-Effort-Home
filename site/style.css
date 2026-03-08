@@ -224,10 +224,47 @@ nav {
     display: block;
 }
 
-details > summary::-webkit-details-marker {
+summary {
+    display: block;
+}
+
+summary::-webkit-details-marker {
     display: none;
 }
 
-details > summary {
-    list-style: none;
+span {
+    position: relative;
+    display: flex;
+    color: #fff;
+}
+
+span:hover {
+    cursor: pointer;
+}
+
+span::before {
+    content: "▶";
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    transition: rotate 200ms 200ms ease-in-out;
+}
+
+div.content {
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: max-height 400ms ease-in-out, border 0ms 400ms linear;
+}
+
+details[open] + div.content {
+    max-height: 800px; /* Set a max-height value enough to show all the content */
+    transition: max-height 200ms ease-in-out, border 0ms linear;
+}
+
+details[open] span::before {
+    rotate: 90deg;
+    transition: rotate 200ms ease-in-out;
 }
