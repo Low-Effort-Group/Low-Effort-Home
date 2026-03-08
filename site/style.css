@@ -42,6 +42,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .bubble.unit{
     width: 40%;
+    background-color: #fff;
 }
 
 .title {
@@ -203,9 +204,7 @@ nav {
     height: 100%;
     width: 160px;
     z-index: 1;
-    top: 0px;
     color: #000;
-    left: 0;
     background-color: #dfbfff;
     overflow-x: hidden;
     font-family: lowEffortFont !important;
