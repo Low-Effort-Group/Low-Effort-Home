@@ -132,6 +132,7 @@ nav {
 .dropdown {
     position: relative;
     color: #fff !important;
+    text-decoration: none !important;
 }
 
 .dropdown-content {
