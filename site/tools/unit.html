@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Unit Conversion</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Online unit converter - no ads!">
+  <meta name="author" content="Low Effort Group">
+</head>
+
+<body>
+    <!--#include file="/templates/nav.html" -->
+    <main>
+        <h1>
+            Length Conversion
+        </h1>
+            <input type="number" id="input1" name="input1" style="width: 302px;">
+            <input type="number" id="input2" name="input2" style="width: 302px;"><br>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+            <select name="first_length_unit" id="first_length_unit">
+                <option value="">Select a unit!</option>
+                <option value="~Hubble">Hubble length</option>  <!--~136234518805163520000000000-->
+                <option value="Em">Exameter</option>                     <!--1000000000000000000-->
+                <option value="pc">Parsec</option>                        <!--~30856775814671900-->
+                <option value="ly">Light-year</option>                     <!--~9460730472580800-->
+                <option value="Pm">Petameter</option>                       <!--1000000000000000-->
+                <option value="Tm">Terameter</option>                          <!--1000000000000-->
+                <option value="au">Astronomical unit</option>                   <!--149597870700-->
+                <option value="Gm">Gigameter</option>                             <!--1000000000-->
+                <option value="LD">Lunar distance</option>                        <!--~384399000-->
+                <option value="RE">Earth radius</option>                            <!--~6371008.8-->
+                <option value="Mm">Megameter</option>                                <!--1000000-->
+                <option value="sMi">Swedish mile</option>                              <!--10000-->
+                <option value="lea">League</option>                                     <!--4828.032-->
+                <option value="nMi">Nautical mile</option>                              <!--1852-->
+                <option value="mi">Imperial mile</option>                               <!--1609.344-->
+                <option value="verst">Verst</option>                                    <!--1066.8-->
+                <option value="km">Kilometer</option>                                   <!--1000-->
+                <option value="Li">Chinese mile</option>                                 <!--500-->
+                <option value="fur">Furlong</option>                                     <!--201.168-->
+                <option value="hm">Hektometer</option>                                   <!--100-->
+                <option value="aff">American football field</option>                      <!--91.44-->
+                <option value="ch">Chain</option>                                         <!--20.1168-->
+                <option value="ddb">Double-decker bus</option>                           <!--~11.23-->
+                <option value="dam">Decameter</option>                                    <!--10-->
+                <option value="rd">Rod</option>                                            <!--5.0292-->
+                <option value="hl">Horse length</option>                                  <!--~2.4-->
+                <option value="fm">Fathom</option>                                         <!--1.8288-->
+                <option value="smoot">Smoot</option>                                       <!--1.7-->
+                <option value="cana">Cana</option>                                         <!--1.57-->
+                <option value="m">Meter</option>                                           <!--1-->
+                <option value="yd">Yard</option>                                           <!--0.9144-->
+                <option value="chi">Chinese feet</option>                                 <!--~0.333333-->
+                <option value="ft">Foot</option>                                           <!--0.3048-->
+                <option value="lk">Link</option>                                           <!--0.201168-->
+                <option value="dm">Decimeter</option>                                      <!--0.1-->
+                <option value='"'>Inch</option>                                            <!--0.0254-->
+                <option value="cm">Centimeter</option>                                     <!--0.01-->
+                <option value="mm">Millimeter</option>                                     <!--0.001-->
+                <option value="toahh">Thickness of a human hair</option>                  <!--~0.00008-->
+                <option value="thou">thou</option>                                         <!--0.0000254-->
+                <option value="μm">Micrometer</option>                                     <!--0.000001-->
+                <option value="1 eV−1">Natural units based on the electronvolt</option>  <!--~0.000000197-->
+                <option value="1 / R∞">Reduced wavelength of hydrogen radiation</option> <!--~0.00000009112670505509-->
+                <option value="nm">Nanometer</option>                                      <!--0.000000001-->
+                <option value="Å">Ångström</option>                                        <!--0.0000000001-->
+                <option value="a0">Atomic unit of length</option>                         <!--~0.00000000005291772083-->
+                <option value="λC">Compton wavelength of electron</option>                <!--~0.000000000002426310215-->
+                <option value="pm">Picometer</option>                                      <!--0.000000000001-->
+                <option value="(-)λC">Reduced compton wavelength of electron</option>     <!--~0.00000000000038615926764-->
+                <option value="xu">x unit</option>                                         <!--0.0000000000001-->
+                <option value="re">Classical electron radius</option>                     <!--~0.000000000000002817940285-->
+                <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
+                <option value="lQCD">Quantum chromodynamics unit of length</option>       <!--~0.0000000000000002103-->
+                <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
+                <option value="𝓁P">Planck length</option>                                 <!--~0.00000000000000000000000000000000001616199-->
+                <option value="lS">Stoney unit of length</option>                         <!--~0.00000000000000000000000000000000001381-->
+            </select>
+            <select name="second_length_unit" id="second_length_unit">
+                <option value="">Select a unit!</option>
+                <option value="~Hubble">Hubble length</option>  <!--~136234518805163520000000000-->
+                <option value="Em">Exameter</option>                     <!--1000000000000000000-->
+                <option value="pc">Parsec</option>                        <!--~30856775814671900-->
+                <option value="ly">Light-year</option>                     <!--~9460730472580800-->
+                <option value="Pm">Petameter</option>                       <!--1000000000000000-->
+                <option value="Tm">Terameter</option>                          <!--1000000000000-->
+                <option value="au">Astronomical unit</option>                   <!--149597870700-->
+                <option value="Gm">Gigameter</option>                             <!--1000000000-->
+                <option value="LD">Lunar distance</option>                        <!--~384399000-->
+                <option value="RE">Earth radius</option>                            <!--~6371008.8-->
+                <option value="Mm">Megameter</option>                                <!--1000000-->
+                <option value="sMi">Swedish mile</option>                              <!--10000-->
+                <option value="lea">League</option>                                     <!--4828.032-->
+                <option value="nMi">Nautical mile</option>                              <!--1852-->
+                <option value="mi">Imperial mile</option>                               <!--1609.344-->
+                <option value="verst">Verst</option>                                    <!--1066.8-->
+                <option value="km">Kilometer</option>                                   <!--1000-->
+                <option value="Li">Chinese mile</option>                                 <!--500-->
+                <option value="fur">Furlong</option>                                     <!--201.168-->
+                <option value="hm">Hektometer</option>                                   <!--100-->
+                <option value="aff">American football field</option>                      <!--91.44-->
+                <option value="ch">Chain</option>                                         <!--20.1168-->
+                <option value="ddb">Double-decker bus</option>                           <!--~11.23-->
+                <option value="dam">Decameter</option>                                    <!--10-->
+                <option value="rd">Rod</option>                                            <!--5.0292-->
+                <option value="hl">Horse length</option>                                  <!--~2.4-->
+                <option value="fm">Fathom</option>                                         <!--1.8288-->
+                <option value="smoot">Smoot</option>                                       <!--1.7-->
+                <option value="cana">Cana</option>                                         <!--1.57-->
+                <option value="m">Meter</option>                                           <!--1-->
+                <option value="yd">Yard</option>                                           <!--0.9144-->
+                <option value="chi">Chinese feet</option>                                 <!--~0.333333-->
+                <option value="ft">Foot</option>                                           <!--0.3048-->
+                <option value="lk">Link</option>                                           <!--0.201168-->
+                <option value="dm">Decimeter</option>                                      <!--0.1-->
+                <option value='"'>Inch</option>                                            <!--0.0254-->
+                <option value="cm">Centimeter</option>                                     <!--0.01-->
+                <option value="mm">Millimeter</option>                                     <!--0.001-->
+                <option value="toahh">Thickness of a human hair</option>                  <!--~0.00008-->
+                <option value="thou">thou</option>                                         <!--0.0000254-->
+                <option value="μm">Micrometer</option>                                     <!--0.000001-->
+                <option value="1 eV−1">Natural units based on the electronvolt</option>  <!--~0.000000197-->
+                <option value="1 / R∞">Reduced wavelength of hydrogen radiation</option> <!--~0.00000009112670505509-->
+                <option value="nm">Nanometer</option>                                      <!--0.000000001-->
+                <option value="Å">Ångström</option>                                        <!--0.0000000001-->
+                <option value="a0">Atomic unit of length</option>                         <!--~0.00000000005291772083-->
+                <option value="λC">Compton wavelength of electron</option>                <!--~0.000000000002426310215-->
+                <option value="pm">Picometer</option>                                      <!--0.000000000001-->
+                <option value="(-)λC">Reduced compton wavelength of electron</option>     <!--~0.00000000000038615926764-->
+                <option value="xu">x unit</option>                                         <!--0.0000000000001-->
+                <option value="re">Classical electron radius</option>                     <!--~0.000000000000002817940285-->
+                <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
+                <option value="lQCD">Quantum chromodynamics unit of length</option>       <!--~0.0000000000000002103-->
+                <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
+                <option value="𝓁P">Planck length</option>                                 <!--~0.00000000000000000000000000000000001616199-->
+                <option value="lS">Stoney unit of length</option>                         <!--~0.00000000000000000000000000000000001381-->
+            </select><br>
+        <script>
+            document.getElementById("first_length_unit").addEventListener("change", first_convert)
+            document.getElementById("second_length_unit").addEventListener("change", second_convert)
+            document.getElementById("input1").addEventListener("input", first_convert)
+            document.getElementById("input2").addEventListener("input", second_convert)
+
+            function first_convert() {
+                var length_middle_man = 0;
+                var length_value = Number(document.getElementById("input1").value);
+                var from_length_unit = document.getElementById("first_length_unit").value;
+                if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
+                else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
+                else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
+                else if (from_length_unit == "ly")     length_middle_man = length_value *            9460730472580800;
+                else if (from_length_unit == "Pm")     length_middle_man = length_value *            1000000000000000;
+                else if (from_length_unit == "Tm")     length_middle_man = length_value *               1000000000000;
+                else if (from_length_unit == "au")     length_middle_man = length_value *                149597870700;
+                else if (from_length_unit == "Gm")     length_middle_man = length_value *                  1000000000;
+                else if (from_length_unit == "LD")     length_middle_man = length_value *                   384399000;
+                else if (from_length_unit == "RE")     length_middle_man = length_value *                     6371008.8;
+                else if (from_length_unit == "Mm")     length_middle_man = length_value *                     1000000;
+                else if (from_length_unit == "sMi")    length_middle_man = length_value *                       10000;
+                else if (from_length_unit == "lea")    length_middle_man = length_value *                        4828.032;
+                else if (from_length_unit == "nMi")    length_middle_man = length_value *                        1852;
+                else if (from_length_unit == "mi")     length_middle_man = length_value *                        1609.344;
+                else if (from_length_unit == "verst")  length_middle_man = length_value *                        1066.8;
+                else if (from_length_unit == "km")     length_middle_man = length_value *                        1000;
+                else if (from_length_unit == "Li")     length_middle_man = length_value *                         500;
+                else if (from_length_unit == "fur")    length_middle_man = length_value *                         201.168;
+                else if (from_length_unit == "hm")     length_middle_man = length_value *                         100;
+                else if (from_length_unit == "aff")    length_middle_man = length_value *                          91.44;
+                else if (from_length_unit == "ch")     length_middle_man = length_value *                          20.1168;
+                else if (from_length_unit == "ddb")    length_middle_man = length_value *                          11.23;
+                else if (from_length_unit == "dam")    length_middle_man = length_value *                          10;
+                else if (from_length_unit == "rd")     length_middle_man = length_value *                           5.0292;
+                else if (from_length_unit == "hl")     length_middle_man = length_value *                           2.4;
+                else if (from_length_unit == "fm")     length_middle_man = length_value *                           1.8288;
+                else if (from_length_unit == "smoot")  length_middle_man = length_value *                           1.7;
+                else if (from_length_unit == "cana")   length_middle_man = length_value *                           1.57;
+                else if (from_length_unit == "m")      length_middle_man = length_value *                           1;
+                else if (from_length_unit == "yd")     length_middle_man = length_value *                           0.9144;
+                else if (from_length_unit == "chi")    length_middle_man = length_value *                           0.333333;
+                else if (from_length_unit == "ft")     length_middle_man = length_value *                           0.3048;
+                else if (from_length_unit == "lk")     length_middle_man = length_value *                           0.201168;
+                else if (from_length_unit == "dm")     length_middle_man = length_value *                           0.1;
+                else if (from_length_unit == '"')      length_middle_man = length_value *                           0.0254;
+                else if (from_length_unit == "cm")     length_middle_man = length_value *                           0.01;
+                else if (from_length_unit == "mm")     length_middle_man = length_value *                           0.001;
+                else if (from_length_unit == "toahh")  length_middle_man = length_value *                           0.00008;
+                else if (from_length_unit == "thou")   length_middle_man = length_value *                           0.0000254;
+                else if (from_length_unit == "μm")     length_middle_man = length_value *                           0.000001;
+                else if (from_length_unit == "1 eV−1") length_middle_man = length_value *                           0.000000197;
+                else if (from_length_unit == "1 / R∞") length_middle_man = length_value *                           0.00000009112670505509;
+                else if (from_length_unit == "nm")     length_middle_man = length_value *                           0.000000001;
+                else if (from_length_unit == "Å")      length_middle_man = length_value *                           0.0000000001;
+                else if (from_length_unit == "a0")     length_middle_man = length_value *                           0.00000000005291772083;
+                else if (from_length_unit == "λC")     length_middle_man = length_value *                           0.000000000002426310215;
+                else if (from_length_unit == "pm")     length_middle_man = length_value *                           0.000000000001;
+                else if (from_length_unit == "(-)λC")  length_middle_man = length_value *                           0.00000000000038615926764;
+                else if (from_length_unit == "xu")     length_middle_man = length_value *                           0.00000000000001;
+                else if (from_length_unit == "re")     length_middle_man = length_value *                           0.000000000000002817940285;
+                else if (from_length_unit == "fm")     length_middle_man = length_value *                           0.000000000000001;
+                else if (from_length_unit == "lQCD")   length_middle_man = length_value *                           0.0000000000000002103;
+                else if (from_length_unit == "am")     length_middle_man = length_value *                           0.000000000000000001;
+                else if (from_length_unit == "𝓁P")     length_middle_man = length_value *                           0.00000000000000000000000000000000001616199;
+                else if (from_length_unit == "lS")     length_middle_man = length_value *                           0.00000000000000000000000000000000001381;
+                
+                var to_length_unit = document.getElementById("second_length_unit").value;
+                if (to_length_unit == "~Hubble")     result = length_middle_man / 136234518805163520000000000;
+                else if (to_length_unit == "Em")     result = length_middle_man /         1000000000000000000;
+                else if (to_length_unit == "pc")     result = length_middle_man /           30856775814671900;
+                else if (to_length_unit == "ly")     result = length_middle_man /            9460730472580800;
+                else if (to_length_unit == "Pm")     result = length_middle_man /            1000000000000000;
+                else if (to_length_unit == "Tm")     result = length_middle_man /               1000000000000;
+                else if (to_length_unit == "au")     result = length_middle_man /                149597870700;
+                else if (to_length_unit == "Gm")     result = length_middle_man /                  1000000000;
+                else if (to_length_unit == "LD")     result = length_middle_man /                   384399000;
+                else if (to_length_unit == "RE")     result = length_middle_man /                     6371008.8;
+                else if (to_length_unit == "Mm")     result = length_middle_man /                     1000000;
+                else if (to_length_unit == "sMi")    result = length_middle_man /                       10000;
+                else if (to_length_unit == "lea")    result = length_middle_man /                        4828.032;
+                else if (to_length_unit == "nMi")    result = length_middle_man /                        1852;
+                else if (to_length_unit == "mi")     result = length_middle_man /                        1609.344;
+                else if (to_length_unit == "verst")  result = length_middle_man /                        1066.8;
+                else if (to_length_unit == "km")     result = length_middle_man /                        1000;
+                else if (to_length_unit == "Li")     result = length_middle_man /                         500;
+                else if (to_length_unit == "fur")    result = length_middle_man /                         201.168;
+                else if (to_length_unit == "hm")     result = length_middle_man /                         100;
+                else if (to_length_unit == "aff")    result = length_middle_man /                          91.44;
+                else if (to_length_unit == "ch")     result = length_middle_man /                          20.1168;
+                else if (to_length_unit == "ddb")    result = length_middle_man /                          11.23;
+                else if (to_length_unit == "dam")    result = length_middle_man /                          10;
+                else if (to_length_unit == "rd")     result = length_middle_man /                           5.0292;
+                else if (to_length_unit == "hl")     result = length_middle_man /                           2.4;
+                else if (to_length_unit == "fm")     result = length_middle_man /                           1.8288;
+                else if (to_length_unit == "smoot")  result = length_middle_man /                           1.7;
+                else if (to_length_unit == "cana")   result = length_middle_man /                           1.57;
+                else if (to_length_unit == "m")      result = length_middle_man /                           1;
+                else if (to_length_unit == "yd")     result = length_middle_man /                           0.9144;
+                else if (to_length_unit == "chi")    result = length_middle_man /                           0.333333;
+                else if (to_length_unit == "ft")     result = length_middle_man /                           0.3048;
+                else if (to_length_unit == "lk")     result = length_middle_man /                           0.201168;
+                else if (to_length_unit == "dm")     result = length_middle_man /                           0.1;
+                else if (to_length_unit == '"')      result = length_middle_man /                           0.0254;
+                else if (to_length_unit == "cm")     result = length_middle_man /                           0.01;
+                else if (to_length_unit == "mm")     result = length_middle_man /                           0.001;
+                else if (to_length_unit == "toahh")  result = length_middle_man /                           0.00008;
+                else if (to_length_unit == "thou")   result = length_middle_man /                           0.0000254;
+                else if (to_length_unit == "μm")     result = length_middle_man /                           0.000001;
+                else if (to_length_unit == "1 eV−1") result = length_middle_man /                           0.000000197;
+                else if (to_length_unit == "1 / R∞") result = length_middle_man /                           0.00000009112670505509;
+                else if (to_length_unit == "nm")     result = length_middle_man /                           0.000000001;
+                else if (to_length_unit == "Å")      result = length_middle_man /                           0.0000000001;
+                else if (to_length_unit == "a0")     result = length_middle_man /                           0.00000000005291772083;
+                else if (to_length_unit == "λC")     result = length_middle_man /                           0.000000000002426310215;
+                else if (to_length_unit == "pm")     result = length_middle_man /                           0.000000000001;
+                else if (to_length_unit == "(-)λC")  result = length_middle_man /                           0.00000000000038615926764;
+                else if (to_length_unit == "xu")     result = length_middle_man /                           0.00000000000001;
+                else if (to_length_unit == "re")     result = length_middle_man /                           0.000000000000002817940285;
+                else if (to_length_unit == "fm")     result = length_middle_man /                           0.000000000000001;
+                else if (to_length_unit == "lQCD")   result = length_middle_man /                           0.0000000000000002103;
+                else if (to_length_unit == "am")     result = length_middle_man /                           0.000000000000000001;
+                else if (to_length_unit == "𝓁P")     result = length_middle_man /                           0.00000000000000000000000000000000001616199;
+                else if (to_length_unit == "lS")     result = length_middle_man /                           0.00000000000000000000000000000000001381;
+                document.getElementById("input2").value = result;
+            }
+            function second_convert() {
+                var length_middle_man = 0;
+                var length_value = Number(document.getElementById("input2").value);
+                var from_length_unit = document.getElementById("second_length_unit").value;
+                if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
+                else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
+                else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
+                else if (from_length_unit == "ly")     length_middle_man = length_value *            9460730472580800;
+                else if (from_length_unit == "Pm")     length_middle_man = length_value *            1000000000000000;
+                else if (from_length_unit == "Tm")     length_middle_man = length_value *               1000000000000;
+                else if (from_length_unit == "au")     length_middle_man = length_value *                149597870700;
+                else if (from_length_unit == "Gm")     length_middle_man = length_value *                  1000000000;
+                else if (from_length_unit == "LD")     length_middle_man = length_value *                   384399000;
+                else if (from_length_unit == "RE")     length_middle_man = length_value *                     6371008.8;
+                else if (from_length_unit == "Mm")     length_middle_man = length_value *                     1000000;
+                else if (from_length_unit == "sMi")    length_middle_man = length_value *                       10000;
+                else if (from_length_unit == "lea")    length_middle_man = length_value *                        4828.032;
+                else if (from_length_unit == "nMi")    length_middle_man = length_value *                        1852;
+                else if (from_length_unit == "mi")     length_middle_man = length_value *                        1609.344;
+                else if (from_length_unit == "verst")  length_middle_man = length_value *                        1066.8;
+                else if (from_length_unit == "km")     length_middle_man = length_value *                        1000;
+                else if (from_length_unit == "Li")     length_middle_man = length_value *                         500;
+                else if (from_length_unit == "fur")    length_middle_man = length_value *                         201.168;
+                else if (from_length_unit == "hm")     length_middle_man = length_value *                         100;
+                else if (from_length_unit == "aff")    length_middle_man = length_value *                          91.44;
+                else if (from_length_unit == "ch")     length_middle_man = length_value *                          20.1168;
+                else if (from_length_unit == "ddb")    length_middle_man = length_value *                          11.23;
+                else if (from_length_unit == "dam")    length_middle_man = length_value *                          10;
+                else if (from_length_unit == "rd")     length_middle_man = length_value *                           5.0292;
+                else if (from_length_unit == "hl")     length_middle_man = length_value *                           2.4;
+                else if (from_length_unit == "fm")     length_middle_man = length_value *                           1.8288;
+                else if (from_length_unit == "smoot")  length_middle_man = length_value *                           1.7;
+                else if (from_length_unit == "cana")   length_middle_man = length_value *                           1.57;
+                else if (from_length_unit == "m")      length_middle_man = length_value *                           1;
+                else if (from_length_unit == "yd")     length_middle_man = length_value *                           0.9144;
+                else if (from_length_unit == "chi")    length_middle_man = length_value *                           0.333333;
+                else if (from_length_unit == "ft")     length_middle_man = length_value *                           0.3048;
+                else if (from_length_unit == "lk")     length_middle_man = length_value *                           0.201168;
+                else if (from_length_unit == "dm")     length_middle_man = length_value *                           0.1;
+                else if (from_length_unit == '"')      length_middle_man = length_value *                           0.0254;
+                else if (from_length_unit == "cm")     length_middle_man = length_value *                           0.01;
+                else if (from_length_unit == "mm")     length_middle_man = length_value *                           0.001;
+                else if (from_length_unit == "toahh")  length_middle_man = length_value *                           0.00008;
+                else if (from_length_unit == "thou")   length_middle_man = length_value *                           0.0000254;
+                else if (from_length_unit == "μm")     length_middle_man = length_value *                           0.000001;
+                else if (from_length_unit == "1 eV−1") length_middle_man = length_value *                           0.000000197;
+                else if (from_length_unit == "1 / R∞") length_middle_man = length_value *                           0.00000009112670505509;
+                else if (from_length_unit == "nm")     length_middle_man = length_value *                           0.000000001;
+                else if (from_length_unit == "Å")      length_middle_man = length_value *                           0.0000000001;
+                else if (from_length_unit == "a0")     length_middle_man = length_value *                           0.00000000005291772083;
+                else if (from_length_unit == "λC")     length_middle_man = length_value *                           0.000000000002426310215;
+                else if (from_length_unit == "pm")     length_middle_man = length_value *                           0.000000000001;
+                else if (from_length_unit == "(-)λC")  length_middle_man = length_value *                           0.00000000000038615926764;
+                else if (from_length_unit == "xu")     length_middle_man = length_value *                           0.00000000000001;
+                else if (from_length_unit == "re")     length_middle_man = length_value *                           0.000000000000002817940285;
+                else if (from_length_unit == "fm")     length_middle_man = length_value *                           0.000000000000001;
+                else if (from_length_unit == "lQCD")   length_middle_man = length_value *                           0.0000000000000002103;
+                else if (from_length_unit == "am")     length_middle_man = length_value *                           0.000000000000000001;
+                else if (from_length_unit == "𝓁P")     length_middle_man = length_value *                           0.00000000000000000000000000000000001616199;
+                else if (from_length_unit == "lS")     length_middle_man = length_value *                           0.00000000000000000000000000000000001381;
+                
+                var to_length_unit = document.getElementById("first_length_unit").value;
+                if (to_length_unit == "~Hubble")     result = length_middle_man / 136234518805163520000000000;
+                else if (to_length_unit == "Em")     result = length_middle_man /         1000000000000000000;
+                else if (to_length_unit == "pc")     result = length_middle_man /           30856775814671900;
+                else if (to_length_unit == "ly")     result = length_middle_man /            9460730472580800;
+                else if (to_length_unit == "Pm")     result = length_middle_man /            1000000000000000;
+                else if (to_length_unit == "Tm")     result = length_middle_man /               1000000000000;
+                else if (to_length_unit == "au")     result = length_middle_man /                149597870700;
+                else if (to_length_unit == "Gm")     result = length_middle_man /                  1000000000;
+                else if (to_length_unit == "LD")     result = length_middle_man /                   384399000;
+                else if (to_length_unit == "RE")     result = length_middle_man /                     6371008.8;
+                else if (to_length_unit == "Mm")     result = length_middle_man /                     1000000;
+                else if (to_length_unit == "sMi")    result = length_middle_man /                       10000;
+                else if (to_length_unit == "lea")    result = length_middle_man /                        4828.032;
+                else if (to_length_unit == "nMi")    result = length_middle_man /                        1852;
+                else if (to_length_unit == "mi")     result = length_middle_man /                        1609.344;
+                else if (to_length_unit == "verst")  result = length_middle_man /                        1066.8;
+                else if (to_length_unit == "km")     result = length_middle_man /                        1000;
+                else if (to_length_unit == "Li")     result = length_middle_man /                         500;
+                else if (to_length_unit == "fur")    result = length_middle_man /                         201.168;
+                else if (to_length_unit == "hm")     result = length_middle_man /                         100;
+                else if (to_length_unit == "aff")    result = length_middle_man /                          91.44;
+                else if (to_length_unit == "ch")     result = length_middle_man /                          20.1168;
+                else if (to_length_unit == "ddb")    result = length_middle_man /                          11.23;
+                else if (to_length_unit == "dam")    result = length_middle_man /                          10;
+                else if (to_length_unit == "rd")     result = length_middle_man /                           5.0292;
+                else if (to_length_unit == "hl")     result = length_middle_man /                           2.4;
+                else if (to_length_unit == "fm")     result = length_middle_man /                           1.8288;
+                else if (to_length_unit == "smoot")  result = length_middle_man /                           1.7;
+                else if (to_length_unit == "cana")   result = length_middle_man /                           1.57;
+                else if (to_length_unit == "m")      result = length_middle_man /                           1;
+                else if (to_length_unit == "yd")     result = length_middle_man /                           0.9144;
+                else if (to_length_unit == "chi")    result = length_middle_man /                           0.333333;
+                else if (to_length_unit == "ft")     result = length_middle_man /                           0.3048;
+                else if (to_length_unit == "lk")     result = length_middle_man /                           0.201168;
+                else if (to_length_unit == "dm")     result = length_middle_man /                           0.1;
+                else if (to_length_unit == '"')      result = length_middle_man /                           0.0254;
+                else if (to_length_unit == "cm")     result = length_middle_man /                           0.01;
+                else if (to_length_unit == "mm")     result = length_middle_man /                           0.001;
+                else if (to_length_unit == "toahh")  result = length_middle_man /                           0.00008;
+                else if (to_length_unit == "thou")   result = length_middle_man /                           0.0000254;
+                else if (to_length_unit == "μm")     result = length_middle_man /                           0.000001;
+                else if (to_length_unit == "1 eV−1") result = length_middle_man /                           0.000000197;
+                else if (to_length_unit == "1 / R∞") result = length_middle_man /                           0.00000009112670505509;
+                else if (to_length_unit == "nm")     result = length_middle_man /                           0.000000001;
+                else if (to_length_unit == "Å")      result = length_middle_man /                           0.0000000001;
+                else if (to_length_unit == "a0")     result = length_middle_man /                           0.00000000005291772083;
+                else if (to_length_unit == "λC")     result = length_middle_man /                           0.000000000002426310215;
+                else if (to_length_unit == "pm")     result = length_middle_man /                           0.000000000001;
+                else if (to_length_unit == "(-)λC")  result = length_middle_man /                           0.00000000000038615926764;
+                else if (to_length_unit == "xu")     result = length_middle_man /                           0.00000000000001;
+                else if (to_length_unit == "re")     result = length_middle_man /                           0.000000000000002817940285;
+                else if (to_length_unit == "fm")     result = length_middle_man /                           0.000000000000001;
+                else if (to_length_unit == "lQCD")   result = length_middle_man /                           0.0000000000000002103;
+                else if (to_length_unit == "am")     result = length_middle_man /                           0.000000000000000001;
+                else if (to_length_unit == "𝓁P")     result = length_middle_man /                           0.00000000000000000000000000000000001616199;
+                else if (to_length_unit == "lS")     result = length_middle_man /                           0.00000000000000000000000000000000001381;
+                document.getElementById("input1").value = result;
+            }
+        </script>
+    </main>
+</body>
+</html>
