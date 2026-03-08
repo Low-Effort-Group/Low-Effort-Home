@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hash computation - no ads!">
     <meta name="author" content="Low Effort Group">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 </head>
 
 <body>
@@ -18,9 +20,14 @@
         </p>
     </div>
     <main>
+        <label for="file">File:</label>
         <input type="file" id="file"><br><br>
         <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
-            placeholder="Or enter text here..."></textarea>
+            placeholder="Or text here..."></textarea> 
+        <label for="salt">Bcrypt salt rounds:</label>
+        <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
+    </main><br>
+    <main>
         <div class="overflow">
             <table id="results">
                 <tr>
@@ -56,71 +63,69 @@
                     <td><a class="fill" onclick="copy(bcryptHash)" id="bcrypt"></a></td>
             </table>
         </div>
-        <label for="salt">Bcrypt salt rounds:</label>
-        <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
-        <script>
-            let md5Hash, sha1Hash, sha224Hash, sha256Hash, sha384Hash, sha512Hash, ripemdHash, bcryptHash;
-            document.getElementById('file').addEventListener('change', function () {
-                const fileInput = document.getElementById('file');
-                const file = fileInput.files[0];
-                if (!file) {
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const data = e.target.result;
-                    compute(data);
-                };
-                reader.readAsArrayBuffer(file);
-            });
-
-            document.getElementById('text').addEventListener('input', function () {
-                compute(document.getElementById('text').value);
-            });
-
-            document.getElementById('salt').addEventListener('input', function () {
-                compute(document.getElementById('text').value);
-            });
-
-            function compute(data) {
-                let wordArray;
-                let bcryptText;
-
-                if (typeof data === 'string') {
-                    wordArray = CryptoJS.enc.Utf8.parse(data);
-                    bcryptText = data;
-                } else {
-                    wordArray = CryptoJS.lib.WordArray.create(data);
-                    bcryptText = wordArray.toString();
-                }
-
-                md5Hash = CryptoJS.MD5(wordArray).toString();
-                sha1Hash = CryptoJS.SHA1(wordArray).toString();
-                sha224Hash = CryptoJS.SHA224(wordArray).toString();
-                sha256Hash = CryptoJS.SHA256(wordArray).toString();
-                sha384Hash = CryptoJS.SHA384(wordArray).toString();
-                sha512Hash = CryptoJS.SHA512(wordArray).toString();
-                ripemdHash = CryptoJS.RIPEMD160(wordArray).toString();
-                bcryptHash = dcodeIO.bcrypt.hashSync(bcryptText, parseInt(document.getElementById('salt').value) || 10);
-
-                document.getElementById('md5').textContent = md5Hash;
-                document.getElementById('sha1').textContent = sha1Hash;
-                document.getElementById('sha224').textContent = sha224Hash;
-                document.getElementById('sha256').textContent = sha256Hash;
-                document.getElementById('sha384').textContent = sha384Hash;
-                document.getElementById('sha512').textContent = sha512Hash;
-                document.getElementById('ripemd').textContent = ripemdHash;
-                document.getElementById('bcrypt').textContent = bcryptHash;
-            };
-
-            function copy(str) {
-                navigator.clipboard.writeText(str);
-            }
-        </script>
     </main>
+    <script>
+        let md5Hash, sha1Hash, sha224Hash, sha256Hash, sha384Hash, sha512Hash, ripemdHash, bcryptHash;
+        document.getElementById('file').addEventListener('change', function () {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            if (!file) {
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const data = e.target.result;
+                compute(data);
+            };
+            reader.readAsArrayBuffer(file);
+        });
+
+        document.getElementById('text').addEventListener('input', function () {
+            compute(document.getElementById('text').value);
+        });
+
+        document.getElementById('salt').addEventListener('input', function () {
+            compute(document.getElementById('text').value);
+        });
+
+        function compute(data) {
+            let wordArray;
+            let bcryptText;
+
+            if (typeof data === 'string') {
+                wordArray = CryptoJS.enc.Utf8.parse(data);
+                bcryptText = data;
+            } else {
+                wordArray = CryptoJS.lib.WordArray.create(data);
+                bcryptText = wordArray.toString();
+            }
+
+            md5Hash = CryptoJS.MD5(wordArray).toString();
+            sha1Hash = CryptoJS.SHA1(wordArray).toString();
+            sha224Hash = CryptoJS.SHA224(wordArray).toString();
+            sha256Hash = CryptoJS.SHA256(wordArray).toString();
+            sha384Hash = CryptoJS.SHA384(wordArray).toString();
+            sha512Hash = CryptoJS.SHA512(wordArray).toString();
+            ripemdHash = CryptoJS.RIPEMD160(wordArray).toString();
+            bcryptHash = dcodeIO.bcrypt.hashSync(bcryptText, parseInt(document.getElementById('salt').value) || 10);
+
+            document.getElementById('md5').textContent = md5Hash;
+            document.getElementById('sha1').textContent = sha1Hash;
+            document.getElementById('sha224').textContent = sha224Hash;
+            document.getElementById('sha256').textContent = sha256Hash;
+            document.getElementById('sha384').textContent = sha384Hash;
+            document.getElementById('sha512').textContent = sha512Hash;
+            document.getElementById('ripemd').textContent = ripemdHash;
+            document.getElementById('bcrypt').textContent = bcryptHash;
+        };
+
+        function copy(str) {
+            navigator.clipboard.writeText(str);
+        }
+
+        compute(document.getElementById('text').value);
+    </script>
 </body>
 
 </html>
