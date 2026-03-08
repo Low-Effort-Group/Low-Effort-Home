@@ -204,3 +204,28 @@ nav {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.toolbar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 67px;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.toolbar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+}
