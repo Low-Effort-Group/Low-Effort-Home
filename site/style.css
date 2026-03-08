@@ -234,17 +234,17 @@ summary::-webkit-details-marker {
     display: none;
 }
 
-span {
+.toolbar span {
     position: relative;
     margin-left: 5px;
     display: flex;
 }
 
-span:hover {
+.toolbar span:hover {
     cursor: pointer;
 }
 
-span::before {
+.toolbar span::before {
     content: "▶";
     font-size: 1rem;
     display: flex;
