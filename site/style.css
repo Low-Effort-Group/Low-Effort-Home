@@ -51,7 +51,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 main {
     display: flex;
-    align-items: stretch;
 }
 
 .overflow {
@@ -202,6 +201,7 @@ nav {
 }
 
 .toolbar {
+    flex-grow: 0;
     height: 100%;
     width: 160px;
     z-index: 1;
