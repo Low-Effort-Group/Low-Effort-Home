@@ -134,8 +134,6 @@ nav {
 }
 
 .dropdown-content {
-    color: #fff !important;
-    text-decoration: none !important;
     position: absolute;
     top: 56px;
     left: -16px;
@@ -143,8 +141,10 @@ nav {
     background: #bf00ff;
     padding: 16px 16px;
 }
-.dropdown-content a {
+.dropdown-content a, .dropdown-content a:visited, .dropdown-content a:active, .dropdown-content a:hover, .dropdown-content a:focus {
     white-space: nowrap;
+    color: #fff !important;
+    text-decoration: none !important;
     display: block;
     font-size: 24px;
 }
