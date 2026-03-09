@@ -12,171 +12,177 @@
 
 <body>
     <!--#include file="/templates/nav.html" -->
-    <div class="desc">
-        <p>Convert archives to different formats. Current supported formats: <br>
-            .zip, .tar, .tar.gz</p>
-    </div>
-    <div class="bubble wrap">
-        <input type="file" id="upload" accept=".zip, .tar, .tar.gz" /><br><br>
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
+        <div class="flex">
+            <div class="bubble big purple">
+                <div class="desc">
+                    <p>Convert archives to different formats. Current supported formats: <br>
+                        .zip, .tar, .tar.gz</p>
+                </div>
+                <div class="bubble wrap">
+                    <input type="file" id="upload" accept=".zip, .tar, .tar.gz" /><br><br>
 
-        <label>
-            <input type="radio" name="format" value="tar" checked> Convert to .tar
-        </label><br>
-        <label>
-            <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
-        </label><br>
-        <label>
-            <input type="radio" name="format" value="zip"> Convert to .zip
-        </label><br>
+                    <label>
+                        <input type="radio" name="format" value="tar" checked> Convert to .tar
+                    </label><br>
+                    <label>
+                        <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
+                    </label><br>
+                    <label>
+                        <input type="radio" name="format" value="zip"> Convert to .zip
+                    </label><br>
 
-        <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
+                    <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
 
-        <button id="convert">Download</button>
+                    <button id="convert">Download</button>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ankitrohatgi/tarballjs@master/tarball.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/gh/ankitrohatgi/tarballjs@master/tarball.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 
-        <script>
-            let archiveFile;
-            let archiveType;
+                    <script>
+                        let archiveFile;
+                        let archiveType;
 
-            const typeDisplay = document.getElementById('type-value');
-            const fileInput = document.getElementById('upload');
-            const convertBtn = document.getElementById('convert');
+                        const typeDisplay = document.getElementById('type-value');
+                        const fileInput = document.getElementById('upload');
+                        const convertBtn = document.getElementById('convert');
 
-            fileInput.addEventListener('change', async (e) => {
-            archiveFile = e.target.files[0];
-            if (!archiveFile) return;
+                        fileInput.addEventListener('change', async (e) => {
+                        archiveFile = e.target.files[0];
+                        if (!archiveFile) return;
 
-            typeDisplay.textContent = 'Detecting...';
-            archiveType = await detectArchiveType(archiveFile);
-            typeDisplay.textContent = archiveType || 'Unknown';
-            });
+                        typeDisplay.textContent = 'Detecting...';
+                        archiveType = await detectArchiveType(archiveFile);
+                        typeDisplay.textContent = archiveType || 'Unknown';
+                        });
 
-            convertBtn.addEventListener('click', async () => {
-            try {
-                convertBtn.textContent = 'Converting...';
-                convertBtn.disabled = true;
-                await convert();
-            } catch (e) {
-                console.error(e);
-                alert('Error converting file: ' + e.message);
-            } finally {
-                convertBtn.textContent = 'Convert';
-                convertBtn.disabled = false;
-            }
-            });
+                        convertBtn.addEventListener('click', async () => {
+                        try {
+                            convertBtn.textContent = 'Converting...';
+                            convertBtn.disabled = true;
+                            await convert();
+                        } catch (e) {
+                            console.error(e);
+                            alert('Error converting file: ' + e.message);
+                        } finally {
+                            convertBtn.textContent = 'Convert';
+                            convertBtn.disabled = false;
+                        }
+                        });
 
-            function downloadBlob(blob, filename) {
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(link.href);
-            }
+                        function downloadBlob(blob, filename) {
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = filename;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(link.href);
+                        }
 
-            async function zip2tarBlob(zipObj) {
-            const tarWriter = new tarball.TarWriter();
-            for (const [path, file] of Object.entries(zipObj.files)) {
-                if (!file.dir) {
-                const content = await file.async('arraybuffer');
-                tarWriter.addFileArrayBuffer(path, content);
-                } else {
-                tarWriter.addFolder(path);
-                }
-            }
-            return await tarWriter.writeBlob();
-            }
+                        async function zip2tarBlob(zipObj) {
+                        const tarWriter = new tarball.TarWriter();
+                        for (const [path, file] of Object.entries(zipObj.files)) {
+                            if (!file.dir) {
+                            const content = await file.async('arraybuffer');
+                            tarWriter.addFileArrayBuffer(path, content);
+                            } else {
+                            tarWriter.addFolder(path);
+                            }
+                        }
+                        return await tarWriter.writeBlob();
+                        }
 
-            async function tarBlob2zipObj(tarBlob) {
-            const reader = new tarball.TarReader();
-            reader.readArrayBuffer(await tarBlob.arrayBuffer());
-            const fileInfo = reader.getFileInfo();
-            const zip = new JSZip();
-            for (const info of fileInfo) {
-                if (info.type === 'file') {
-                const data = reader.getFileBinary(info.name);
-                zip.file(info.name, data);
-                } else if (info.type === 'directory') {
-                zip.folder(info.name);
-                }
-            }
-            return zip;
-            }
+                        async function tarBlob2zipObj(tarBlob) {
+                        const reader = new tarball.TarReader();
+                        reader.readArrayBuffer(await tarBlob.arrayBuffer());
+                        const fileInfo = reader.getFileInfo();
+                        const zip = new JSZip();
+                        for (const info of fileInfo) {
+                            if (info.type === 'file') {
+                            const data = reader.getFileBinary(info.name);
+                            zip.file(info.name, data);
+                            } else if (info.type === 'directory') {
+                            zip.folder(info.name);
+                            }
+                        }
+                        return zip;
+                        }
 
-            async function convert() {
-            const selectedRadio = document.querySelector('input[name="format"]:checked');
-            const targetFormat = selectedRadio ? selectedRadio.value : null;
+                        async function convert() {
+                        const selectedRadio = document.querySelector('input[name="format"]:checked');
+                        const targetFormat = selectedRadio ? selectedRadio.value : null;
 
-            if (!archiveFile || !archiveType || !targetFormat) {
-                return;
-            }
+                        if (!archiveFile || !archiveType || !targetFormat) {
+                            return;
+                        }
 
-            let baseName = archiveFile.name.replace(/\.(zip|tar\.gz|tgz|tar)$/i, '');
-            let finalFilename = baseName + '.' + targetFormat;
+                        let baseName = archiveFile.name.replace(/\.(zip|tar\.gz|tgz|tar)$/i, '');
+                        let finalFilename = baseName + '.' + targetFormat;
 
-            if (archiveType === targetFormat) {
-                downloadBlob(archiveFile, finalFilename);
-                return;
-            }
+                        if (archiveType === targetFormat) {
+                            downloadBlob(archiveFile, finalFilename);
+                            return;
+                        }
 
-            let zipObj = null;
-            let tarBlob = null;
+                        let zipObj = null;
+                        let tarBlob = null;
 
-            if (archiveType === 'zip') {
-                zipObj = new JSZip();
-                await zipObj.loadAsync(await archiveFile.arrayBuffer());
-            } else if (archiveType === 'tar') {
-                tarBlob = archiveFile;
-            } else if (archiveType === 'tar.gz') {
-                const gzArray = new Uint8Array(await archiveFile.arrayBuffer());
-                const tarArray = pako.ungzip(gzArray);
-                tarBlob = new Blob([tarArray], { type: 'application/x-tar' });
-            }
+                        if (archiveType === 'zip') {
+                            zipObj = new JSZip();
+                            await zipObj.loadAsync(await archiveFile.arrayBuffer());
+                        } else if (archiveType === 'tar') {
+                            tarBlob = archiveFile;
+                        } else if (archiveType === 'tar.gz') {
+                            const gzArray = new Uint8Array(await archiveFile.arrayBuffer());
+                            const tarArray = pako.ungzip(gzArray);
+                            tarBlob = new Blob([tarArray], { type: 'application/x-tar' });
+                        }
 
-            if (targetFormat === 'zip') {
-                if (!zipObj && tarBlob) {
-                zipObj = await tarBlob2zipObj(tarBlob);
-                }
-                const outBlob = await zipObj.generateAsync({ type: 'blob' });
-                downloadBlob(outBlob, finalFilename);
-            } else if (targetFormat === 'tar') {
-                if (!tarBlob && zipObj) {
-                tarBlob = await zip2tarBlob(zipObj);
-                }
-                downloadBlob(tarBlob, finalFilename);
-            } else if (targetFormat === 'tar.gz') {
-                if (!tarBlob && zipObj) {
-                tarBlob = await zip2tarBlob(zipObj);
-                }
-                const tarArray = new Uint8Array(await tarBlob.arrayBuffer());
-                const gzArray = pako.gzip(tarArray);
-                const outBlob = new Blob([gzArray], { type: 'application/gzip' });
-                downloadBlob(outBlob, finalFilename);
-            }
-            }
+                        if (targetFormat === 'zip') {
+                            if (!zipObj && tarBlob) {
+                            zipObj = await tarBlob2zipObj(tarBlob);
+                            }
+                            const outBlob = await zipObj.generateAsync({ type: 'blob' });
+                            downloadBlob(outBlob, finalFilename);
+                        } else if (targetFormat === 'tar') {
+                            if (!tarBlob && zipObj) {
+                            tarBlob = await zip2tarBlob(zipObj);
+                            }
+                            downloadBlob(tarBlob, finalFilename);
+                        } else if (targetFormat === 'tar.gz') {
+                            if (!tarBlob && zipObj) {
+                            tarBlob = await zip2tarBlob(zipObj);
+                            }
+                            const tarArray = new Uint8Array(await tarBlob.arrayBuffer());
+                            const gzArray = pako.gzip(tarArray);
+                            const outBlob = new Blob([gzArray], { type: 'application/gzip' });
+                            downloadBlob(outBlob, finalFilename);
+                        }
+                        }
 
-            async function detectArchiveType(file) {
-            const blobSlice = file.slice(0, 4);
-            const buffer = await blobSlice.arrayBuffer();
-            const bytes = new Uint8Array(buffer);
+                        async function detectArchiveType(file) {
+                        const blobSlice = file.slice(0, 4);
+                        const buffer = await blobSlice.arrayBuffer();
+                        const bytes = new Uint8Array(buffer);
 
-            if (bytes[0] === 0x50 && bytes[1] === 0x4B && bytes[2] === 0x03 && bytes[3] === 0x04) {
-                return 'zip';
-            }
+                        if (bytes[0] === 0x50 && bytes[1] === 0x4B && bytes[2] === 0x03 && bytes[3] === 0x04) {
+                            return 'zip';
+                        }
 
-            if (bytes[0] === 0x1F && bytes[1] === 0x8B) {
-                return 'tar.gz';
-            }
+                        if (bytes[0] === 0x1F && bytes[1] === 0x8B) {
+                            return 'tar.gz';
+                        }
 
-            return 'tar';
+                        return 'tar';
 
-            return null;
-            }
-        </script>
-    </div>
-<!--#include file="/templates/toolbar.html" -->
+                        return null;
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
