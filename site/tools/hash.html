@@ -36,35 +36,35 @@
                         <table id="results">
                             <tr>
                                 <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
-                                <td><a class="fill" onclick="copy(md5Hash)" id="md5"></a></td>
+                                    <td><input type="text" class="fill" onclick="copy(md5Hash)" id="md5" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
-                                <td><a class="fill" onclick="copy(sha1Hash)" id="sha1"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(sha1Hash)" id="sha1" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
-                                <td><a class="fill" onclick="copy(sha224Hash)" id="sha224"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(sha224Hash)" id="sha224" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
-                                <td><a class="fill" onclick="copy(sha256Hash)" id="sha256"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(sha256Hash)" id="sha256" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
-                                <td><a class="fill" onclick="copy(sha384Hash)" id="sha384"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(sha384Hash)" id="sha384" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
-                                <td><a class="fill" onclick="copy(sha512Hash)" id="sha512"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(sha512Hash)" id="sha512" readonly /></td>
                             </tr>
                             </tr>
                             <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
-                            <td><a class="fill" onclick="copy(ripemdHash)" id="ripemd"></a></td>
+                            <td><input type="text" class="fill" onclick="copy(ripemdHash)" id="ripemd" readonly /></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
-                                <td><a class="fill" onclick="copy(bcryptHash)" id="bcrypt"></a></td>
+                                <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly /></td>
                         </table>
                     </div>
                 </div>
@@ -117,14 +117,14 @@
             ripemdHash = CryptoJS.RIPEMD160(wordArray).toString();
             bcryptHash = dcodeIO.bcrypt.hashSync(bcryptText, parseInt(document.getElementById('salt').value) || 10);
 
-            document.getElementById('md5').textContent = md5Hash;
-            document.getElementById('sha1').textContent = sha1Hash;
-            document.getElementById('sha224').textContent = sha224Hash;
-            document.getElementById('sha256').textContent = sha256Hash;
-            document.getElementById('sha384').textContent = sha384Hash;
-            document.getElementById('sha512').textContent = sha512Hash;
-            document.getElementById('ripemd').textContent = ripemdHash;
-            document.getElementById('bcrypt').textContent = bcryptHash;
+            document.getElementById('md5').value = md5Hash;
+            document.getElementById('sha1').value = sha1Hash;
+            document.getElementById('sha224').value = sha224Hash;
+            document.getElementById('sha256').value = sha256Hash;
+            document.getElementById('sha384').value = sha384Hash;
+            document.getElementById('sha512').value = sha512Hash;
+            document.getElementById('ripemd').value = ripemdHash;
+            document.getElementById('bcrypt').value = bcryptHash;
         };
 
         function copy(str) {
