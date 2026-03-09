@@ -32,41 +32,39 @@
                     <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
                 </div><br>
                 <div class="bubble">
-                    <div class="overflow">
-                        <table id="results">
-                            <tr>
-                                <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
-                                    <td><input type="text" class="fill" onclick="copy(md5Hash)" id="md5" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(sha1Hash)" id="sha1" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(sha224Hash)" id="sha224" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(sha256Hash)" id="sha256" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(sha384Hash)" id="sha384" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(sha512Hash)" id="sha512" readonly /></td>
-                            </tr>
-                            </tr>
-                            <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
-                            <td><input type="text" class="fill" onclick="copy(ripemdHash)" id="ripemd" readonly /></td>
-                            </tr>
-                            <tr>
-                                <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
-                                <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly /></td>
-                        </table>
-                    </div>
+                    <table id="results">
+                        <tr>
+                            <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
+                                <td><input type="text" class="fill" onclick="copy(md5Hash)" id="md5" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha1Hash)" id="sha1" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha224Hash)" id="sha224" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha256Hash)" id="sha256" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha384Hash)" id="sha384" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha512Hash)" id="sha512" readonly /></td>
+                        </tr>
+                        </tr>
+                        <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
+                        <td><input type="text" class="fill" onclick="copy(ripemdHash)" id="ripemd" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly /></td>
+                    </table>
                 </div>
             </div>
         </div>
