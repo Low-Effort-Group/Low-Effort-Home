@@ -266,7 +266,7 @@ details[open] span::before {
     transition: rotate 200ms ease-in-out;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
   .hide {
     display: none !important;
   }
