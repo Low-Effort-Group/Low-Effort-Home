@@ -14,58 +14,63 @@
 
 <body>
     <!--#include file="/templates/nav.html" -->
-    <div class="bubble big purple">
-    <div class="desc">
-        <p>Hash a text string or a file and copy them. Supported algorithms:
-            <br>MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, bcrypt
-        </p>
-    </div>
-    <div class="bubble">
-        <label for="file">File:</label>
-        <input type="file" id="file"><br><br>
-        <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
-            placeholder="Or text here..."></textarea> 
-        <label for="salt">Bcrypt salt rounds:</label>
-        <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
-    </div><br>
-    <div class="bubble">
-        <div class="overflow">
-            <table id="results">
-                <tr>
-                    <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
-                    <td><a class="fill" onclick="copy(md5Hash)" id="md5"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
-                    <td><a class="fill" onclick="copy(sha1Hash)" id="sha1"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
-                    <td><a class="fill" onclick="copy(sha224Hash)" id="sha224"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
-                    <td><a class="fill" onclick="copy(sha256Hash)" id="sha256"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
-                    <td><a class="fill" onclick="copy(sha384Hash)" id="sha384"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
-                    <td><a class="fill" onclick="copy(sha512Hash)" id="sha512"></a></td>
-                </tr>
-                </tr>
-                <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
-                <td><a class="fill" onclick="copy(ripemdHash)" id="ripemd"></a></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
-                    <td><a class="fill" onclick="copy(bcryptHash)" id="bcrypt"></a></td>
-            </table>
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
+        <div class="flex">    
+            <div class="bubble big purple">
+                <div class="desc">
+                    <p>Hash a text string or a file and copy them. Supported algorithms:
+                        <br>MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, bcrypt
+                    </p>
+                </div>
+                <div class="bubble">
+                    <label for="file">File:</label>
+                    <input type="file" id="file"><br><br>
+                    <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
+                        placeholder="Or text here..."></textarea> 
+                    <label for="salt">Bcrypt salt rounds:</label>
+                    <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
+                </div><br>
+                <div class="bubble">
+                    <div class="overflow">
+                        <table id="results">
+                            <tr>
+                                <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
+                                <td><a class="fill" onclick="copy(md5Hash)" id="md5"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
+                                <td><a class="fill" onclick="copy(sha1Hash)" id="sha1"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
+                                <td><a class="fill" onclick="copy(sha224Hash)" id="sha224"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
+                                <td><a class="fill" onclick="copy(sha256Hash)" id="sha256"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
+                                <td><a class="fill" onclick="copy(sha384Hash)" id="sha384"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
+                                <td><a class="fill" onclick="copy(sha512Hash)" id="sha512"></a></td>
+                            </tr>
+                            </tr>
+                            <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
+                            <td><a class="fill" onclick="copy(ripemdHash)" id="ripemd"></a></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
+                                <td><a class="fill" onclick="copy(bcryptHash)" id="bcrypt"></a></td>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
+    </main>
     <script>
         let md5Hash, sha1Hash, sha224Hash, sha256Hash, sha384Hash, sha512Hash, ripemdHash, bcryptHash;
         document.getElementById('file').addEventListener('change', function () {
@@ -128,7 +133,6 @@
 
         compute(document.getElementById('text').value);
     </script>
-<!--#include file="/templates/toolbar.html" -->
 </body>
 
 </html>
