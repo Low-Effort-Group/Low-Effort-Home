@@ -129,7 +129,7 @@ button:active {
 }
 
 nav {
-    position: sticky !important;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -203,7 +203,6 @@ nav {
 }
 
 .toolbar {
-    position: sticky;
     flex-grow: 0;
     height: 100%;
     width: 160px;
