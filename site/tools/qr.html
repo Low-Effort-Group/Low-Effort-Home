@@ -8,24 +8,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Generate QR codes online - no ads!">
   <meta name="author" content="Low Effort Group">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 
 <body>
 <!--#include file="/templates/nav.html" -->
-<div class="bubble big purple">
-  <div class="desc">
-    <p>Generate QR codes.</p>
-  </div>
-  <div class="bubble">
-    <strong>Generate QR Code</strong>
-    <input type="text" id="text" placeholder="https://example.com/" value="https://example.com/" style="padding: 8px; width: 100%; border-radius: 9px;">
-    <button onclick="dl()">Download</button><button onclick="copy()">Copy</button>
-  </div><br>
-  <div class="bubble wrap">
-    <div id="qrcode" style="margin: auto; width: fit-content;"></div>
-  </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <main>
+<!--#include file="/templates/toolbar.html" -->
+    <div class="flex">
+      <div class="bubble big purple">
+        <div class="desc">
+          <p>Generate QR codes.</p>
+        </div>
+        <div class="bubble">
+          <strong>Generate QR Code</strong>
+          <input type="text" id="text" placeholder="https://example.com/" value="https://example.com/" style="padding: 8px; width: 100%; border-radius: 9px;">
+          <button onclick="dl()">Download</button><button onclick="copy()">Copy</button>
+        </div><br>
+        <div class="bubble wrap">
+          <div id="qrcode" style="margin: auto; width: fit-content;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
 <script>
   document.getElementById("text").addEventListener("input", function(event) {
     qr();
@@ -67,7 +72,6 @@
 
   qr();
 </script>
-<!--#include file="/templates/toolbar.html" -->
 </body>
 
 </html>
