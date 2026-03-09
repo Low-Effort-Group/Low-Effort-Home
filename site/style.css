@@ -51,6 +51,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 main {
     display: flex;
+    height: 100vh;
+    align-items: stretch;
 }
 
 .overflow {
