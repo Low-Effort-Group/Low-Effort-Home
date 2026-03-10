@@ -17,30 +17,28 @@
     <!--#include file="/templates/nav.html" -->
     <main>
         <!--#include file="/templates/toolbar.html" -->
-        <div class="flex">
-            <div class="bubble big invisible">
-                <div class="desc">
-                    <p>Convert archives to different formats. Current supported formats: <br>
-                        .zip, .tar, .tar.gz</p>
-                </div>
-                <div class="bubble wrap purple">
-                    <input type="file" id="upload" accept=".zip, .tar, .tar.gz" /><br><br>
-                    <div class="bubble">
-                        <label>
-                            <input type="radio" name="format" value="tar" checked> Convert to .tar
-                        </label><br>
-                        <label>
-                            <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
-                        </label><br>
-                        <label>
-                            <input type="radio" name="format" value="zip"> Convert to .zip
-                        </label><br>
+        <div style="flex-grow: 1;">
+            <div class="desc">
+                <p>Convert archives to different formats. Current supported formats: <br>
+                    .zip, .tar, .tar.gz</p>
+            </div>
+            <div class="bubble wrap purple">
+                <input type="file" id="upload" accept=".zip, .tar, .tar.gz" /><br><br>
+                <div class="bubble">
+                    <label>
+                        <input type="radio" name="format" value="tar" checked> Convert to .tar
+                    </label><br>
+                    <label>
+                        <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
+                    </label><br>
+                    <label>
+                        <input type="radio" name="format" value="zip"> Convert to .zip
+                    </label><br>
 
-                        <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
-                    </div>
-                    <br>
-                    <button id="convert">Download</button>
+                    <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
                 </div>
+                <br>
+                <button id="convert">Download</button>
             </div>
         </div>
     </main>
