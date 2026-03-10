@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <main>
     <!--#include file="/templates/nav.html" -->
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
         <div class="flex">
             <div class="bubble big purple">
                 <div class="desc">
@@ -123,7 +124,6 @@
         document.getElementById('urlE').addEventListener('input', function () { decodeUrl(document.getElementById('urlE').value); });
         document.getElementById('hex').addEventListener('input', function () { hexadecimal(document.getElementById('hex').value); });
     </script>
-<!--#include file="/templates/toolbar.html" -->
 </body>
 
 </html>
