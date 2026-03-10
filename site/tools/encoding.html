@@ -12,41 +12,45 @@
 </head>
 
 <body>
+    <main>
     <!--#include file="/templates/nav.html" -->
-    <div class="bubble big purple">
-    <div class="desc">
-        <p>Encode and decode a text string or a file and copy/download them. Supported algorithms:
-            <br>unspecified.
-        </p>
-    </div>
-    <div class="bubble">
-        <label for="file">File:</label>
-        <input type="file" id="file"><button onclick="dl(decoded)">Download decoded</button><br><br>
-        <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
-            placeholder="Or text here..."></textarea> 
-    </div><br>
-    <div class="bubble">
-        <div class="overflow">
-            <table id="results">
-                <tr>
-                    <th><a class="fill" onclick="copy(base64)">Base64:</a></th>
-                    <td><a class="fill" onclick="dl(base64)">Download</a></td>
-                    <td><input id="base64" type="text" style="width: 100%;"></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(urlE)">URL Encoding:</a></th>
-                    <td><a class="fill" onclick="dl(decodedE)">Download</a></td>
-                    <td><input id="urlE" type="text" style="width: 100%;"></td>
-                </tr>
-                <tr>
-                    <th><a class="fill" onclick="copy(hex)">Hex:</a></th>
-                    <td><a class="fill" onclick="dl(hex)">Download</a></td>
-                    <td><input id="hex" type="text" style="width: 100%;"></td>
-                </tr>
-            </table>
+        <div class="flex">
+            <div class="bubble big purple">
+                <div class="desc">
+                    <p>Encode and decode a text string or a file and copy/download them. Supported algorithms:
+                        <br>unspecified.
+                    </p>
+                </div>
+                <div class="bubble">
+                    <label for="file">File:</label>
+                    <input type="file" id="file"><button onclick="dl(decoded)">Download decoded</button><br><br>
+                    <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
+                        placeholder="Or text here..."></textarea> 
+                </div><br>
+                <div class="bubble">
+                    <div class="overflow">
+                        <table id="results">
+                            <tr>
+                                <th><a class="fill" onclick="copy(base64)">Base64:</a></th>
+                                <td><a class="fill" onclick="dl(base64)">Download</a></td>
+                                <td><input id="base64" type="text" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(urlE)">URL Encoding:</a></th>
+                                <td><a class="fill" onclick="dl(decodedE)">Download</a></td>
+                                <td><input id="urlE" type="text" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <th><a class="fill" onclick="copy(hex)">Hex:</a></th>
+                                <td><a class="fill" onclick="dl(hex)">Download</a></td>
+                                <td><input id="hex" type="text" style="width: 100%;"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
+    </main>
     <script>
         let base64, urlE, decoded, hex;
         document.getElementById('file').addEventListener('change', function () {
