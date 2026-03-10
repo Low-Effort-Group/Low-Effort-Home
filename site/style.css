@@ -16,7 +16,7 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: white;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: none;
     margin-top: 24px;
     width: 50%;
     max-width: 100%;
