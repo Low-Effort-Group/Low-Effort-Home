@@ -25,21 +25,20 @@
                 </div>
                 <div class="bubble wrap purple">
                     <input type="file" id="upload" accept=".zip, .tar, .tar.gz" /><br><br>
+                    <div>
+                        <label>
+                            <input type="radio" name="format" value="tar" checked> Convert to .tar
+                        </label><br>
+                        <label>
+                            <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
+                        </label><br>
+                        <label>
+                            <input type="radio" name="format" value="zip"> Convert to .zip
+                        </label><br>
 
-                    <label>
-                        <input type="radio" name="format" value="tar" checked> Convert to .tar
-                    </label><br>
-                    <label>
-                        <input type="radio" name="format" value="tar.gz"> Convert to .tar.gz
-                    </label><br>
-                    <label>
-                        <input type="radio" name="format" value="zip"> Convert to .zip
-                    </label><br>
-
-                    <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
-
+                        <p class="small-text">Detected type: <span id="type-value">Unknown</span></p>
+                    </div>
                     <button id="convert">Download</button>
-
                 </div>
             </div>
         </div>
