@@ -162,6 +162,7 @@
                             var length_middle_man = 0;
                             var length_value = Number(document.getElementById("input1").value);
                             var from_length_unit = document.getElementById("first_length_unit").value;
+                            if (length_value == 0) return;
                             if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
                             else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
                             else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
@@ -282,6 +283,7 @@
                             var length_middle_man = 0;
                             var length_value = Number(document.getElementById("input2").value);
                             var from_length_unit = document.getElementById("second_length_unit").value;
+                            if (length_value == 0) return;
                             if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
                             else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
                             else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
