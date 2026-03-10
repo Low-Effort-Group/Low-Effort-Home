@@ -24,7 +24,7 @@
                 </div>
                 <div class="bubble">
                     <label for="file">File:</label>
-                    <input type="file" id="file"><button onclick="dl(decoded, 'decoded.dat')">Download decoded</button><br><br>
+                    <input type="file" id="file"><button onclick="dl(decoded)">Download decoded</button><br><br>
                     <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
                         placeholder="Or text here..."></textarea> 
                 </div><br>
@@ -33,17 +33,17 @@
                         <table id="results">
                             <tr>
                                 <th><a class="fill" onclick="copy(base64)">Base64:</a></th>
-                                <td><a class="fill" onclick="dl(base64, 'data.base64')">Download</a></td>
+                                <td><a class="fill" onclick="dl(base64)">Download</a></td>
                                 <td><input id="base64" type="text" style="width: 100%;"></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(urlE)">URL Encoding:</a></th>
-                                <td><a class="fill" onclick="dl(urlE, 'data.urlEnc')">Download</a></td>
+                                <td><a class="fill" onclick="dl(decodedE)">Download</a></td>
                                 <td><input id="urlE" type="text" style="width: 100%;"></td>
                             </tr>
                             <tr>
                                 <th><a class="fill" onclick="copy(hex)">Hex:</a></th>
-                                <td><a class="fill" onclick="dl(hex, 'data.hex')">Download</a></td>
+                                <td><a class="fill" onclick="dl(hex)">Download</a></td>
                                 <td><input id="hex" type="text" style="width: 100%;"></td>
                             </tr>
                         </table>
@@ -53,7 +53,7 @@
         </div>
     </main>
     <script>
-        let base64, urlE, decoded, hex, wordArray, show;
+        let base64, urlE, decoded, hex;
         document.getElementById('file').addEventListener('change', function () {
             const fileInput = document.getElementById('file');
             const file = fileInput.files[0];
@@ -71,34 +71,13 @@
 
 
         function encode(data) {
-            show = false;
-            if (typeof data === "string") { 
-                wordArray = CryptoJS.enc.Utf8.parse(data);
-                show = true;
-            }
-
-            if (data instanceof ArrayBuffer) {
-                wordArray = CryptoJS.lib.WordArray.create(data);
-            }
-
-            if (ArrayBuffer.isView(data)) { // Uint8Array, etc.
-                wordArray = CryptoJS.lib.WordArray.create(data);
-            }
-
             decoded = data;
-            base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(wordArray));
-            urlE = encodeURIComponent(wordArray);
-            hex = CryptoJS.enc.Hex.stringify(CryptoJS.enc.Utf8.parse(wordArray));
-            
-            if (show) {
-                document.getElementById('base64').value = base64;
-                document.getElementById('urlE').value = urlE;
-                document.getElementById('hex').value = hex;
-            } else {
-                document.getElementById('base64').value = "[too large to display]";
-                document.getElementById('urlE').value = "[too large to display]";
-                document.getElementById('hex').value = "[too large to display]";
-            }
+            base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(data));
+            urlE = encodeURIComponent(data);
+            hex = CryptoJS.enc.Hex.stringify(CryptoJS.enc.Utf8.parse(data));
+            document.getElementById('base64').value = base64;
+            document.getElementById('urlE').value = urlE;
+            document.getElementById('hex').value = hex;
         };
 
         function decodeUrl(data) {
@@ -130,11 +109,11 @@
             navigator.clipboard.writeText(str);
         }
 
-        function dl(data, filename) {
+        function dl(data) {
             const a = document.createElement('a');
             const blob = new Blob([data], { type: 'octet/stream' });
             a.href = URL.createObjectURL(blob);
-            a.download = filename;
+            a.download = 'download.dat';
             a.click();
         }
 
