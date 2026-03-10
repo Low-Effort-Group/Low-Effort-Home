@@ -101,7 +101,6 @@ td {
 }
 
 #upload, button {
-    margin: 8px;
     font-family: lowEffortFont !important;
     font-size: 20px;
     border-radius: 8px;
