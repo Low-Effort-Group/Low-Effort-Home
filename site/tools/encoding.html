@@ -16,12 +16,12 @@
     <main>
     <!--#include file="/templates/toolbar.html" -->
         <div style="flex-grow: 1;">
+            <div class="desc">
+                <p>Encode and decode a text string or a file and copy/download them. Supported algorithms:
+                    <br>Base64, URL Encode, Hex encoding.
+                </p>
+            </div>
             <div class="bubble big purple">
-                <div class="desc">
-                    <p>Encode and decode a text string or a file and copy/download them. Supported algorithms:
-                        <br>Base64, URL Encode, Hex encoding.
-                    </p>
-                </div>
                 <div class="bubble">
                     <label for="file">File:</label>
                     <input type="file" id="file"><button onclick="dl(decoded)">Download decoded</button><br><br>
