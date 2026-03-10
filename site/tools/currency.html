@@ -19,134 +19,135 @@
     <main>
         <!--#include file="/templates/toolbar.html" -->
         <div style="flex-grow: 1;">
-            <div class="desc">
-                <p>Convert between different currencies.</p>
-            </div>
-
-            <div class="bubble">
-                <!-- currency 01 -->
-                <div class="currency">
-                    <select id="currency-1">
-                        <option value="AED">AED</option>
-                        <option value="ARS">ARS</option>
-                        <option value="AUD">AUD</option>
-                        <option value="BGN">BGN</option>
-                        <option value="BRL">BRL</option>
-                        <option value="BSD">BSD</option>
-                        <option value="CAD">CAD</option>
-                        <option value="CHF">CHF</option>
-                        <option value="CLP">CLP</option>
-                        <option value="CNY">CNY</option>
-                        <option value="COP">COP</option>
-                        <option value="CZK">CZK</option>
-                        <option value="DKK">DKK</option>
-                        <option value="DOP">DOP</option>
-                        <option value="EGP">EGP</option>
-                        <option value="EUR">EUR</option>
-                        <option value="FJD">FJD</option>
-                        <option value="GBP">GBP</option>
-                        <option value="GTQ">GTQ</option>
-                        <option value="HKD">HKD</option>
-                        <option value="HRK">HRK</option>
-                        <option value="HUF">HUF</option>
-                        <option value="IDR">IDR</option>
-                        <option value="ILS">ILS</option>
-                        <option value="INR">INR</option>
-                        <option value="ISK">ISK</option>
-                        <option value="JPY">JPY</option>
-                        <option value="KRW">KRW</option>
-                        <option value="KZT">KZT</option>
-                        <option value="MXN">MXN</option>
-                        <option value="MYR">MYR</option>
-                        <option value="NOK">NOK</option>
-                        <option value="NZD">NZD</option>
-                        <option value="PAB">PAB</option>
-                        <option value="PEN">PEN</option>
-                        <option value="PHP">PHP</option>
-                        <option value="PKR">PKR</option>
-                        <option value="PLN">PLN</option>
-                        <option value="PYG">PYG</option>
-                        <option value="RON">RON</option>
-                        <option value="RUB">RUB</option>
-                        <option value="SAR">SAR</option>
-                        <option value="SEK" selected>SEK</option>
-                        <option value="SGD">SGD</option>
-                        <option value="THB">THB</option>
-                        <option value="TRY">TRY</option>
-                        <option value="TWD">TWD</option>
-                        <option value="UAH">UAH</option>
-                        <option value="USD">USD</option>
-                        <option value="UYU">UYU</option>
-                        <option value="VND">VND</option>
-                        <option value="ZAR">ZAR</option>
-                    </select>
-                    <input type="number" id="amount-one" placeholder="0" value="1" />
+            <div class="bubble wrap purple">
+                <div class="desc">
+                    <p>Convert between different currencies.</p>
                 </div>
-                <!-- currency 02 -->
-                <div class="currency" id="c-2">
-                    <input type="number" id="amount-two" placeholder="0" value="1" />
+
+                <div class="bubble">
+                    <!-- currency 01 -->
+                    <div class="currency">
+                        <select id="currency-1">
+                            <option value="AED">AED</option>
+                            <option value="ARS">ARS</option>
+                            <option value="AUD">AUD</option>
+                            <option value="BGN">BGN</option>
+                            <option value="BRL">BRL</option>
+                            <option value="BSD">BSD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CLP">CLP</option>
+                            <option value="CNY">CNY</option>
+                            <option value="COP">COP</option>
+                            <option value="CZK">CZK</option>
+                            <option value="DKK">DKK</option>
+                            <option value="DOP">DOP</option>
+                            <option value="EGP">EGP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="FJD">FJD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="GTQ">GTQ</option>
+                            <option value="HKD">HKD</option>
+                            <option value="HRK">HRK</option>
+                            <option value="HUF">HUF</option>
+                            <option value="IDR">IDR</option>
+                            <option value="ILS">ILS</option>
+                            <option value="INR">INR</option>
+                            <option value="ISK">ISK</option>
+                            <option value="JPY">JPY</option>
+                            <option value="KRW">KRW</option>
+                            <option value="KZT">KZT</option>
+                            <option value="MXN">MXN</option>
+                            <option value="MYR">MYR</option>
+                            <option value="NOK">NOK</option>
+                            <option value="NZD">NZD</option>
+                            <option value="PAB">PAB</option>
+                            <option value="PEN">PEN</option>
+                            <option value="PHP">PHP</option>
+                            <option value="PKR">PKR</option>
+                            <option value="PLN">PLN</option>
+                            <option value="PYG">PYG</option>
+                            <option value="RON">RON</option>
+                            <option value="RUB">RUB</option>
+                            <option value="SAR">SAR</option>
+                            <option value="SEK" selected>SEK</option>
+                            <option value="SGD">SGD</option>
+                            <option value="THB">THB</option>
+                            <option value="TRY">TRY</option>
+                            <option value="TWD">TWD</option>
+                            <option value="UAH">UAH</option>
+                            <option value="USD">USD</option>
+                            <option value="UYU">UYU</option>
+                            <option value="VND">VND</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
+                        <input type="number" id="amount-one" placeholder="0" value="1" />
+                    </div>
+                    <!-- currency 02 -->
+                    <div class="currency" id="c-2">
+                        <input type="number" id="amount-two" placeholder="0" value="1" />
+                    </div>
+                </div><br>
+                <div class="bubble wrap">
+                    <p>Convert rate: <span id="rate"></span></p>
                 </div>
-            </div><br>
-            <div class="bubble wrap">
-                <p>Convert rate: <span id="rate"></span></p>
             </div>
-            </div>
-            <script> // for cloning, i like the structure
-                const currency1 = document.getElementById("currency-1");
-                const currency2Container = document.getElementById("c-2");
-
-                const currency_2 = currency1.cloneNode(true);
-                currency_2.id = "currency-2";
-
-                currency2Container.prepend(currency_2);
-
-                // end clone
-
-                const amountOne = document.getElementById("amount-one");
-                const currency2 = document.getElementById("currency-2");
-                const amountTwo = document.getElementById("amount-two");
-                
-                const rateE1 = document.getElementById("rate");
-                
-                let currencyOne;
-                let currencyTwo;
-
-                //Calculate Rates
-                function calculate1() {
-                    variables();
-                    fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne}`)
-                        .then((res) => res.json())
-                        .then((data) => {
-                        const rate = data.rates[currencyTwo];
-                        rateE1.innerHTML = `1 ${currencyOne} = ${rate} ${currencyTwo} `;
-                        amountTwo.value = (rate * amountOne.value).toFixed(2);
-                        });
-                }
-
-                function calculate2() {
-                    variables();
-                    fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne}`)
-                        .then((res) => res.json())
-                        .then((data) => {
-                        const rate = data.rates[currencyTwo];
-                    
-                        rateE1.innerHTML = `1 ${currencyOne} = ${rate} ${currencyTwo} `;
-                        amountOne.value = (amountTwo.value / rate).toFixed(2);
-                        });
-                }
-
-                function variables() {
-                    currencyOne = currency1.value;
-                    currencyTwo = currency2.value;
-                }
-                
-                //Event Listensers
-                currency1.addEventListener("change", calculate1);
-                amountOne.addEventListener("input", calculate1);
-                currency2.addEventListener("change", calculate2);
-                amountTwo.addEventListener("input", calculate2);
-            </script>
         </div>
+        <script> // for cloning, i like the structure
+            const currency1 = document.getElementById("currency-1");
+            const currency2Container = document.getElementById("c-2");
+
+            const currency_2 = currency1.cloneNode(true);
+            currency_2.id = "currency-2";
+
+            currency2Container.prepend(currency_2);
+
+            // end clone
+
+            const amountOne = document.getElementById("amount-one");
+            const currency2 = document.getElementById("currency-2");
+            const amountTwo = document.getElementById("amount-two");
+                
+            const rateE1 = document.getElementById("rate");
+                
+            let currencyOne;
+            let currencyTwo;
+
+            //Calculate Rates
+            function calculate1() {
+                variables();
+                fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                    const rate = data.rates[currencyTwo];
+                    rateE1.innerHTML = `1 ${currencyOne} = ${rate} ${currencyTwo} `;
+                    amountTwo.value = (rate * amountOne.value).toFixed(2);
+                    });
+            }
+
+            function calculate2() {
+                variables();
+                fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                    const rate = data.rates[currencyTwo];
+                    
+                    rateE1.innerHTML = `1 ${currencyOne} = ${rate} ${currencyTwo} `;
+                    amountOne.value = (amountTwo.value / rate).toFixed(2);
+                    });
+            }
+
+            function variables() {
+                currencyOne = currency1.value;
+                currencyTwo = currency2.value;
+            }
+                
+            //Event Listensers
+            currency1.addEventListener("change", calculate1);
+            amountOne.addEventListener("input", calculate1);
+            currency2.addEventListener("change", calculate2);
+            amountTwo.addEventListener("input", calculate2);
+        </script>
     </main>
 </body>
 
