@@ -6,10 +6,11 @@
   </head>
   <body>
     <script type="module">
-      import init, { base64_encode } from "./pkg/wasm.js";
+      import init, { bcrypt, base64_str } from "./pkg/wasm.js";
 
       init().then(() => {
-        console.log(base64_encode("Hello, WebAssembly!"));
+        console.log("Bcrypt: " + bcrypt("Hello, WebAssembly!", 10));
+        console.log("Base64: " + base64_str("Hello, WebAssembly!"));
       });
     </script>
   </body>
