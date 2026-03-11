@@ -6,11 +6,16 @@
   </head>
   <body>
     <script type="module">
-      import init, { bcrypt, base64, str_to_bytes } from "./pkg/wasm.js";
+      import init, { bcrypt, base64, str_to_bytes, md5, sha224, sha256, sha384, sha512 } from "./pkg/wasm.js";
 
       init().then(() => {
         console.log("Bcrypt: " + bcrypt("Hello, WebAssembly!", 10));
-        console.log("Base64: " + base64_str("Hello, WebAssembly!"));
+        console.log("Base64: " + base64(str_to_bytes("Hello, WebAssembly!")));
+        console.log("MD5: "    + md5(str_to_bytes("Hello, WebAssembly!")));
+        console.log("SHA224: " + sha224(str_to_bytes("Hello, WebAssembly!")));
+        console.log("SHA256: " + sha256(str_to_bytes("Hello, WebAssembly!")));
+        console.log("SHA384: " + sha384(str_to_bytes("Hello, WebAssembly!")));
+        console.log("SHA512: " + sha512(str_to_bytes("Hello, WebAssembly!")));
       });
     </script>
   </body>
