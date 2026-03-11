@@ -6,7 +6,7 @@
   </head>
   <body>
     <script type="module">
-      import init, { bcrypt, base64_str } from "./pkg/wasm.js";
+      import init, { bcrypt, base64, str_to_bytes } from "./pkg/wasm.js";
 
       init().then(() => {
         console.log("Bcrypt: " + bcrypt("Hello, WebAssembly!", 10));
