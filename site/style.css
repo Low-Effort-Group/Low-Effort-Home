@@ -73,11 +73,11 @@ table {
 }
 
 th {
-    background-color: #bf00ff;
+    background-color: lightgrey;
 }
 
 th, td {
-    border: 1px solid #dfbfff;
+    border: 1px solid lightgrey;
 }
 
 .v th, .v td {
