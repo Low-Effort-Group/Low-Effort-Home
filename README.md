@@ -20,4 +20,5 @@
 * Extract audio / frames from video
 * Image and/or audio to video
 * Archive conversion (eg. zip > tar, tar.gz > rar)
+* EXIF data
 * Links to [it-tools](https://it-tools.tech/) and [CyberChef](https://gchq.github.io/CyberChef/)
