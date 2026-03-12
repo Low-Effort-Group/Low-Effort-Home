@@ -160,20 +160,19 @@
 
                         function tLengthC1() {
                             if (document.getElementById("lengthU1").value == "" || document.getElementById("lengthU2").value == "") return;
-                            if (document.getElementById("lengthI1").value == "") lengthC2;
-                            else lengthC1;
+                            if (document.getElementById("lengthI1").value == "") lengthC2();
+                            else lengthC1();
                             console.log("hi1")
                         }
 
                         function tLengthC2() {
                             if (document.getElementById("lengthU2").value == "" || document.getElementById("lengthU1").value == "") return;
-                            if (document.getElementById("lengthI2").value == "") lengthC1;
-                            else lengthC2;
+                            if (document.getElementById("lengthI2").value == "") lengthC1();
+                            else lengthC2();
                             console.log("hi2")
                         }
 
                         function lengthC1() {
-                            console.log("hi3")
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI1").value);
                             var fLengthU = document.getElementById("lengthU1").value;
@@ -294,7 +293,6 @@
                             document.getElementById("lengthI2").value = lengthR;
                         }
                         function lengthC2() {
-                            console.log("hi4")
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI2").value);
                             var fLengthU = document.getElementById("lengthU2").value;
