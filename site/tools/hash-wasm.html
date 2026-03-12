@@ -108,6 +108,10 @@
             currentData = str_to_bytes(document.getElementById('text').value);
             compute();
         });
+        
+        function copy(str) {
+            navigator.clipboard.writeText(str);
+        }
     </script>
 </body>
 
