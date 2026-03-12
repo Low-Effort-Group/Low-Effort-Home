@@ -403,6 +403,7 @@
                     </script>
                 </div>
             </div>
+            <br>
             <div class="bubble big purple">
                 <div>
                     <h1 class="title">
@@ -415,16 +416,14 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
                             <select name="areaU1" id="areaU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m2">Square meter</option>  <!--1-->
-
+                                <option value="m2">Square meter</option> <!--1-->
                             </select>
                         </div>
                         <div class="bubble unit">
                             <input type="number" id="areaI2" name="areaI2" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <select name="areaU2" id="areaU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m2">Square meter</option>  <!--1-->
-
+                                <option value="m2">Square meter</option> <!--1-->
                             </select>
                         </div>
                     </div>
@@ -451,16 +450,187 @@
                             var areaV = Number(document.getElementById("areaI2").value);
                             var fAreaU = document.getElementById("areaU2").value;
                             if (areaV == 0) return;
-                            if (fAreaU == "m2")     areaMM = ariaV * 1;
+                            if (fAreaU == "m2") areaMM = ariaV * 1;
 
                             var tAreaU = document.getElementById("areaU1").value;
-                            if (tAreaU == "m2")     areaR = areaMM / 1;
+                            if (tAreaU == "m2") areaR = areaMM / 1;
 
                             document.getElementById("areaI1").value = areaR;
                         }
                     </script>
                 </div>
             </div>
+            <br>
+            <div class="bubble big purple">
+                <div>
+                    <h1 class="title">
+                        Volume Conversion
+                    </h1>
+                    <br>
+                    <div class="flex">
+                        <div class="bubble unit">
+                            <input type="number" id="volumeI1" name="volumeI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+                            <select name="volumeU1" id="volumeU1" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="m3">Cubic meter</option> <!--1-->
+                            </select>
+                        </div>
+                        <div class="bubble unit">
+                            <input type="number" id="volumeI2" name="volumeI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="volumeU2" id="volumeU2" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="m3">Cubic meter</option> <!--1-->
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("volumeU1").addEventListener("change", volumeC1)
+                        document.getElementById("volumeU2").addEventListener("change", volumeC2)
+                        document.getElementById("volumeI1").addEventListener("input", volumeC1)
+                        document.getElementById("volumeI2").addEventListener("input", volumeC2)
+
+                        function volumeC1() {
+                            var volumeMM = 0;
+                            var volumeV = Number(document.getElementById("volumeI1").value);
+                            var fVolumeU = document.getElementById("volumeU1").value;
+                            if (volumeV == 0) return;
+                            if (fVolumeU == "m3") volumeMM = volumeV * 1;
+
+                            var tVolumeU = document.getElementById("volumeU2").value;
+                            if (tVolumeU == "m3") volumeR = volumeMM / 1;
+
+                            document.getElementById("volumeI2").value = volumeR;
+                        }
+                        function volumeC2() {
+                            var volumeMM = 0;
+                            var volumeV = Number(document.getElementById("volumeI2").value);
+                            var fVolumeU = document.getElementById("volumeU2").value;
+                            if (volumeV == 0) return;
+                            if (fVolumeU == "m3") volumeMM = ariaV * 1;
+
+                            var tVolumeU = document.getElementById("volumeU1").value;
+                            if (tVolumeU == "m3") volumeR = volumeMM / 1;
+
+                            document.getElementById("volumeI1").value = volumeR;
+                        }
+                    </script>
+                </div>
+            </div>
+            <br>
+            <div class="bubble big purple">
+                <div>
+                    <h1 class="title">
+                        Mass Conversion
+                    </h1>
+                    <br>
+                    <div class="flex">
+                        <div class="bubble unit">
+                            <input type="number" id="massI1" name="massI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+                            <select name="massU1" id="massU1" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="kg">Kilogram</option> <!--1-->
+                            </select>
+                        </div>
+                        <div class="bubble unit">
+                            <input type="number" id="massI2" name="massI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="massU2" id="massU2" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="kg">Kilogram</option> <!--1-->
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("massU1").addEventListener("change", massC1)
+                        document.getElementById("massU2").addEventListener("change", massC2)
+                        document.getElementById("massI1").addEventListener("input", massC1)
+                        document.getElementById("massI2").addEventListener("input", massC2)
+
+                        function massC1() {
+                            var massMM = 0;
+                            var massV = Number(document.getElementById("massI1").value);
+                            var fMassU = document.getElementById("massU1").value;
+                            if (massV == 0) return;
+                            if (fMassU == "kg") massMM = massV * 1;
+
+                            var tMassU = document.getElementById("massU2").value;
+                            if (tMassU == "kg") massR = massMM / 1;
+
+                            document.getElementById("massI2").value = massR;
+                        }
+                        function massC2() {
+                            var massMM = 0;
+                            var massV = Number(document.getElementById("massI2").value);
+                            var fMassU = document.getElementById("massU2").value;
+                            if (massV == 0) return;
+                            if (fMassU == "kg") massMM = ariaV * 1;
+
+                            var tMassU = document.getElementById("massU1").value;
+                            if (tMassU == "kg") massR = massMM / 1;
+
+                            document.getElementById("massI1").value = massR;
+                        }
+                    </script>
+                </div>
+            </div>
+            <br>
+            <!--<div class="bubble big purple">
+                <div>
+                    <h1 class="title">
+                        Temp Conversion
+                    </h1>
+                    <br>
+                    <div class="flex">
+                        <div class="bubble unit">
+                            <input type="number" id="tempI1" name="tempI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+                            <select name="tempU1" id="tempU1" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="bubble unit">
+                            <input type="number" id="tempI2" name="tempI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="tempU2" id="tempU2" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("tempU1").addEventListener("change", tempC1)
+                        document.getElementById("tempU2").addEventListener("change", tempC2)
+                        document.getElementById("tempI1").addEventListener("input", tempC1)
+                        document.getElementById("tempI2").addEventListener("input", tempC2)
+
+                        function tempC1() {
+                            var tempMM = 0;
+                            var tempV = Number(document.getElementById("tempI1").value);
+                            var fTempU = document.getElementById("tempU1").value;
+                            if (tempV == 0) return;
+                            if (fTempU == "") tempMM = tempV * ;
+
+                            var tTempU = document.getElementById("tempU2").value;
+                            if (tTempU == "") tempR = tempMM / ;
+
+                            document.getElementById("tempI2").value = tempR;
+                        }
+                        function tempC2() {
+                            var tempMM = 0;
+                            var tempV = Number(document.getElementById("tempI2").value);
+                            var fTempU = document.getElementById("tempU2").value;
+                            if (tempV == 0) return;
+                            if (fTempU == "") tempMM = ariaV * ;
+
+                            var tTempU = document.getElementById("tempU1").value;
+                            if (tTempU == "") tempR = tempMM / ;
+
+                            document.getElementById("tempI1").value = tempR;
+                        }
+                    </script>
+                </div>
+            </div>-->
         </div>
     </main>
 </body>
