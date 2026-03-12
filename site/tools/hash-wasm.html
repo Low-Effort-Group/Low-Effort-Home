@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Compute hash</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hash computation - no ads!">
+    <meta name="author" content="Low Effort Group">
+</head>
+
+<body>
+    <!--#include file="/templates/nav.html" -->
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
+        <div style="flex-grow: 1;">    
+            <div class="desc">
+                <p>Hash a text string or a file and copy them. Supported algorithms:
+                    <br>MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, bcrypt
+                </p>
+            </div>
+            <div class="bubble big purple">
+                <div class="bubble">
+                    <label for="file">File:</label>
+                    <input type="file" id="file"><br><br>
+                    <textarea id="text" style="width: 100%; max-width: 100%; resize: vertical;"
+                        placeholder="Or text here..."></textarea> 
+                    <label for="salt">Bcrypt salt rounds:</label>
+                    <input type="number" id="salt" placeholder="Bcrypt salt rounds, default 10" value="10">
+                </div><br>
+                <div class="bubble">
+                    <table id="results">
+                        <tr>
+                            <th><a class="fill" onclick="copy(md5Hash)">MD5:</a></th>
+                                <td><input type="text" class="fill" onclick="copy(md5Hash)" id="md5" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha1Hash)">SHA-1:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha1Hash)" id="sha1" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha224Hash)" id="sha224" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha256Hash)" id="sha256" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha384Hash)" id="sha384" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(sha512Hash)" id="sha512" readonly /></td>
+                        </tr>
+                        </tr>
+                        <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
+                        <td><input type="text" class="fill" onclick="copy(ripemdHash)" id="ripemd" readonly /></td>
+                        </tr>
+                        <tr>
+                            <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
+                            <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly /></td>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module">
+        import init, { encode, str_to_bytes } from "/pkg/wasm.js";
+      
+        init().then(() => {
+            let currentData = new Uint8Array();
+
+            document.getElementById('file').addEventListener('change', function () {
+                const file = this.files[0];
+                if (!file) {
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    currentData = new Uint8Array(e.target.result);
+                    compute();
+                }
+                reader.readAsArrayBuffer(file);
+            });
+
+            document.getElementById('text').addEventListener('input', function () {
+                currentData = str_to_bytes(this.value);
+                compute();
+            });
+
+            document.getElementById('salt').addEventListener('input', function () {
+                compute();
+            });
+
+            function compute() {
+                const salt = parseInt(document.getElementById('salt').value) || 10;
+                let hashes = encode(currentData, salt);
+                document.getElementById('md5').value = hashes[0];
+                document.getElementById('sha224').value = hashes[1];
+                document.getElementById('sha256').value = hashes[2];
+                document.getElementById('sha384').value = hashes[3];
+                document.getElementById('sha512').value = hashes[4];
+                document.getElementById('bcrypt').value = hashes[5];
+            };
+
+            function copy(str) {
+                navigator.clipboard.writeText(str);
+            }
+
+            currentData = str_to_bytes(document.getElementById('text').value);
+            compute();
+        });
+    </script>
+</body>
+
+</html>
