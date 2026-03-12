@@ -72,6 +72,7 @@
       
         init().then(() => {
             let currentData = new Uint8Array();
+            let fileMode = false;
 
             document.getElementById('file').addEventListener('change', function () {
                 const file = this.files[0];
@@ -85,11 +86,14 @@
                     compute();
                 }
                 reader.readAsArrayBuffer(file);
+
+                fileMode = true;
             });
 
             document.getElementById('text').addEventListener('input', function () {
                 currentData = str_to_bytes(this.value);
                 compute();
+                fileMode = false;
             });
 
             document.getElementById('salt').addEventListener('input', function () {
@@ -99,7 +103,7 @@
             function compute() {
                 let time = Date.now();
                 const salt = parseInt(document.getElementById('salt').value) || 10;
-                let hashes = encode(currentData, salt);
+                let hashes = encode(currentData, salt, fileMode);
                 document.getElementById('md5').value = hashes[0];
                 document.getElementById('sha224').value = hashes[1];
                 document.getElementById('sha256').value = hashes[2];

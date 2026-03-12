@@ -22,12 +22,13 @@ export function base64(data) {
 /**
  * @param {Uint8Array} data
  * @param {number} cost
+ * @param {boolean} file
  * @returns {string[]}
  */
-export function encode(data, cost) {
+export function encode(data, cost, file) {
     const ptr0 = passArray8ToWasm0(data, wasm.__wbindgen_malloc);
     const len0 = WASM_VECTOR_LEN;
-    const ret = wasm.encode(ptr0, len0, cost);
+    const ret = wasm.encode(ptr0, len0, cost, file);
     var v2 = getArrayJsValueFromWasm0(ret[0], ret[1]).slice();
     wasm.__wbindgen_free(ret[0], ret[1] * 4, 4);
     return v2;
