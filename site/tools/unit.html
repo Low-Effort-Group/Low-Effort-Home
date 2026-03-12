@@ -27,11 +27,11 @@
                     <br>
                     <div class="flex">
                         <div class="bubble unit">
-                            <input type="number" id="input1" name="input1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <input type="number" id="lengthI1" name="lengthI1" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
-                            <select name="first_length_unit" id="first_length_unit" style="width: 100%;">
+                            <select name="lengthU1" id="lengthU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="~Hubble">Hubble length</option>  <!--~136234518805163520000000000-->
+                                <option value="Hubble">Hubble length</option>   <!--~136234518805163520000000000-->
                                 <option value="Em">Exameter</option>                     <!--1000000000000000000-->
                                 <option value="pc">Parsec</option>                        <!--~30856775814671900-->
                                 <option value="ly">Light-year</option>                     <!--~9460730472580800-->
@@ -90,10 +90,10 @@
                             </select>
                         </div>
                         <div class="bubble unit">
-                            <input type="number" id="input2" name="input2" style="width: calc(100% - 8px);" placeholder="0"><br>
-                            <select name="second_length_unit" id="second_length_unit" style="width: 100%;">
+                            <input type="number" id="lengthI2" name="lengthI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="lengthU2" id="lengthU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="~Hubble">Hubble length</option>  <!--~136234518805163520000000000-->
+                                <option value="Hubble">Hubble length</option>   <!--~136234518805163520000000000-->
                                 <option value="Em">Exameter</option>                     <!--1000000000000000000-->
                                 <option value="pc">Parsec</option>                        <!--~30856775814671900-->
                                 <option value="ly">Light-year</option>                     <!--~9460730472580800-->
@@ -153,252 +153,310 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("first_length_unit").addEventListener("change", first_convert)
-                        document.getElementById("second_length_unit").addEventListener("change", second_convert)
-                        document.getElementById("input1").addEventListener("input", first_convert)
-                        document.getElementById("input2").addEventListener("input", second_convert)
+                        document.getElementById("lengthU1").addEventListener("change", lengthC1)
+                        document.getElementById("lengthU2").addEventListener("change", lengthC2)
+                        document.getElementById("lengthI1").addEventListener("input", lengthC1)
+                        document.getElementById("lengthI2").addEventListener("input", lengthC2)
 
-                        function first_convert() {
-                            var length_middle_man = 0;
-                            var length_value = Number(document.getElementById("input1").value);
-                            var from_length_unit = document.getElementById("first_length_unit").value;
-                            if (length_value == 0) return;
-                            if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
-                            else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
-                            else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
-                            else if (from_length_unit == "ly")     length_middle_man = length_value *            9460730472580800;
-                            else if (from_length_unit == "Pm")     length_middle_man = length_value *            1000000000000000;
-                            else if (from_length_unit == "Tm")     length_middle_man = length_value *               1000000000000;
-                            else if (from_length_unit == "au")     length_middle_man = length_value *                149597870700;
-                            else if (from_length_unit == "Gm")     length_middle_man = length_value *                  1000000000;
-                            else if (from_length_unit == "LD")     length_middle_man = length_value *                   384399000;
-                            else if (from_length_unit == "RE")     length_middle_man = length_value *                     6371008.8;
-                            else if (from_length_unit == "Mm")     length_middle_man = length_value *                     1000000;
-                            else if (from_length_unit == "sMi")    length_middle_man = length_value *                       10000;
-                            else if (from_length_unit == "lea")    length_middle_man = length_value *                        4828.032;
-                            else if (from_length_unit == "nMi")    length_middle_man = length_value *                        1852;
-                            else if (from_length_unit == "mi")     length_middle_man = length_value *                        1609.344;
-                            else if (from_length_unit == "verst")  length_middle_man = length_value *                        1066.8;
-                            else if (from_length_unit == "km")     length_middle_man = length_value *                        1000;
-                            else if (from_length_unit == "Li")     length_middle_man = length_value *                         500;
-                            else if (from_length_unit == "fur")    length_middle_man = length_value *                         201.168;
-                            else if (from_length_unit == "hm")     length_middle_man = length_value *                         100;
-                            else if (from_length_unit == "aff")    length_middle_man = length_value *                          91.44;
-                            else if (from_length_unit == "ch")     length_middle_man = length_value *                          20.1168;
-                            else if (from_length_unit == "ddb")    length_middle_man = length_value *                          11.23;
-                            else if (from_length_unit == "dam")    length_middle_man = length_value *                          10;
-                            else if (from_length_unit == "rd")     length_middle_man = length_value *                           5.0292;
-                            else if (from_length_unit == "hl")     length_middle_man = length_value *                           2.4;
-                            else if (from_length_unit == "fm")     length_middle_man = length_value *                           1.8288;
-                            else if (from_length_unit == "smoot")  length_middle_man = length_value *                           1.7;
-                            else if (from_length_unit == "cana")   length_middle_man = length_value *                           1.57;
-                            else if (from_length_unit == "m")      length_middle_man = length_value *                           1;
-                            else if (from_length_unit == "yd")     length_middle_man = length_value *                           0.9144;
-                            else if (from_length_unit == "chi")    length_middle_man = length_value *                           0.333333;
-                            else if (from_length_unit == "ft")     length_middle_man = length_value *                           0.3048;
-                            else if (from_length_unit == "lk")     length_middle_man = length_value *                           0.201168;
-                            else if (from_length_unit == "dm")     length_middle_man = length_value *                           0.1;
-                            else if (from_length_unit == '"')      length_middle_man = length_value *                           0.0254;
-                            else if (from_length_unit == "cm")     length_middle_man = length_value *                           0.01;
-                            else if (from_length_unit == "mm")     length_middle_man = length_value *                           0.001;
-                            else if (from_length_unit == "toahh")  length_middle_man = length_value *                           0.00008;
-                            else if (from_length_unit == "thou")   length_middle_man = length_value *                           0.0000254;
-                            else if (from_length_unit == "μm")     length_middle_man = length_value *                           0.000001;
-                            else if (from_length_unit == "1 eV−1") length_middle_man = length_value *                           0.000000197;
-                            else if (from_length_unit == "1 / R∞") length_middle_man = length_value *                           0.00000009112670505509;
-                            else if (from_length_unit == "nm")     length_middle_man = length_value *                           0.000000001;
-                            else if (from_length_unit == "Å")      length_middle_man = length_value *                           0.0000000001;
-                            else if (from_length_unit == "a0")     length_middle_man = length_value *                           0.00000000005291772083;
-                            else if (from_length_unit == "λC")     length_middle_man = length_value *                           0.000000000002426310215;
-                            else if (from_length_unit == "pm")     length_middle_man = length_value *                           0.000000000001;
-                            else if (from_length_unit == "(-)λC")  length_middle_man = length_value *                           0.00000000000038615926764;
-                            else if (from_length_unit == "xu")     length_middle_man = length_value *                           0.00000000000001;
-                            else if (from_length_unit == "re")     length_middle_man = length_value *                           0.000000000000002817940285;
-                            else if (from_length_unit == "fm")     length_middle_man = length_value *                           0.000000000000001;
-                            else if (from_length_unit == "lQCD")   length_middle_man = length_value *                           0.0000000000000002103;
-                            else if (from_length_unit == "am")     length_middle_man = length_value *                           0.000000000000000001;
-                            else if (from_length_unit == "𝓁P")     length_middle_man = length_value *                           0.00000000000000000000000000000000001616199;
-                            else if (from_length_unit == "lS")     length_middle_man = length_value *                           0.00000000000000000000000000000000001381;
+                        function lengthC1() {
+                            var lengthMM = 0;
+                            var lengthV = Number(document.getElementById("lengthI1").value);
+                            var fLengthU = document.getElementById("lengthU1").value;
+                            if (lengthV == 0) return;
+                            if (fLengthU == "Hubble")      lengthMM = lengthV * 136234518805163520000000000;
+                            else if (fLengthU == "Em")     lengthMM = lengthV *         1000000000000000000;
+                            else if (fLengthU == "pc")     lengthMM = lengthV *           30856775814671900;
+                            else if (fLengthU == "ly")     lengthMM = lengthV *            9460730472580800;
+                            else if (fLengthU == "Pm")     lengthMM = lengthV *            1000000000000000;
+                            else if (fLengthU == "Tm")     lengthMM = lengthV *               1000000000000;
+                            else if (fLengthU == "au")     lengthMM = lengthV *                149597870700;
+                            else if (fLengthU == "Gm")     lengthMM = lengthV *                  1000000000;
+                            else if (fLengthU == "LD")     lengthMM = lengthV *                   384399000;
+                            else if (fLengthU == "RE")     lengthMM = lengthV *                     6371008.8;
+                            else if (fLengthU == "Mm")     lengthMM = lengthV *                     1000000;
+                            else if (fLengthU == "sMi")    lengthMM = lengthV *                       10000;
+                            else if (fLengthU == "lea")    lengthMM = lengthV *                        4828.032;
+                            else if (fLengthU == "nMi")    lengthMM = lengthV *                        1852;
+                            else if (fLengthU == "mi")     lengthMM = lengthV *                        1609.344;
+                            else if (fLengthU == "verst")  lengthMM = lengthV *                        1066.8;
+                            else if (fLengthU == "km")     lengthMM = lengthV *                        1000;
+                            else if (fLengthU == "Li")     lengthMM = lengthV *                         500;
+                            else if (fLengthU == "fur")    lengthMM = lengthV *                         201.168;
+                            else if (fLengthU == "hm")     lengthMM = lengthV *                         100;
+                            else if (fLengthU == "aff")    lengthMM = lengthV *                          91.44;
+                            else if (fLengthU == "ch")     lengthMM = lengthV *                          20.1168;
+                            else if (fLengthU == "ddb")    lengthMM = lengthV *                          11.23;
+                            else if (fLengthU == "dam")    lengthMM = lengthV *                          10;
+                            else if (fLengthU == "rd")     lengthMM = lengthV *                           5.0292;
+                            else if (fLengthU == "hl")     lengthMM = lengthV *                           2.4;
+                            else if (fLengthU == "fm")     lengthMM = lengthV *                           1.8288;
+                            else if (fLengthU == "smoot")  lengthMM = lengthV *                           1.7;
+                            else if (fLengthU == "cana")   lengthMM = lengthV *                           1.57;
+                            else if (fLengthU == "m")      lengthMM = lengthV *                           1;
+                            else if (fLengthU == "yd")     lengthMM = lengthV *                           0.9144;
+                            else if (fLengthU == "chi")    lengthMM = lengthV *                           0.333333;
+                            else if (fLengthU == "ft")     lengthMM = lengthV *                           0.3048;
+                            else if (fLengthU == "lk")     lengthMM = lengthV *                           0.201168;
+                            else if (fLengthU == "dm")     lengthMM = lengthV *                           0.1;
+                            else if (fLengthU == '"')      lengthMM = lengthV *                           0.0254;
+                            else if (fLengthU == "cm")     lengthMM = lengthV *                           0.01;
+                            else if (fLengthU == "mm")     lengthMM = lengthV *                           0.001;
+                            else if (fLengthU == "toahh")  lengthMM = lengthV *                           0.00008;
+                            else if (fLengthU == "thou")   lengthMM = lengthV *                           0.0000254;
+                            else if (fLengthU == "μm")     lengthMM = lengthV *                           0.000001;
+                            else if (fLengthU == "1 eV−1") lengthMM = lengthV *                           0.000000197;
+                            else if (fLengthU == "1 / R∞") lengthMM = lengthV *                           0.00000009112670505509;
+                            else if (fLengthU == "nm")     lengthMM = lengthV *                           0.000000001;
+                            else if (fLengthU == "Å")      lengthMM = lengthV *                           0.0000000001;
+                            else if (fLengthU == "a0")     lengthMM = lengthV *                           0.00000000005291772083;
+                            else if (fLengthU == "λC")     lengthMM = lengthV *                           0.000000000002426310215;
+                            else if (fLengthU == "pm")     lengthMM = lengthV *                           0.000000000001;
+                            else if (fLengthU == "(-)λC")  lengthMM = lengthV *                           0.00000000000038615926764;
+                            else if (fLengthU == "xu")     lengthMM = lengthV *                           0.00000000000001;
+                            else if (fLengthU == "re")     lengthMM = lengthV *                           0.000000000000002817940285;
+                            else if (fLengthU == "fm")     lengthMM = lengthV *                           0.000000000000001;
+                            else if (fLengthU == "lQCD")   lengthMM = lengthV *                           0.0000000000000002103;
+                            else if (fLengthU == "am")     lengthMM = lengthV *                           0.000000000000000001;
+                            else if (fLengthU == "𝓁P")     lengthMM = lengthV *                           0.00000000000000000000000000000000001616199;
+                            else if (fLengthU == "lS")     lengthMM = lengthV *                           0.00000000000000000000000000000000001381;
                             
-                            var to_length_unit = document.getElementById("second_length_unit").value;
-                            if (to_length_unit == "~Hubble")     result = length_middle_man / 136234518805163520000000000;
-                            else if (to_length_unit == "Em")     result = length_middle_man /         1000000000000000000;
-                            else if (to_length_unit == "pc")     result = length_middle_man /           30856775814671900;
-                            else if (to_length_unit == "ly")     result = length_middle_man /            9460730472580800;
-                            else if (to_length_unit == "Pm")     result = length_middle_man /            1000000000000000;
-                            else if (to_length_unit == "Tm")     result = length_middle_man /               1000000000000;
-                            else if (to_length_unit == "au")     result = length_middle_man /                149597870700;
-                            else if (to_length_unit == "Gm")     result = length_middle_man /                  1000000000;
-                            else if (to_length_unit == "LD")     result = length_middle_man /                   384399000;
-                            else if (to_length_unit == "RE")     result = length_middle_man /                     6371008.8;
-                            else if (to_length_unit == "Mm")     result = length_middle_man /                     1000000;
-                            else if (to_length_unit == "sMi")    result = length_middle_man /                       10000;
-                            else if (to_length_unit == "lea")    result = length_middle_man /                        4828.032;
-                            else if (to_length_unit == "nMi")    result = length_middle_man /                        1852;
-                            else if (to_length_unit == "mi")     result = length_middle_man /                        1609.344;
-                            else if (to_length_unit == "verst")  result = length_middle_man /                        1066.8;
-                            else if (to_length_unit == "km")     result = length_middle_man /                        1000;
-                            else if (to_length_unit == "Li")     result = length_middle_man /                         500;
-                            else if (to_length_unit == "fur")    result = length_middle_man /                         201.168;
-                            else if (to_length_unit == "hm")     result = length_middle_man /                         100;
-                            else if (to_length_unit == "aff")    result = length_middle_man /                          91.44;
-                            else if (to_length_unit == "ch")     result = length_middle_man /                          20.1168;
-                            else if (to_length_unit == "ddb")    result = length_middle_man /                          11.23;
-                            else if (to_length_unit == "dam")    result = length_middle_man /                          10;
-                            else if (to_length_unit == "rd")     result = length_middle_man /                           5.0292;
-                            else if (to_length_unit == "hl")     result = length_middle_man /                           2.4;
-                            else if (to_length_unit == "fm")     result = length_middle_man /                           1.8288;
-                            else if (to_length_unit == "smoot")  result = length_middle_man /                           1.7;
-                            else if (to_length_unit == "cana")   result = length_middle_man /                           1.57;
-                            else if (to_length_unit == "m")      result = length_middle_man /                           1;
-                            else if (to_length_unit == "yd")     result = length_middle_man /                           0.9144;
-                            else if (to_length_unit == "chi")    result = length_middle_man /                           0.333333;
-                            else if (to_length_unit == "ft")     result = length_middle_man /                           0.3048;
-                            else if (to_length_unit == "lk")     result = length_middle_man /                           0.201168;
-                            else if (to_length_unit == "dm")     result = length_middle_man /                           0.1;
-                            else if (to_length_unit == '"')      result = length_middle_man /                           0.0254;
-                            else if (to_length_unit == "cm")     result = length_middle_man /                           0.01;
-                            else if (to_length_unit == "mm")     result = length_middle_man /                           0.001;
-                            else if (to_length_unit == "toahh")  result = length_middle_man /                           0.00008;
-                            else if (to_length_unit == "thou")   result = length_middle_man /                           0.0000254;
-                            else if (to_length_unit == "μm")     result = length_middle_man /                           0.000001;
-                            else if (to_length_unit == "1 eV−1") result = length_middle_man /                           0.000000197;
-                            else if (to_length_unit == "1 / R∞") result = length_middle_man /                           0.00000009112670505509;
-                            else if (to_length_unit == "nm")     result = length_middle_man /                           0.000000001;
-                            else if (to_length_unit == "Å")      result = length_middle_man /                           0.0000000001;
-                            else if (to_length_unit == "a0")     result = length_middle_man /                           0.00000000005291772083;
-                            else if (to_length_unit == "λC")     result = length_middle_man /                           0.000000000002426310215;
-                            else if (to_length_unit == "pm")     result = length_middle_man /                           0.000000000001;
-                            else if (to_length_unit == "(-)λC")  result = length_middle_man /                           0.00000000000038615926764;
-                            else if (to_length_unit == "xu")     result = length_middle_man /                           0.00000000000001;
-                            else if (to_length_unit == "re")     result = length_middle_man /                           0.000000000000002817940285;
-                            else if (to_length_unit == "fm")     result = length_middle_man /                           0.000000000000001;
-                            else if (to_length_unit == "lQCD")   result = length_middle_man /                           0.0000000000000002103;
-                            else if (to_length_unit == "am")     result = length_middle_man /                           0.000000000000000001;
-                            else if (to_length_unit == "𝓁P")     result = length_middle_man /                           0.00000000000000000000000000000000001616199;
-                            else if (to_length_unit == "lS")     result = length_middle_man /                           0.00000000000000000000000000000000001381;
-                            document.getElementById("input2").value = result;
+                            var tLengthU = document.getElementById("lengthU2").value;
+                            if (tLengthU == "Hubble")      lengthR = lengthMM / 136234518805163520000000000;
+                            else if (tLengthU == "Em")     lengthR = lengthMM /         1000000000000000000;
+                            else if (tLengthU == "pc")     lengthR = lengthMM /           30856775814671900;
+                            else if (tLengthU == "ly")     lengthR = lengthMM /            9460730472580800;
+                            else if (tLengthU == "Pm")     lengthR = lengthMM /            1000000000000000;
+                            else if (tLengthU == "Tm")     lengthR = lengthMM /               1000000000000;
+                            else if (tLengthU == "au")     lengthR = lengthMM /                149597870700;
+                            else if (tLengthU == "Gm")     lengthR = lengthMM /                  1000000000;
+                            else if (tLengthU == "LD")     lengthR = lengthMM /                   384399000;
+                            else if (tLengthU == "RE")     lengthR = lengthMM /                     6371008.8;
+                            else if (tLengthU == "Mm")     lengthR = lengthMM /                     1000000;
+                            else if (tLengthU == "sMi")    lengthR = lengthMM /                       10000;
+                            else if (tLengthU == "lea")    lengthR = lengthMM /                        4828.032;
+                            else if (tLengthU == "nMi")    lengthR = lengthMM /                        1852;
+                            else if (tLengthU == "mi")     lengthR = lengthMM /                        1609.344;
+                            else if (tLengthU == "verst")  lengthR = lengthMM /                        1066.8;
+                            else if (tLengthU == "km")     lengthR = lengthMM /                        1000;
+                            else if (tLengthU == "Li")     lengthR = lengthMM /                         500;
+                            else if (tLengthU == "fur")    lengthR = lengthMM /                         201.168;
+                            else if (tLengthU == "hm")     lengthR = lengthMM /                         100;
+                            else if (tLengthU == "aff")    lengthR = lengthMM /                          91.44;
+                            else if (tLengthU == "ch")     lengthR = lengthMM /                          20.1168;
+                            else if (tLengthU == "ddb")    lengthR = lengthMM /                          11.23;
+                            else if (tLengthU == "dam")    lengthR = lengthMM /                          10;
+                            else if (tLengthU == "rd")     lengthR = lengthMM /                           5.0292;
+                            else if (tLengthU == "hl")     lengthR = lengthMM /                           2.4;
+                            else if (tLengthU == "fm")     lengthR = lengthMM /                           1.8288;
+                            else if (tLengthU == "smoot")  lengthR = lengthMM /                           1.7;
+                            else if (tLengthU == "cana")   lengthR = lengthMM /                           1.57;
+                            else if (tLengthU == "m")      lengthR = lengthMM /                           1;
+                            else if (tLengthU == "yd")     lengthR = lengthMM /                           0.9144;
+                            else if (tLengthU == "chi")    lengthR = lengthMM /                           0.333333;
+                            else if (tLengthU == "ft")     lengthR = lengthMM /                           0.3048;
+                            else if (tLengthU == "lk")     lengthR = lengthMM /                           0.201168;
+                            else if (tLengthU == "dm")     lengthR = lengthMM /                           0.1;
+                            else if (tLengthU == '"')      lengthR = lengthMM /                           0.0254;
+                            else if (tLengthU == "cm")     lengthR = lengthMM /                           0.01;
+                            else if (tLengthU == "mm")     lengthR = lengthMM /                           0.001;
+                            else if (tLengthU == "toahh")  lengthR = lengthMM /                           0.00008;
+                            else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
+                            else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
+                            else if (tLengthU == "1 eV−1") lengthR = lengthMM /                           0.000000197;
+                            else if (tLengthU == "1 / R∞") lengthR = lengthMM /                           0.00000009112670505509;
+                            else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
+                            else if (tLengthU == "Å")      lengthR = lengthMM /                           0.0000000001;
+                            else if (tLengthU == "a0")     lengthR = lengthMM /                           0.00000000005291772083;
+                            else if (tLengthU == "λC")     lengthR = lengthMM /                           0.000000000002426310215;
+                            else if (tLengthU == "pm")     lengthR = lengthMM /                           0.000000000001;
+                            else if (tLengthU == "(-)λC")  lengthR = lengthMM /                           0.00000000000038615926764;
+                            else if (tLengthU == "xu")     lengthR = lengthMM /                           0.00000000000001;
+                            else if (tLengthU == "re")     lengthR = lengthMM /                           0.000000000000002817940285;
+                            else if (tLengthU == "fm")     lengthR = lengthMM /                           0.000000000000001;
+                            else if (tLengthU == "lQCD")   lengthR = lengthMM /                           0.0000000000000002103;
+                            else if (tLengthU == "am")     lengthR = lengthMM /                           0.000000000000000001;
+                            else if (tLengthU == "𝓁P")     lengthR = lengthMM /                           0.00000000000000000000000000000000001616199;
+                            else if (tLengthU == "lS")     lengthR = lengthMM /                           0.00000000000000000000000000000000001381;
+                            document.getElementById("input2").value = lengthR;
                         }
-                        function second_convert() {
-                            var length_middle_man = 0;
-                            var length_value = Number(document.getElementById("input2").value);
-                            var from_length_unit = document.getElementById("second_length_unit").value;
-                            if (length_value == 0) return;
-                            if (from_length_unit == "~Hubble")     length_middle_man = length_value * 136234518805163520000000000;
-                            else if (from_length_unit == "Em")     length_middle_man = length_value *         1000000000000000000;
-                            else if (from_length_unit == "pc")     length_middle_man = length_value *           30856775814671900;
-                            else if (from_length_unit == "ly")     length_middle_man = length_value *            9460730472580800;
-                            else if (from_length_unit == "Pm")     length_middle_man = length_value *            1000000000000000;
-                            else if (from_length_unit == "Tm")     length_middle_man = length_value *               1000000000000;
-                            else if (from_length_unit == "au")     length_middle_man = length_value *                149597870700;
-                            else if (from_length_unit == "Gm")     length_middle_man = length_value *                  1000000000;
-                            else if (from_length_unit == "LD")     length_middle_man = length_value *                   384399000;
-                            else if (from_length_unit == "RE")     length_middle_man = length_value *                     6371008.8;
-                            else if (from_length_unit == "Mm")     length_middle_man = length_value *                     1000000;
-                            else if (from_length_unit == "sMi")    length_middle_man = length_value *                       10000;
-                            else if (from_length_unit == "lea")    length_middle_man = length_value *                        4828.032;
-                            else if (from_length_unit == "nMi")    length_middle_man = length_value *                        1852;
-                            else if (from_length_unit == "mi")     length_middle_man = length_value *                        1609.344;
-                            else if (from_length_unit == "verst")  length_middle_man = length_value *                        1066.8;
-                            else if (from_length_unit == "km")     length_middle_man = length_value *                        1000;
-                            else if (from_length_unit == "Li")     length_middle_man = length_value *                         500;
-                            else if (from_length_unit == "fur")    length_middle_man = length_value *                         201.168;
-                            else if (from_length_unit == "hm")     length_middle_man = length_value *                         100;
-                            else if (from_length_unit == "aff")    length_middle_man = length_value *                          91.44;
-                            else if (from_length_unit == "ch")     length_middle_man = length_value *                          20.1168;
-                            else if (from_length_unit == "ddb")    length_middle_man = length_value *                          11.23;
-                            else if (from_length_unit == "dam")    length_middle_man = length_value *                          10;
-                            else if (from_length_unit == "rd")     length_middle_man = length_value *                           5.0292;
-                            else if (from_length_unit == "hl")     length_middle_man = length_value *                           2.4;
-                            else if (from_length_unit == "fm")     length_middle_man = length_value *                           1.8288;
-                            else if (from_length_unit == "smoot")  length_middle_man = length_value *                           1.7;
-                            else if (from_length_unit == "cana")   length_middle_man = length_value *                           1.57;
-                            else if (from_length_unit == "m")      length_middle_man = length_value *                           1;
-                            else if (from_length_unit == "yd")     length_middle_man = length_value *                           0.9144;
-                            else if (from_length_unit == "chi")    length_middle_man = length_value *                           0.333333;
-                            else if (from_length_unit == "ft")     length_middle_man = length_value *                           0.3048;
-                            else if (from_length_unit == "lk")     length_middle_man = length_value *                           0.201168;
-                            else if (from_length_unit == "dm")     length_middle_man = length_value *                           0.1;
-                            else if (from_length_unit == '"')      length_middle_man = length_value *                           0.0254;
-                            else if (from_length_unit == "cm")     length_middle_man = length_value *                           0.01;
-                            else if (from_length_unit == "mm")     length_middle_man = length_value *                           0.001;
-                            else if (from_length_unit == "toahh")  length_middle_man = length_value *                           0.00008;
-                            else if (from_length_unit == "thou")   length_middle_man = length_value *                           0.0000254;
-                            else if (from_length_unit == "μm")     length_middle_man = length_value *                           0.000001;
-                            else if (from_length_unit == "1 eV−1") length_middle_man = length_value *                           0.000000197;
-                            else if (from_length_unit == "1 / R∞") length_middle_man = length_value *                           0.00000009112670505509;
-                            else if (from_length_unit == "nm")     length_middle_man = length_value *                           0.000000001;
-                            else if (from_length_unit == "Å")      length_middle_man = length_value *                           0.0000000001;
-                            else if (from_length_unit == "a0")     length_middle_man = length_value *                           0.00000000005291772083;
-                            else if (from_length_unit == "λC")     length_middle_man = length_value *                           0.000000000002426310215;
-                            else if (from_length_unit == "pm")     length_middle_man = length_value *                           0.000000000001;
-                            else if (from_length_unit == "(-)λC")  length_middle_man = length_value *                           0.00000000000038615926764;
-                            else if (from_length_unit == "xu")     length_middle_man = length_value *                           0.00000000000001;
-                            else if (from_length_unit == "re")     length_middle_man = length_value *                           0.000000000000002817940285;
-                            else if (from_length_unit == "fm")     length_middle_man = length_value *                           0.000000000000001;
-                            else if (from_length_unit == "lQCD")   length_middle_man = length_value *                           0.0000000000000002103;
-                            else if (from_length_unit == "am")     length_middle_man = length_value *                           0.000000000000000001;
-                            else if (from_length_unit == "𝓁P")     length_middle_man = length_value *                           0.00000000000000000000000000000000001616199;
-                            else if (from_length_unit == "lS")     length_middle_man = length_value *                           0.00000000000000000000000000000000001381;
+                        function lengthC2() {
+                            var lengthMM = 0;
+                            var lengthV = Number(document.getElementById("lengthI2").value);
+                            var fLengthU = document.getElementById("lengthU2").value;
+                            if (lengthV == 0) return;
+                            if (fLengthU == "Hubble")      lengthMM = lengthV * 136234518805163520000000000;
+                            else if (fLengthU == "Em")     lengthMM = lengthV *         1000000000000000000;
+                            else if (fLengthU == "pc")     lengthMM = lengthV *           30856775814671900;
+                            else if (fLengthU == "ly")     lengthMM = lengthV *            9460730472580800;
+                            else if (fLengthU == "Pm")     lengthMM = lengthV *            1000000000000000;
+                            else if (fLengthU == "Tm")     lengthMM = lengthV *               1000000000000;
+                            else if (fLengthU == "au")     lengthMM = lengthV *                149597870700;
+                            else if (fLengthU == "Gm")     lengthMM = lengthV *                  1000000000;
+                            else if (fLengthU == "LD")     lengthMM = lengthV *                   384399000;
+                            else if (fLengthU == "RE")     lengthMM = lengthV *                     6371008.8;
+                            else if (fLengthU == "Mm")     lengthMM = lengthV *                     1000000;
+                            else if (fLengthU == "sMi")    lengthMM = lengthV *                       10000;
+                            else if (fLengthU == "lea")    lengthMM = lengthV *                        4828.032;
+                            else if (fLengthU == "nMi")    lengthMM = lengthV *                        1852;
+                            else if (fLengthU == "mi")     lengthMM = lengthV *                        1609.344;
+                            else if (fLengthU == "verst")  lengthMM = lengthV *                        1066.8;
+                            else if (fLengthU == "km")     lengthMM = lengthV *                        1000;
+                            else if (fLengthU == "Li")     lengthMM = lengthV *                         500;
+                            else if (fLengthU == "fur")    lengthMM = lengthV *                         201.168;
+                            else if (fLengthU == "hm")     lengthMM = lengthV *                         100;
+                            else if (fLengthU == "aff")    lengthMM = lengthV *                          91.44;
+                            else if (fLengthU == "ch")     lengthMM = lengthV *                          20.1168;
+                            else if (fLengthU == "ddb")    lengthMM = lengthV *                          11.23;
+                            else if (fLengthU == "dam")    lengthMM = lengthV *                          10;
+                            else if (fLengthU == "rd")     lengthMM = lengthV *                           5.0292;
+                            else if (fLengthU == "hl")     lengthMM = lengthV *                           2.4;
+                            else if (fLengthU == "fm")     lengthMM = lengthV *                           1.8288;
+                            else if (fLengthU == "smoot")  lengthMM = lengthV *                           1.7;
+                            else if (fLengthU == "cana")   lengthMM = lengthV *                           1.57;
+                            else if (fLengthU == "m")      lengthMM = lengthV *                           1;
+                            else if (fLengthU == "yd")     lengthMM = lengthV *                           0.9144;
+                            else if (fLengthU == "chi")    lengthMM = lengthV *                           0.333333;
+                            else if (fLengthU == "ft")     lengthMM = lengthV *                           0.3048;
+                            else if (fLengthU == "lk")     lengthMM = lengthV *                           0.201168;
+                            else if (fLengthU == "dm")     lengthMM = lengthV *                           0.1;
+                            else if (fLengthU == '"')      lengthMM = lengthV *                           0.0254;
+                            else if (fLengthU == "cm")     lengthMM = lengthV *                           0.01;
+                            else if (fLengthU == "mm")     lengthMM = lengthV *                           0.001;
+                            else if (fLengthU == "toahh")  lengthMM = lengthV *                           0.00008;
+                            else if (fLengthU == "thou")   lengthMM = lengthV *                           0.0000254;
+                            else if (fLengthU == "μm")     lengthMM = lengthV *                           0.000001;
+                            else if (fLengthU == "1 eV−1") lengthMM = lengthV *                           0.000000197;
+                            else if (fLengthU == "1 / R∞") lengthMM = lengthV *                           0.00000009112670505509;
+                            else if (fLengthU == "nm")     lengthMM = lengthV *                           0.000000001;
+                            else if (fLengthU == "Å")      lengthMM = lengthV *                           0.0000000001;
+                            else if (fLengthU == "a0")     lengthMM = lengthV *                           0.00000000005291772083;
+                            else if (fLengthU == "λC")     lengthMM = lengthV *                           0.000000000002426310215;
+                            else if (fLengthU == "pm")     lengthMM = lengthV *                           0.000000000001;
+                            else if (fLengthU == "(-)λC")  lengthMM = lengthV *                           0.00000000000038615926764;
+                            else if (fLengthU == "xu")     lengthMM = lengthV *                           0.00000000000001;
+                            else if (fLengthU == "re")     lengthMM = lengthV *                           0.000000000000002817940285;
+                            else if (fLengthU == "fm")     lengthMM = lengthV *                           0.000000000000001;
+                            else if (fLengthU == "lQCD")   lengthMM = lengthV *                           0.0000000000000002103;
+                            else if (fLengthU == "am")     lengthMM = lengthV *                           0.000000000000000001;
+                            else if (fLengthU == "𝓁P")     lengthMM = lengthV *                           0.00000000000000000000000000000000001616199;
+                            else if (fLengthU == "lS")     lengthMM = lengthV *                           0.00000000000000000000000000000000001381;
                             
-                            var to_length_unit = document.getElementById("first_length_unit").value;
-                            if (to_length_unit == "~Hubble")     result = length_middle_man / 136234518805163520000000000;
-                            else if (to_length_unit == "Em")     result = length_middle_man /         1000000000000000000;
-                            else if (to_length_unit == "pc")     result = length_middle_man /           30856775814671900;
-                            else if (to_length_unit == "ly")     result = length_middle_man /            9460730472580800;
-                            else if (to_length_unit == "Pm")     result = length_middle_man /            1000000000000000;
-                            else if (to_length_unit == "Tm")     result = length_middle_man /               1000000000000;
-                            else if (to_length_unit == "au")     result = length_middle_man /                149597870700;
-                            else if (to_length_unit == "Gm")     result = length_middle_man /                  1000000000;
-                            else if (to_length_unit == "LD")     result = length_middle_man /                   384399000;
-                            else if (to_length_unit == "RE")     result = length_middle_man /                     6371008.8;
-                            else if (to_length_unit == "Mm")     result = length_middle_man /                     1000000;
-                            else if (to_length_unit == "sMi")    result = length_middle_man /                       10000;
-                            else if (to_length_unit == "lea")    result = length_middle_man /                        4828.032;
-                            else if (to_length_unit == "nMi")    result = length_middle_man /                        1852;
-                            else if (to_length_unit == "mi")     result = length_middle_man /                        1609.344;
-                            else if (to_length_unit == "verst")  result = length_middle_man /                        1066.8;
-                            else if (to_length_unit == "km")     result = length_middle_man /                        1000;
-                            else if (to_length_unit == "Li")     result = length_middle_man /                         500;
-                            else if (to_length_unit == "fur")    result = length_middle_man /                         201.168;
-                            else if (to_length_unit == "hm")     result = length_middle_man /                         100;
-                            else if (to_length_unit == "aff")    result = length_middle_man /                          91.44;
-                            else if (to_length_unit == "ch")     result = length_middle_man /                          20.1168;
-                            else if (to_length_unit == "ddb")    result = length_middle_man /                          11.23;
-                            else if (to_length_unit == "dam")    result = length_middle_man /                          10;
-                            else if (to_length_unit == "rd")     result = length_middle_man /                           5.0292;
-                            else if (to_length_unit == "hl")     result = length_middle_man /                           2.4;
-                            else if (to_length_unit == "fm")     result = length_middle_man /                           1.8288;
-                            else if (to_length_unit == "smoot")  result = length_middle_man /                           1.7;
-                            else if (to_length_unit == "cana")   result = length_middle_man /                           1.57;
-                            else if (to_length_unit == "m")      result = length_middle_man /                           1;
-                            else if (to_length_unit == "yd")     result = length_middle_man /                           0.9144;
-                            else if (to_length_unit == "chi")    result = length_middle_man /                           0.333333;
-                            else if (to_length_unit == "ft")     result = length_middle_man /                           0.3048;
-                            else if (to_length_unit == "lk")     result = length_middle_man /                           0.201168;
-                            else if (to_length_unit == "dm")     result = length_middle_man /                           0.1;
-                            else if (to_length_unit == '"')      result = length_middle_man /                           0.0254;
-                            else if (to_length_unit == "cm")     result = length_middle_man /                           0.01;
-                            else if (to_length_unit == "mm")     result = length_middle_man /                           0.001;
-                            else if (to_length_unit == "toahh")  result = length_middle_man /                           0.00008;
-                            else if (to_length_unit == "thou")   result = length_middle_man /                           0.0000254;
-                            else if (to_length_unit == "μm")     result = length_middle_man /                           0.000001;
-                            else if (to_length_unit == "1 eV−1") result = length_middle_man /                           0.000000197;
-                            else if (to_length_unit == "1 / R∞") result = length_middle_man /                           0.00000009112670505509;
-                            else if (to_length_unit == "nm")     result = length_middle_man /                           0.000000001;
-                            else if (to_length_unit == "Å")      result = length_middle_man /                           0.0000000001;
-                            else if (to_length_unit == "a0")     result = length_middle_man /                           0.00000000005291772083;
-                            else if (to_length_unit == "λC")     result = length_middle_man /                           0.000000000002426310215;
-                            else if (to_length_unit == "pm")     result = length_middle_man /                           0.000000000001;
-                            else if (to_length_unit == "(-)λC")  result = length_middle_man /                           0.00000000000038615926764;
-                            else if (to_length_unit == "xu")     result = length_middle_man /                           0.00000000000001;
-                            else if (to_length_unit == "re")     result = length_middle_man /                           0.000000000000002817940285;
-                            else if (to_length_unit == "fm")     result = length_middle_man /                           0.000000000000001;
-                            else if (to_length_unit == "lQCD")   result = length_middle_man /                           0.0000000000000002103;
-                            else if (to_length_unit == "am")     result = length_middle_man /                           0.000000000000000001;
-                            else if (to_length_unit == "𝓁P")     result = length_middle_man /                           0.00000000000000000000000000000000001616199;
-                            else if (to_length_unit == "lS")     result = length_middle_man /                           0.00000000000000000000000000000000001381;
-                            document.getElementById("input1").value = result;
+                            var tLengthU = document.getElementById("lengthU1").value;
+                            if (tLengthU == "Hubble")      lengthR = lengthMM / 136234518805163520000000000;
+                            else if (tLengthU == "Em")     lengthR = lengthMM /         1000000000000000000;
+                            else if (tLengthU == "pc")     lengthR = lengthMM /           30856775814671900;
+                            else if (tLengthU == "ly")     lengthR = lengthMM /            9460730472580800;
+                            else if (tLengthU == "Pm")     lengthR = lengthMM /            1000000000000000;
+                            else if (tLengthU == "Tm")     lengthR = lengthMM /               1000000000000;
+                            else if (tLengthU == "au")     lengthR = lengthMM /                149597870700;
+                            else if (tLengthU == "Gm")     lengthR = lengthMM /                  1000000000;
+                            else if (tLengthU == "LD")     lengthR = lengthMM /                   384399000;
+                            else if (tLengthU == "RE")     lengthR = lengthMM /                     6371008.8;
+                            else if (tLengthU == "Mm")     lengthR = lengthMM /                     1000000;
+                            else if (tLengthU == "sMi")    lengthR = lengthMM /                       10000;
+                            else if (tLengthU == "lea")    lengthR = lengthMM /                        4828.032;
+                            else if (tLengthU == "nMi")    lengthR = lengthMM /                        1852;
+                            else if (tLengthU == "mi")     lengthR = lengthMM /                        1609.344;
+                            else if (tLengthU == "verst")  lengthR = lengthMM /                        1066.8;
+                            else if (tLengthU == "km")     lengthR = lengthMM /                        1000;
+                            else if (tLengthU == "Li")     lengthR = lengthMM /                         500;
+                            else if (tLengthU == "fur")    lengthR = lengthMM /                         201.168;
+                            else if (tLengthU == "hm")     lengthR = lengthMM /                         100;
+                            else if (tLengthU == "aff")    lengthR = lengthMM /                          91.44;
+                            else if (tLengthU == "ch")     lengthR = lengthMM /                          20.1168;
+                            else if (tLengthU == "ddb")    lengthR = lengthMM /                          11.23;
+                            else if (tLengthU == "dam")    lengthR = lengthMM /                          10;
+                            else if (tLengthU == "rd")     lengthR = lengthMM /                           5.0292;
+                            else if (tLengthU == "hl")     lengthR = lengthMM /                           2.4;
+                            else if (tLengthU == "fm")     lengthR = lengthMM /                           1.8288;
+                            else if (tLengthU == "smoot")  lengthR = lengthMM /                           1.7;
+                            else if (tLengthU == "cana")   lengthR = lengthMM /                           1.57;
+                            else if (tLengthU == "m")      lengthR = lengthMM /                           1;
+                            else if (tLengthU == "yd")     lengthR = lengthMM /                           0.9144;
+                            else if (tLengthU == "chi")    lengthR = lengthMM /                           0.333333;
+                            else if (tLengthU == "ft")     lengthR = lengthMM /                           0.3048;
+                            else if (tLengthU == "lk")     lengthR = lengthMM /                           0.201168;
+                            else if (tLengthU == "dm")     lengthR = lengthMM /                           0.1;
+                            else if (tLengthU == '"')      lengthR = lengthMM /                           0.0254;
+                            else if (tLengthU == "cm")     lengthR = lengthMM /                           0.01;
+                            else if (tLengthU == "mm")     lengthR = lengthMM /                           0.001;
+                            else if (tLengthU == "toahh")  lengthR = lengthMM /                           0.00008;
+                            else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
+                            else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
+                            else if (tLengthU == "1 eV−1") lengthR = lengthMM /                           0.000000197;
+                            else if (tLengthU == "1 / R∞") lengthR = lengthMM /                           0.00000009112670505509;
+                            else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
+                            else if (tLengthU == "Å")      lengthR = lengthMM /                           0.0000000001;
+                            else if (tLengthU == "a0")     lengthR = lengthMM /                           0.00000000005291772083;
+                            else if (tLengthU == "λC")     lengthR = lengthMM /                           0.000000000002426310215;
+                            else if (tLengthU == "pm")     lengthR = lengthMM /                           0.000000000001;
+                            else if (tLengthU == "(-)λC")  lengthR = lengthMM /                           0.00000000000038615926764;
+                            else if (tLengthU == "xu")     lengthR = lengthMM /                           0.00000000000001;
+                            else if (tLengthU == "re")     lengthR = lengthMM /                           0.000000000000002817940285;
+                            else if (tLengthU == "fm")     lengthR = lengthMM /                           0.000000000000001;
+                            else if (tLengthU == "lQCD")   lengthR = lengthMM /                           0.0000000000000002103;
+                            else if (tLengthU == "am")     lengthR = lengthMM /                           0.000000000000000001;
+                            else if (tLengthU == "𝓁P")     lengthR = lengthMM /                           0.00000000000000000000000000000000001616199;
+                            else if (tLengthU == "lS")     lengthR = lengthMM /                           0.00000000000000000000000000000000001381;
+                            document.getElementById("input1").value = lengthR;
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="bubble big purple">
+                <div>
+                    <h1 class="title">
+                        Area Conversion
+                    </h1>
+                    <br>
+                    <div class="flex">
+                        <div class="bubble unit">
+                            <input type="number" id="areaI1" name="areaI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+                            <select name="areaU1" id="areaU1" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="m2">Square meter</option>  <!--1-->
+
+                            </select>
+                        </div>
+                        <div class="bubble unit">
+                            <input type="number" id="areaI2" name="areaI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="areaU2" id="areaU2" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="m2">Square meter</option>  <!--1-->
+
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("areaU1").addEventListener("change", areaC1)
+                        document.getElementById("areaU2").addEventListener("change", areaC2)
+                        document.getElementById("areaI1").addEventListener("input", areaC1)
+                        document.getElementById("areaI2").addEventListener("input", areaC2)
+
+                        function areaC1() {
+                            var areaMM = 0;
+                            var areaV = Number(document.getElementById("areaI1").value);
+                            var fAreaU = document.getElementById("areaU1").value;
+                            if (areaV == 0) return;
+                            if (fAreaU == "m2") areaMM = areaV * 1;
+
+                            var tAreaU = document.getElementById("areaU2").value;
+                            if (tAreaU == "m2") areaR = areaMM / 1;
+
+                            document.getElementById("areaI2").value = areaR;
+                        }
+                        function areaC2() {
+                            var areaMM = 0;
+                            var areaV = Number(document.getElementById("areaI2").value);
+                            var fAreaU = document.getElementById("areaU2").value;
+                            if (areaV == 0) return;
+                            if (fAreaU == "m2")     areaMM = ariaV * 1;
+
+                            var tAreaU = document.getElementById("areaU1").value;
+                            if (tAreaU == "m2")     areaR = areaMM / 1;
+
+                            document.getElementById("areaI1").value = areaR;
                         }
                     </script>
                 </div>
