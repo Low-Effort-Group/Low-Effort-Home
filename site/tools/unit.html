@@ -153,16 +153,27 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("lengthU1").addEventListener("change", lengthC1)
-                        document.getElementById("lengthU2").addEventListener("change", lengthC2)
-                        document.getElementById("lengthI1").addEventListener("input", lengthC1)
-                        document.getElementById("lengthI2").addEventListener("input", lengthC2)
+                        document.getElementById("lengthU1").addEventListener("change", tLengthC1)
+                        document.getElementById("lengthU2").addEventListener("change", tLengthC2)
+                        document.getElementById("lengthI1").addEventListener("input", tLengthC1)
+                        document.getElementById("lengthI2").addEventListener("input", tLengthC2)
+
+                        function tLengthC1() {
+                            if (document.getElementById("lengthU1").value == "" || document.getElementById("lengthU2").value == "") return;
+                            if (document.getElementById("lengthI1").value == 0) lengthC2;
+                            else lengthC1;
+                        }
+
+                        function tLengthC2() {
+                            if (document.getElementById("lengthU2").value == "" || document.getElementById("lengthU1").value == "") return;
+                            if (document.getElementById("lengthI2").value == 0) lengthC1;
+                            else lengthC2;
+                        }
 
                         function lengthC1() {
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI1").value);
                             var fLengthU = document.getElementById("lengthU1").value;
-                            if (lengthV == 0) return;
                             if (fLengthU == "Hubble")      lengthMM = lengthV * 136234518805163520000000000;
                             else if (fLengthU == "Em")     lengthMM = lengthV *         1000000000000000000;
                             else if (fLengthU == "pc")     lengthMM = lengthV *           30856775814671900;
@@ -283,7 +294,6 @@
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI2").value);
                             var fLengthU = document.getElementById("lengthU2").value;
-                            if (lengthV == 0) return;
                             if (fLengthU == "Hubble")      lengthMM = lengthV * 136234518805163520000000000;
                             else if (fLengthU == "Em")     lengthMM = lengthV *         1000000000000000000;
                             else if (fLengthU == "pc")     lengthMM = lengthV *           30856775814671900;
@@ -437,7 +447,6 @@
                             var areaMM = 0;
                             var areaV = Number(document.getElementById("areaI1").value);
                             var fAreaU = document.getElementById("areaU1").value;
-                            if (areaV == 0) return;
                             if (fAreaU == "m2") areaMM = areaV * 1;
 
                             var tAreaU = document.getElementById("areaU2").value;
@@ -449,7 +458,6 @@
                             var areaMM = 0;
                             var areaV = Number(document.getElementById("areaI2").value);
                             var fAreaU = document.getElementById("areaU2").value;
-                            if (areaV == 0) return;
                             if (fAreaU == "m2") areaMM = ariaV * 1;
 
                             var tAreaU = document.getElementById("areaU1").value;
@@ -494,7 +502,6 @@
                             var volumeMM = 0;
                             var volumeV = Number(document.getElementById("volumeI1").value);
                             var fVolumeU = document.getElementById("volumeU1").value;
-                            if (volumeV == 0) return;
                             if (fVolumeU == "m3") volumeMM = volumeV * 1;
 
                             var tVolumeU = document.getElementById("volumeU2").value;
@@ -506,7 +513,6 @@
                             var volumeMM = 0;
                             var volumeV = Number(document.getElementById("volumeI2").value);
                             var fVolumeU = document.getElementById("volumeU2").value;
-                            if (volumeV == 0) return;
                             if (fVolumeU == "m3") volumeMM = ariaV * 1;
 
                             var tVolumeU = document.getElementById("volumeU1").value;
@@ -551,7 +557,6 @@
                             var massMM = 0;
                             var massV = Number(document.getElementById("massI1").value);
                             var fMassU = document.getElementById("massU1").value;
-                            if (massV == 0) return;
                             if (fMassU == "kg") massMM = massV * 1;
 
                             var tMassU = document.getElementById("massU2").value;
@@ -563,7 +568,6 @@
                             var massMM = 0;
                             var massV = Number(document.getElementById("massI2").value);
                             var fMassU = document.getElementById("massU2").value;
-                            if (massV == 0) return;
                             if (fMassU == "kg") massMM = ariaV * 1;
 
                             var tMassU = document.getElementById("massU1").value;
@@ -608,7 +612,6 @@
                             var tempMM = 0;
                             var tempV = Number(document.getElementById("tempI1").value);
                             var fTempU = document.getElementById("tempU1").value;
-                            if (tempV == 0) return;
                             if (fTempU == "") tempMM = tempV * ;
 
                             var tTempU = document.getElementById("tempU2").value;
@@ -620,7 +623,6 @@
                             var tempMM = 0;
                             var tempV = Number(document.getElementById("tempI2").value);
                             var fTempU = document.getElementById("tempU2").value;
-                            if (tempV == 0) return;
                             if (fTempU == "") tempMM = ariaV * ;
 
                             var tTempU = document.getElementById("tempU1").value;
