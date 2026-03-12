@@ -95,6 +95,7 @@
         });
 
         function compute(data) {
+            let time = Date.now();
             let wordArray;
             let bcryptText;
 
@@ -123,6 +124,7 @@
             document.getElementById('sha512').value = sha512Hash;
             document.getElementById('ripemd').value = ripemdHash;
             document.getElementById('bcrypt').value = bcryptHash;
+            console.log(Date.now() - time);
         };
 
         function copy(str) {
