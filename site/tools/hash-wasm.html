@@ -40,28 +40,17 @@
                             <td><input type="text" class="fill" onclick="copy(sha1Hash)" id="sha1" readonly /></td>
                         </tr>
                         <tr>
-                            <th><a class="fill" onclick="copy(sha224Hash)">SHA-224:</a></th>
-                            <td><input type="text" class="fill" onclick="copy(sha224Hash)" id="sha224" readonly /></td>
-                        </tr>
-                        <tr>
                             <th><a class="fill" onclick="copy(sha256Hash)">SHA-256:</a></th>
                             <td><input type="text" class="fill" onclick="copy(sha256Hash)" id="sha256" readonly /></td>
-                        </tr>
-                        <tr>
-                            <th><a class="fill" onclick="copy(sha384Hash)">SHA-384:</a></th>
-                            <td><input type="text" class="fill" onclick="copy(sha384Hash)" id="sha384" readonly /></td>
                         </tr>
                         <tr>
                             <th><a class="fill" onclick="copy(sha512Hash)">SHA-512:</a></th>
                             <td><input type="text" class="fill" onclick="copy(sha512Hash)" id="sha512" readonly /></td>
                         </tr>
-                        </tr>
-                        <th><a class="fill" onclick="copy(ripemdHash)">RIPEMD-160:</a></th>
-                        <td><input type="text" class="fill" onclick="copy(ripemdHash)" id="ripemd" readonly /></td>
-                        </tr>
                         <tr>
                             <th><a class="fill" onclick="copy(bcryptHash)">bcrypt:</a></th>
-                            <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly /></td>
+                            <td><input type="text" class="fill" onclick="copy(bcryptHash)" id="bcrypt" readonly />
+                        </td>
                     </table>
                 </div>
             </div>
@@ -105,11 +94,10 @@
                 const salt = parseInt(document.getElementById('salt').value) || 10;
                 let hashes = encode(currentData, salt, fileMode);
                 document.getElementById('md5').value = hashes[0];
-                document.getElementById('sha224').value = hashes[1];
+                document.getElementById('sha1').value = hashes[1];
                 document.getElementById('sha256').value = hashes[2];
-                document.getElementById('sha384').value = hashes[3];
-                document.getElementById('sha512').value = hashes[4];
-                document.getElementById('bcrypt').value = hashes[5];
+                document.getElementById('sha512').value = hashes[3];
+                document.getElementById('bcrypt').value = hashes[4];
                 console.log(Date.now() - time);
             };
 
