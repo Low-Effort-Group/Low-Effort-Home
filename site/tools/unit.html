@@ -153,23 +153,35 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("lengthU1").addEventListener("change", tLengthC1)
-                        document.getElementById("lengthU2").addEventListener("change", tLengthC2)
-                        document.getElementById("lengthI1").addEventListener("input", tLengthC1)
-                        document.getElementById("lengthI2").addEventListener("input", tLengthC2)
+                        document.getElementById("lengthU1").addEventListener("change", tLengthC1u)
+                        document.getElementById("lengthU2").addEventListener("change", tLengthC2u)
+                        document.getElementById("lengthI1").addEventListener("input", tLengthC1i)
+                        document.getElementById("lengthI2").addEventListener("input", tLengthC2i)
 
-                        function tLengthC1() {
-                            if (document.getElementById("lengthU1").value == "" || document.getElementById("lengthU2").value == "") return;
-                            if (document.getElementById("lengthI1").value == "") lengthC2();
+                        function tLengthC1u() {
+                            if (document.getElementById("lengthU2").value == "") return;
+                            if (document.getElementById("lengthI1").value == "" && document.getElementById("lengthI2").value == "") return;
+                            else if (document.getElementById("lengthI1").value != "" && document.getElementById("lengthI2").value != "") lengthC2();
+                            else if (document.getElementById("lengthI1").value == "" && document.getElementById("lengthI2").value != "") lengthC2();
                             else lengthC1();
-                            console.log("hi1")
                         }
 
-                        function tLengthC2() {
-                            if (document.getElementById("lengthU2").value == "" || document.getElementById("lengthU1").value == "") return;
-                            if (document.getElementById("lengthI2").value == "") lengthC1();
+                        function tLengthC2u() {
+                            if (document.getElementById("lengthU1").value == "") return;
+                            if (document.getElementById("lengthI2").value == "" && document.getElementById("lengthI1").value == "") return;
+                            else if (document.getElementById("lengthI2").value != "" && document.getElementById("lengthI1").value != "") lengthC1();
+                            else if (document.getElementById("lengthI2").value == "" && document.getElementById("lengthI1").value != "") lengthC1();
                             else lengthC2();
-                            console.log("hi2")
+                        }
+
+                        function tLengthC1i() {
+                            if (document.getElementById("lengthU1").value == "" || document.getElementById("lengthU2").value == "") return;
+                            lengthC1();
+                        }
+
+                        function tLengthC2i() {
+                            if (document.getElementById("lengthU2").value == "" || document.getElementById("lengthU1").value == "") return;
+                            else lengthC2();
                         }
 
                         function lengthC1() {
