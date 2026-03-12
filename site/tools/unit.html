@@ -160,14 +160,14 @@
 
                         function tLengthC1() {
                             if (document.getElementById("lengthU1").value == "" || document.getElementById("lengthU2").value == "") return;
-                            if (document.getElementById("lengthI1").value == 0) lengthC2;
+                            if (document.getElementById("lengthI1").value == "") lengthC2;
                             else lengthC1;
                             console.log("hi")
                         }
 
                         function tLengthC2() {
                             if (document.getElementById("lengthU2").value == "" || document.getElementById("lengthU1").value == "") return;
-                            if (document.getElementById("lengthI2").value == 0) lengthC1;
+                            if (document.getElementById("lengthI2").value == "") lengthC1;
                             else lengthC2;
                             console.log("hi")
                         }
