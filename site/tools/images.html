@@ -2,21 +2,38 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>hello-wasm example</title>
+    <title>Image Converter</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Image conversion - no ads!">
+    <meta name="author" content="Low Effort Group">
   </head>
   <body>
-    <input type="file" id="photo" name="photo">
-    <select name="format" id="format">
-      <option value="png">PNG</option>
-      <option value="jpeg">JPEG</option>
-      <option value="webp">WebP</option>
-      <option value="avif">AVIF</option>
-      <option value="gif">GIF</option>
-      <option value="ico">ICO</option>
-    </select>
-    <button id="convert">Convert</button>
+    <!--#include file="/templates/nav.html" -->
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
+      <div style="flex-grow: 1;">    
+          <div class="desc">
+              <p>Convert an image to another format.</p>
+          </div>
+          <div class="bubble big purple">
+              <div class="bubble">
+                <input type="file" id="photo" name="photo">
+                <select name="format" id="format">
+                  <option value="png">PNG</option>
+                  <option value="jpeg">JPEG</option>
+                  <option value="webp">WebP</option>
+                  <option value="avif">AVIF</option>
+                  <option value="gif">GIF</option>
+                  <option value="ico">ICO</option>
+                </select>
+                <button id="convert">Convert</button>
+              </div>
+          </div>
+      </div>
+  </main>
     <script type="module">
-      import init, { transcode } from "./pkg/media.js";
+      import init, { transcode } from "/pkg/media.js";
       
       init().then(() => {
         document.getElementById("convert").addEventListener("click", function () {
