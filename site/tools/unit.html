@@ -31,7 +31,6 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
                             <select name="lengthU1" id="lengthU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="Em">Exameter</option>                     <!--1000000000000000000-->
                                 <option value="ly">Light-year</option>                     <!--~9460730472580800-->
                                 <option value="Pm">Petameter</option>                       <!--1000000000000000-->
                                 <option value="Tm">Terameter</option>                          <!--1000000000000-->
@@ -47,22 +46,18 @@
                                 <option value="yd">Yard</option>                                           <!--0.9144-->
                                 <option value="ft">Foot</option>                                           <!--0.3048-->
                                 <option value="dm">Decimeter</option>                                      <!--0.1-->
-                                <option value='"'>Inch</option>                                            <!--0.0254-->
+                                <option value="in">Inch</option>                                            <!--0.0254-->
                                 <option value="cm">Centimeter</option>                                     <!--0.01-->
                                 <option value="mm">Millimeter</option>                                     <!--0.001-->
                                 <option value="thou">Thou</option>                                         <!--0.0000254-->
                                 <option value="μm">Micrometer</option>                                     <!--0.000001-->
                                 <option value="nm">Nanometer</option>                                      <!--0.000000001-->
-                                <option value="pm">Picometer</option>                                      <!--0.000000000001-->
-                                <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
-                                <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
                             </select>
                         </div>
                         <div class="bubble unit">
                             <input type="number" id="lengthI2" name="lengthI2" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <select name="lengthU2" id="lengthU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="Em">Exameter</option>                     <!--1000000000000000000-->
                                 <option value="ly">Light-year</option>                     <!--~9460730472580800-->
                                 <option value="Pm">Petameter</option>                       <!--1000000000000000-->
                                 <option value="Tm">Terameter</option>                          <!--1000000000000-->
@@ -78,15 +73,12 @@
                                 <option value="yd">Yard</option>                                           <!--0.9144-->
                                 <option value="ft">Foot</option>                                           <!--0.3048-->
                                 <option value="dm">Decimeter</option>                                      <!--0.1-->
-                                <option value='"'>Inch</option>                                            <!--0.0254-->
+                                <option value="in">Inch</option>                                            <!--0.0254-->
                                 <option value="cm">Centimeter</option>                                     <!--0.01-->
                                 <option value="mm">Millimeter</option>                                     <!--0.001-->
                                 <option value="thou">Thou</option>                                         <!--0.0000254-->
                                 <option value="μm">Micrometer</option>                                     <!--0.000001-->
                                 <option value="nm">Nanometer</option>                                      <!--0.000000001-->
-                                <option value="pm">Picometer</option>                                      <!--0.000000000001-->
-                                <option value="fm">Femtometer</option>                                     <!--0.000000000000001-->
-                                <option value="am">Attometer</option>                                      <!--0.000000000000000001-->
                             </select>
                         </div>
                     </div>
@@ -126,8 +118,7 @@
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI1").value);
                             var fLengthU = document.getElementById("lengthU1").value;
-                            if (fLengthU == "Em")          lengthMM = lengthV *         1000000000000000000;
-                            else if (fLengthU == "ly")     lengthMM = lengthV *            9460730472580800;
+                            if (fLengthU == "ly")     lengthMM = lengthV *                 9460730472580800;
                             else if (fLengthU == "Pm")     lengthMM = lengthV *            1000000000000000;
                             else if (fLengthU == "Tm")     lengthMM = lengthV *               1000000000000;
                             else if (fLengthU == "Gm")     lengthMM = lengthV *                  1000000000;
@@ -142,19 +133,15 @@
                             else if (fLengthU == "yd")     lengthMM = lengthV *                           0.9144;
                             else if (fLengthU == "ft")     lengthMM = lengthV *                           0.3048;
                             else if (fLengthU == "dm")     lengthMM = lengthV *                           0.1;
-                            else if (fLengthU == '"')      lengthMM = lengthV *                           0.0254;
+                            else if (fLengthU == "in")      lengthMM = lengthV *                           0.0254;
                             else if (fLengthU == "cm")     lengthMM = lengthV *                           0.01;
                             else if (fLengthU == "mm")     lengthMM = lengthV *                           0.001;
                             else if (fLengthU == "thou")   lengthMM = lengthV *                           0.0000254;
                             else if (fLengthU == "μm")     lengthMM = lengthV *                           0.000001;
                             else if (fLengthU == "nm")     lengthMM = lengthV *                           0.000000001;
-                            else if (fLengthU == "pm")     lengthMM = lengthV *                           0.000000000001;
-                            else if (fLengthU == "fm")     lengthMM = lengthV *                           0.000000000000001;
-                            else if (fLengthU == "am")     lengthMM = lengthV *                           0.000000000000000001;
                             
                             var tLengthU = document.getElementById("lengthU2").value;
-                            if (tLengthU == "Em")          lengthR = lengthMM /         1000000000000000000;
-                            else if (tLengthU == "ly")     lengthR = lengthMM /            9460730472580800;
+                            if (tLengthU == "ly")     lengthR = lengthMM /                 9460730472580800;
                             else if (tLengthU == "Pm")     lengthR = lengthMM /            1000000000000000;
                             else if (tLengthU == "Tm")     lengthR = lengthMM /               1000000000000;
                             else if (tLengthU == "Gm")     lengthR = lengthMM /                  1000000000;
@@ -169,23 +156,19 @@
                             else if (tLengthU == "yd")     lengthR = lengthMM /                           0.9144;
                             else if (tLengthU == "ft")     lengthR = lengthMM /                           0.3048;
                             else if (tLengthU == "dm")     lengthR = lengthMM /                           0.1;
-                            else if (tLengthU == '"')      lengthR = lengthMM /                           0.0254;
+                            else if (tLengthU == "in")      lengthR = lengthMM /                           0.0254;
                             else if (tLengthU == "cm")     lengthR = lengthMM /                           0.01;
                             else if (tLengthU == "mm")     lengthR = lengthMM /                           0.001;
                             else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
                             else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
                             else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
-                            else if (tLengthU == "pm")     lengthR = lengthMM /                           0.000000000001;
-                            else if (tLengthU == "fm")     lengthR = lengthMM /                           0.000000000000001;
-                            else if (tLengthU == "am")     lengthR = lengthMM /                           0.000000000000000001;
                             document.getElementById("lengthI2").value = lengthR;
                         }
                         function lengthC2() {
                             var lengthMM = 0;
                             var lengthV = Number(document.getElementById("lengthI2").value);
                             var fLengthU = document.getElementById("lengthU2").value;
-                            if (fLengthU == "Em")          lengthMM = lengthV *         1000000000000000000;
-                            else if (fLengthU == "ly")     lengthMM = lengthV *            9460730472580800;
+                            if (fLengthU == "ly")     lengthMM = lengthV *                 9460730472580800;
                             else if (fLengthU == "Pm")     lengthMM = lengthV *            1000000000000000;
                             else if (fLengthU == "Tm")     lengthMM = lengthV *               1000000000000;
                             else if (fLengthU == "Gm")     lengthMM = lengthV *                  1000000000;
@@ -200,19 +183,15 @@
                             else if (fLengthU == "yd")     lengthMM = lengthV *                           0.9144;
                             else if (fLengthU == "ft")     lengthMM = lengthV *                           0.3048;
                             else if (fLengthU == "dm")     lengthMM = lengthV *                           0.1;
-                            else if (fLengthU == '"')      lengthMM = lengthV *                           0.0254;
+                            else if (fLengthU == "in")      lengthMM = lengthV *                           0.0254;
                             else if (fLengthU == "cm")     lengthMM = lengthV *                           0.01;
                             else if (fLengthU == "mm")     lengthMM = lengthV *                           0.001;
                             else if (fLengthU == "thou")   lengthMM = lengthV *                           0.0000254;
                             else if (fLengthU == "μm")     lengthMM = lengthV *                           0.000001;
                             else if (fLengthU == "nm")     lengthMM = lengthV *                           0.000000001;
-                            else if (fLengthU == "pm")     lengthMM = lengthV *                           0.000000000001;
-                            else if (fLengthU == "fm")     lengthMM = lengthV *                           0.000000000000001;
-                            else if (fLengthU == "am")     lengthMM = lengthV *                           0.000000000000000001;
                             
                             var tLengthU = document.getElementById("lengthU1").value;
-                            if (tLengthU == "Em")          lengthR = lengthMM /         1000000000000000000;
-                            else if (tLengthU == "ly")     lengthR = lengthMM /            9460730472580800;
+                            if (tLengthU == "ly")     lengthR = lengthMM /                 9460730472580800;
                             else if (tLengthU == "Pm")     lengthR = lengthMM /            1000000000000000;
                             else if (tLengthU == "Tm")     lengthR = lengthMM /               1000000000000;
                             else if (tLengthU == "Gm")     lengthR = lengthMM /                  1000000000;
@@ -227,15 +206,12 @@
                             else if (tLengthU == "yd")     lengthR = lengthMM /                           0.9144;
                             else if (tLengthU == "ft")     lengthR = lengthMM /                           0.3048;
                             else if (tLengthU == "dm")     lengthR = lengthMM /                           0.1;
-                            else if (tLengthU == '"')      lengthR = lengthMM /                           0.0254;
+                            else if (tLengthU == "in")      lengthR = lengthMM /                           0.0254;
                             else if (tLengthU == "cm")     lengthR = lengthMM /                           0.01;
                             else if (tLengthU == "mm")     lengthR = lengthMM /                           0.001;
                             else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
                             else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
                             else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
-                            else if (tLengthU == "pm")     lengthR = lengthMM /                           0.000000000001;
-                            else if (tLengthU == "fm")     lengthR = lengthMM /                           0.000000000000001;
-                            else if (tLengthU == "am")     lengthR = lengthMM /                           0.000000000000000001;
                             document.getElementById("lengthI1").value = lengthR;
                         }
                     </script>
@@ -254,31 +230,113 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
                             <select name="areaU1" id="areaU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m2">Square meter</option> <!--1-->
+                                <option value="nmi2">Square nautical mile</option>     <!--3429904-->
+                                <option value="mi2">Square mile</option>               <!--2589988.110336-->
+                                <option value="km2">Square kilometer</option>          <!--1000000-->
+                                <option value="hm2">Square hectometer / Hectare</option> <!--10000-->
+                                <option value="acre">Acre</option>                        <!--4046.8564224-->
+                                <option value="dam2">Square dekameter / Are</option>       <!--100-->
+                                <option value="m2">Square meter</option>                     <!--1-->
+                                <option value="yd2">Square yard</option>                     <!--0.83612736-->
+                                <option value="ft2">Square foot</option>                     <!--0.09290304-->
+                                <option value="dm2">Square decimeter</option>                <!--0.01-->
+                                <option value="in2">Square inch</option>                     <!--0.00064516-->
+                                <option value="cm2">Square centimeter</option>               <!--0.0001-->
+                                <option value="mm2">Square millimeter</option>               <!--0.000001-->
+                                <option value="μm2">Square micrometer</option>               <!--0.000000000001-->
+                                <option value="nm2">Square nanometer</option>                <!--0.000000000000000001-->
                             </select>
                         </div>
                         <div class="bubble unit">
                             <input type="number" id="areaI2" name="areaI2" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <select name="areaU2" id="areaU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m2">Square meter</option> <!--1-->
+                                <option value="nmi2">Square nautical mile</option>     <!--3429904-->
+                                <option value="mi2">Square mile</option>               <!--2589988.110336-->
+                                <option value="km2">Square kilometer</option>          <!--1000000-->
+                                <option value="hm2">Square hectometer / Hectare</option> <!--10000-->
+                                <option value="acre">Acre</option>                        <!--4046.8564224-->
+                                <option value="dam2">Square dekameter / Are</option>       <!--100-->
+                                <option value="m2">Square meter</option>                     <!--1-->
+                                <option value="yd2">Square yard</option>                     <!--0.83612736-->
+                                <option value="ft2">Square foot</option>                     <!--0.09290304-->
+                                <option value="dm2">Square decimeter</option>                <!--0.01-->
+                                <option value="in2">Square inch</option>                     <!--0.00064516-->
+                                <option value="cm2">Square centimeter</option>               <!--0.0001-->
+                                <option value="mm2">Square millimeter</option>               <!--0.000001-->
+                                <option value="μm2">Square micrometer</option>               <!--0.000000000001-->
+                                <option value="nm2">Square nanometer</option>                <!--0.000000000000000001-->
                             </select>
                         </div>
                     </div>
                     <script>
-                        document.getElementById("areaU1").addEventListener("change", areaC1)
-                        document.getElementById("areaU2").addEventListener("change", areaC2)
-                        document.getElementById("areaI1").addEventListener("input", areaC1)
-                        document.getElementById("areaI2").addEventListener("input", areaC2)
+                        document.getElementById("areaU1").addEventListener("change", tAreaC1u)
+                        document.getElementById("areaU2").addEventListener("change", tAreaC2u)
+                        document.getElementById("areaI1").addEventListener("input", tAreaC1i)
+                        document.getElementById("areaI2").addEventListener("input", tAreaC2i)
+
+                        function tAreaC1u() {
+                            if (document.getElementById("areaU2").value == "") return;
+                            if (document.getElementById("areaI1").value == "" && document.getElementById("areaI2").value == "") return;
+                            else if (document.getElementById("areaI1").value != "" && document.getElementById("areaI2").value != "") areaC2();
+                            else if (document.getElementById("areaI1").value == "" && document.getElementById("areaI2").value != "") areaC2();
+                            else areaC1();
+                        }
+
+                        function tAreaC2u() {
+                            if (document.getElementById("areaU1").value == "") return;
+                            if (document.getElementById("areaI2").value == "" && document.getElementById("areaI1").value == "") return;
+                            else if (document.getElementById("areaI2").value != "" && document.getElementById("areaI1").value != "") areaC1();
+                            else if (document.getElementById("areaI2").value == "" && document.getElementById("areaI1").value != "") areaC1();
+                            else areaC2();
+                        }
+
+                        function tAreaC1i() {
+                            if (document.getElementById("areaU1").value == "" || document.getElementById("areaU2").value == "") return;
+                            areaC1();
+                        }
+
+                        function tAreaC2i() {
+                            if (document.getElementById("areaU2").value == "" || document.getElementById("areaU1").value == "") return;
+                            else areaC2();
+                        }
 
                         function areaC1() {
                             var areaMM = 0;
                             var areaV = Number(document.getElementById("areaI1").value);
                             var fAreaU = document.getElementById("areaU1").value;
-                            if (fAreaU == "m2") areaMM = areaV * 1;
+                            if (fAreaU == "m2")      areaMM = areaV * 3429904;
+                            else if (fAreaU == "m2") areaMM = areaV * 2589988.110336;
+                            else if (fAreaU == "m2") areaMM = areaV * 1000000;
+                            else if (fAreaU == "m2") areaMM = areaV *   10000;
+                            else if (fAreaU == "m2") areaMM = areaV *    4046.8564224;
+                            else if (fAreaU == "m2") areaMM = areaV *     100;
+                            else if (fAreaU == "m2") areaMM = areaV *       1;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.83612736;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.09290304;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.01;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.00064516;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.0001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000000000001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000000000000000001;
 
                             var tAreaU = document.getElementById("areaU2").value;
-                            if (tAreaU == "m2") areaR = areaMM / 1;
+                            if (tAreaU == "m2")      areaR = areaMM / 3429904;
+                            else if (tAreaU == "m2") areaR = areaMM / 2589988.110336;
+                            else if (tAreaU == "m2") areaR = areaMM / 1000000;
+                            else if (tAreaU == "m2") areaR = areaMM /   10000;
+                            else if (tAreaU == "m2") areaR = areaMM /    4046.8564224;
+                            else if (tAreaU == "m2") areaR = areaMM /     100;
+                            else if (tAreaU == "m2") areaR = areaMM /       1;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.83612736;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.09290304;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.01;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.00064516;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.0001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000000000001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000000000000000001;
 
                             document.getElementById("areaI2").value = areaR;
                         }
@@ -286,10 +344,38 @@
                             var areaMM = 0;
                             var areaV = Number(document.getElementById("areaI2").value);
                             var fAreaU = document.getElementById("areaU2").value;
-                            if (fAreaU == "m2") areaMM = ariaV * 1;
+                            if (fAreaU == "m2")      areaMM = areaV * 3429904;
+                            else if (fAreaU == "m2") areaMM = areaV * 2589988.110336;
+                            else if (fAreaU == "m2") areaMM = areaV * 1000000;
+                            else if (fAreaU == "m2") areaMM = areaV *   10000;
+                            else if (fAreaU == "m2") areaMM = areaV *    4046.8564224;
+                            else if (fAreaU == "m2") areaMM = areaV *     100;
+                            else if (fAreaU == "m2") areaMM = areaV *       1;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.83612736;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.09290304;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.01;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.00064516;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.0001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000000000001;
+                            else if (fAreaU == "m2") areaMM = areaV *       0.000000000000000001;
 
                             var tAreaU = document.getElementById("areaU1").value;
-                            if (tAreaU == "m2") areaR = areaMM / 1;
+                            if (tAreaU == "m2")      areaR = areaMM / 3429904;
+                            else if (tAreaU == "m2") areaR = areaMM / 2589988.110336;
+                            else if (tAreaU == "m2") areaR = areaMM / 1000000;
+                            else if (tAreaU == "m2") areaR = areaMM /   10000;
+                            else if (tAreaU == "m2") areaR = areaMM /    4046.8564224;
+                            else if (tAreaU == "m2") areaR = areaMM /     100;
+                            else if (tAreaU == "m2") areaR = areaMM /       1;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.83612736;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.09290304;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.01;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.00064516;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.0001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000000000001;
+                            else if (tAreaU == "m2") areaR = areaMM /       0.000000000000000001;
 
                             document.getElementById("areaI1").value = areaR;
                         }
@@ -321,10 +407,36 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("volumeU1").addEventListener("change", volumeC1)
-                        document.getElementById("volumeU2").addEventListener("change", volumeC2)
-                        document.getElementById("volumeI1").addEventListener("input", volumeC1)
-                        document.getElementById("volumeI2").addEventListener("input", volumeC2)
+                        document.getElementById("volumeU1").addEventListener("change", tVolumeC1u)
+                        document.getElementById("volumeU2").addEventListener("change", tVolumeC2u)
+                        document.getElementById("volumeI1").addEventListener("input", tVolumeC1i)
+                        document.getElementById("volumeI2").addEventListener("input", tVolumeC2i)
+
+                        function tVolumeC1u() {
+                            if (document.getElementById("volumeU2").value == "") return;
+                            if (document.getElementById("volumeI1").value == "" && document.getElementById("volumeI2").value == "") return;
+                            else if (document.getElementById("volumeI1").value != "" && document.getElementById("volumeI2").value != "") volumeC2();
+                            else if (document.getElementById("volumeI1").value == "" && document.getElementById("volumeI2").value != "") volumeC2();
+                            else volumeC1();
+                        }
+
+                        function tVolumeC2u() {
+                            if (document.getElementById("volumeU1").value == "") return;
+                            if (document.getElementById("volumeI2").value == "" && document.getElementById("volumeI1").value == "") return;
+                            else if (document.getElementById("volumeI2").value != "" && document.getElementById("volumeI1").value != "") volumeC1();
+                            else if (document.getElementById("volumeI2").value == "" && document.getElementById("volumeI1").value != "") volumeC1();
+                            else volumeC2();
+                        }
+
+                        function tVolumeC1i() {
+                            if (document.getElementById("volumeU1").value == "" || document.getElementById("volumeU2").value == "") return;
+                            volumeC1();
+                        }
+
+                        function tVolumeC2i() {
+                            if (document.getElementById("volumeU2").value == "" || document.getElementById("volumeU1").value == "") return;
+                            else volumeC2();
+                        }
 
                         function volumeC1() {
                             var volumeMM = 0;
@@ -376,10 +488,36 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("massU1").addEventListener("change", massC1)
-                        document.getElementById("massU2").addEventListener("change", massC2)
-                        document.getElementById("massI1").addEventListener("input", massC1)
-                        document.getElementById("massI2").addEventListener("input", massC2)
+                        document.getElementById("massU1").addEventListener("change", tMassC1u)
+                        document.getElementById("massU2").addEventListener("change", tMassC2u)
+                        document.getElementById("massI1").addEventListener("input", tMassC1i)
+                        document.getElementById("massI2").addEventListener("input", tMassC2i)
+
+                        function tMassC1u() {
+                            if (document.getElementById("massU2").value == "") return;
+                            if (document.getElementById("massI1").value == "" && document.getElementById("massI2").value == "") return;
+                            else if (document.getElementById("massI1").value != "" && document.getElementById("massI2").value != "") massC2();
+                            else if (document.getElementById("massI1").value == "" && document.getElementById("massI2").value != "") massC2();
+                            else massC1();
+                        }
+
+                        function tMassC2u() {
+                            if (document.getElementById("massU1").value == "") return;
+                            if (document.getElementById("massI2").value == "" && document.getElementById("massI1").value == "") return;
+                            else if (document.getElementById("massI2").value != "" && document.getElementById("massI1").value != "") massC1();
+                            else if (document.getElementById("massI2").value == "" && document.getElementById("massI1").value != "") massC1();
+                            else massC2();
+                        }
+
+                        function tMassC1i() {
+                            if (document.getElementById("massU1").value == "" || document.getElementById("massU2").value == "") return;
+                            massC1();
+                        }
+
+                        function tMassC2i() {
+                            if (document.getElementById("massU2").value == "" || document.getElementById("massU1").value == "") return;
+                            else massC2();
+                        }
 
                         function massC1() {
                             var massMM = 0;
@@ -431,10 +569,36 @@
                         </div>
                     </div>
                     <script>
-                        document.getElementById("tempU1").addEventListener("change", tempC1)
-                        document.getElementById("tempU2").addEventListener("change", tempC2)
-                        document.getElementById("tempI1").addEventListener("input", tempC1)
-                        document.getElementById("tempI2").addEventListener("input", tempC2)
+                        document.getElementById("tempU1").addEventListener("change", tTempC1u)
+                        document.getElementById("tempU2").addEventListener("change", tTempC2u)
+                        document.getElementById("tempI1").addEventListener("input", tTempC1i)
+                        document.getElementById("tempI2").addEventListener("input", tTempC2i)
+
+                        function tTempC1u() {
+                            if (document.getElementById("tempU2").value == "") return;
+                            if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value == "") return;
+                            else if (document.getElementById("tempI1").value != "" && document.getElementById("tempI2").value != "") tempC2();
+                            else if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value != "") tempC2();
+                            else tempC1();
+                        }
+
+                        function tTempC2u() {
+                            if (document.getElementById("tempU1").value == "") return;
+                            if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value == "") return;
+                            else if (document.getElementById("tempI2").value != "" && document.getElementById("tempI1").value != "") tempC1();
+                            else if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value != "") tempC1();
+                            else tempC2();
+                        }
+
+                        function tTempC1i() {
+                            if (document.getElementById("tempU1").value == "" || document.getElementById("tempU2").value == "") return;
+                            tempC1();
+                        }
+
+                        function tTempC2i() {
+                            if (document.getElementById("tempU2").value == "" || document.getElementById("tempU1").value == "") return;
+                            else tempC2();
+                        }
 
                         function tempC1() {
                             var tempMM = 0;
