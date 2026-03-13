@@ -11,18 +11,14 @@ use image::ImageFormat;
 pub fn transcode(data: &[u8], format: &str) -> Vec<u8> {
     let img = image::load_from_memory(data).unwrap();
     let mut buf = Cursor::new(Vec::new());
-    if format == "png" {
-        img.write_to(&mut buf, ImageFormat::Png).unwrap();
-    } else if format == "jpeg" {
-        img.write_to(&mut buf, ImageFormat::Jpeg).unwrap();
-    } else if format == "webp" {
-        img.write_to(&mut buf, ImageFormat::WebP).unwrap();
-    } else if format == "avif" {
-        img.write_to(&mut buf, ImageFormat::Avif).unwrap();
-    } else if format == "gif" {
-        img.write_to(&mut buf, ImageFormat::Gif).unwrap();
-    } else if format == "ico" {
-        img.write_to(&mut buf, ImageFormat::Ico).unwrap();
+    match format {
+        "png" => img.write_to(&mut buf, ImageFormat::Png).unwrap(),
+        "jpeg" => img.write_to(&mut buf, ImageFormat::Jpeg).unwrap(),
+        "webp" => img.write_to(&mut buf, ImageFormat::WebP).unwrap(),
+        "avif" => img.write_to(&mut buf, ImageFormat::Avif).unwrap(),
+        "gif" => img.write_to(&mut buf, ImageFormat::Gif).unwrap(),
+        "ico" => img.write_to(&mut buf, ImageFormat::Ico).unwrap(),
+        _ => panic!("Unknown format"),
     }
     return buf.into_inner();
 }
