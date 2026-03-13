@@ -7,7 +7,7 @@
   <body>
     <script type="module">
       // import init, { bcrypt, base64, str_to_bytes, md5, sha224, sha256, sha384, sha512 } from "./pkg/wasm.js";
-      import init, { encode, base64, str_to_bytes } from "./pkg/wasm.js";
+      import init, { encode, base64, str_to_bytes } from "./pkg/crypto.js";
       
       init().then(() => {
         console.log("Encode:" + encode("Hello WASM", 10))

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello-wasm example</title>
+  </head>
+  <body>
+    <input type="file" id="photo" name="photo">
+    <select name="format" id="format">
+      <option value="png">PNG</option>
+      <option value="jpeg">JPEG</option>
+      <option value="webp">WebP</option>
+      <option value="avif">AVIF</option>
+      <option value="gif">GIF</option>
+      <option value="ico">ICO</option>
+    </select>
+    <button id="convert">Convert</button>
+    <script type="module">
+      import init, { transcode } from "./pkg/media.js";
+      
+      init().then(() => {
+        document.getElementById("convert").addEventListener("click", function () {
+          const file = document.getElementById("photo").files[0];
+
+          const reader = new FileReader();
+          console.log("transcoding")
+          reader.onload = function (e) {
+            const data = new Uint8Array(e.target.result);
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([transcode(data, document.getElementById("format").value)], {type: "image/" + document.getElementById("format").value}));
+            a.download = "image." + document.getElementById("format").value;
+            a.click();
+          }
+          reader.readAsArrayBuffer(file);
+        });
+      });
+    </script>
+  </body>
+</html>

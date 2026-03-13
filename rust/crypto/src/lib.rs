@@ -6,10 +6,10 @@ use md5::{Md5};
 use bcrypt::hash as bcrypt_hash;
 use hex;
 
-#[wasm_bindgen]
-extern "C" {
-    pub fn console_log(s: &str);
-}
+// #[wasm_bindgen]
+// extern "C" {
+//     pub fn console_log(s: &str);
+// }
 
 // General utilities
 #[wasm_bindgen]
