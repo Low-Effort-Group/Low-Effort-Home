@@ -258,7 +258,6 @@ summary::-webkit-details-marker {
 
 .toolbar span::before {
     content: "▶";
-    font-family: sans-serif;
     font-size: 1rem;
     display: flex;
     align-items: center;
