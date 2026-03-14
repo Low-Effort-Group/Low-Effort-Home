@@ -162,6 +162,8 @@
                             else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
                             else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
                             else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
+
+                            lengthR = Math.round(lengthR *10000000000000000) / 10000000000000000;
                             document.getElementById("lengthI2").value = lengthR;
                         }
                         function lengthC2() {
@@ -212,6 +214,8 @@
                             else if (tLengthU == "thou")   lengthR = lengthMM /                           0.0000254;
                             else if (tLengthU == "μm")     lengthR = lengthMM /                           0.000001;
                             else if (tLengthU == "nm")     lengthR = lengthMM /                           0.000000001;
+
+                            lengthR = Math.round(lengthR *10000000000000000) / 10000000000000000;
                             document.getElementById("lengthI1").value = lengthR;
                         }
                     </script>
@@ -338,6 +342,7 @@
                             else if (tAreaU == "μm2")  areaR = areaMM /       0.000000000001;
                             else if (tAreaU == "nm2")  areaR = areaMM /       0.000000000000000001;
 
+                            areaR = Math.round(areaR *10000000000000000) / 10000000000000000;
                             document.getElementById("areaI2").value = areaR;
                         }
                         function areaC2() {
@@ -377,6 +382,7 @@
                             else if (tAreaU == "μm2")  areaR = areaMM /       0.000000000001;
                             else if (tAreaU == "nm2")  areaR = areaMM /       0.000000000000000001;
 
+                            areaR = Math.round(areaR *10000000000000000) / 10000000000000000;
                             document.getElementById("areaI1").value = areaR;
                         }
                     </script>
@@ -527,6 +533,7 @@
                             else if (tVolumeU == "cm3")   volumeR = volumeMM / 0.000001;
                             else if (tVolumeU == "mm3")   volumeR = volumeMM / 0.000000001;
 
+                            volumeR = Math.round(volumeR *10000000000000000) / 10000000000000000;
                             document.getElementById("volumeI2").value = volumeR;
                         }
                         function volumeC2() {
@@ -578,6 +585,7 @@
                             else if (tVolumeU == "cm3")   volumeR = volumeMM / 0.000001;
                             else if (tVolumeU == "mm3")   volumeR = volumeMM / 0.000000001;
 
+                            volumeR = Math.round(volumeR *10000000000000000) / 10000000000000000;
                             document.getElementById("volumeI1").value = volumeR;
                         }
                     </script>
@@ -704,6 +712,7 @@
                             else if (tMassU == "μg")  massMM = massV /    0.000000001;
                             else if (tMassU == "ng")  massMM = massV /    0.000000000001;
 
+                            massR = Math.round(massR *10000000000000000) / 10000000000000000;
                             document.getElementById("massI2").value = massR;
                         }
                         function massC2() {
@@ -743,6 +752,7 @@
                             else if (tMassU == "μg")  massMM = massV /    0.000000001;
                             else if (tMassU == "ng")  massMM = massV /    0.000000000001;
 
+                            massR = Math.round(massR *10000000000000000) / 10000000000000000;
                             document.getElementById("massI1").value = massR;
                         }
                     </script>
