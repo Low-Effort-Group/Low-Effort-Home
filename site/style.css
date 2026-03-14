@@ -116,6 +116,15 @@ td {
     box-shadow: grey 0px 4px 8px;
 }
 
+.v th {
+    background-color: #bf00ff;
+    border-color: #dfbfff;
+}
+
+.v td {
+    border-color: #dfbfff;
+}
+
 #upload {
     font-size: 14px;
     width: 350px;
