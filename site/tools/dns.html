@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNS Query Tool</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DNS Query Tool - no ads!">
+    <meta name="author" content="Low Effort Group">
+</head>
+<body>
+    <main>
+        <div style="flex-grow: 1;">
+            <div class="desc">
+                <p>Query DNS records for a domain.</p>
+            </div>
+            <div class="bubble wrap purple">
+                <div class="bubble wrap">
+                    <p>Enter a domain:</p>
+                    <input id="domain" placeholder="low-effort.work">
+                    <br>
+                    <input type="checkbox" id="a" checked>
+                    <label for="a">A</label>
+                    <input type="checkbox" id="cname" checked>
+                    <label for="cname">CNAME</label>
+                    <input type="checkbox" id="aaaa" checked>
+                    <label for="aaaa">AAAA</label><br>
+
+                    <input type="checkbox" id="mx">
+                    <label for="mx">MX</label>
+                    <input type="checkbox" id="ns">
+                    <label for="ns">NS</label>
+                    <input type="checkbox" id="txt">
+                    <label for="txt">TXT</label>
+                    <input type="checkbox" id="caa">
+                    <label for="caa">CAA</label><br>
+
+                    <input type="checkbox" id="ptr">
+                    <label for="ptr">PTR</label>
+                    <input type="checkbox" id="srv">
+                    <label for="srv">SRV</label><br>
+
+                    <br>
+
+                    <button onclick="queryDNS()">Query DNS</button>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+    async function queryDNS() {
+        const domain = document.getElementById('domain').value;
+        const resultEl = document.getElementById('result');
+        resultEl.textContent = "Fetching...";
+
+        let types = [];
+
+        if (document.getElementById('a').checked) {
+            types.push("A");
+        }
+        if (document.getElementById('cname').checked) {
+            types.push("CNAME");
+        }
+        if (document.getElementById('aaaa').checked) {
+            types.push("AAAA");
+        }
+        if (document.getElementById('mx').checked) {
+            types.push("MX");
+        }
+        if (document.getElementById('ns').checked) {
+            types.push("NS");
+        }
+        if (document.getElementById('txt').checked) {
+            types.push("TXT");
+        }
+        if (document.getElementById('caa').checked) {
+            types.push("CAA");
+        }
+        if (document.getElementById('ptr').checked) {
+            types.push("PTR");
+        }
+        if (document.getElementById('srv').checked) {
+            types.push("SRV");
+        }
+
+        const responses = {};
+
+        for (const type of types) {
+        try {
+            const url = `https://cloudflare-dns.com/dns-query?name=${domain}&type=${type}`;
+            const res = await fetch(url, { headers: { 'Accept': 'application/dns-json' } });
+            const data = await res.json();
+            responses[type] = data.Answer || [];
+        } catch (err) {
+            responses[type] = [{ error: err.message }];
+        }
+        }
+
+        // Format results nicely
+        let output = '';
+        for (const type of types) {
+        output += `${type} Records:\n`;
+        if (responses[type].length === 0) {
+            output += "  None found\n";
+        } else {
+            responses[type].forEach(record => {
+            output += `  ${record.data}\n`;
+            });
+        }
+        }
+        resultEl.textContent = output;
+    }
+    </script>
+</body>
+</html>
