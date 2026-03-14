@@ -9,16 +9,18 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-base64 = "0.22.1"
-bcrypt = { version = "0.13", features = ["js"] }
-hex = "0.4.3"
-md-5 = "0.10.6"
-sha1 = "0.10.6"
-sha2 = "0.10.9"
-wasm-bindgen = "0.2"
+bcrypt = { version = "0.13", default-features = false, features = ["js", "std"] }
+hex = { version = "0.4", default-features = false, features = ["std"] }
+md-5 = { version = "0.10", default-features = false }
+sha1 = { version = "0.10", default-features = false }
+sha2 = { version = "0.10", default-features = false }
+wasm-bindgen = { version = "0.2", default-features = false }
 
 [profile.release]
 opt-level = "z"
 lto = true 
 codegen-units = 1
 panic = "abort"
+
+[build]
+target = "wasm32-unknown-unknown"
