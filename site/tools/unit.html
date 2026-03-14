@@ -596,14 +596,42 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
                             <select name="massU1" id="massU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="kg">Kilogram</option> <!--1-->
+                                <option value="tB">UK Ton (long ton)</option> <!--1016.0469088-->
+                                <option value="t">Ton</option>                <!--1000-->
+                                <option value="tU">US Ton (short ton)</option> <!--907.18474-->
+                                <option value="st">Stone</option>                <!--6.35029318-->
+                                <option value="kg">Kilogram</option>             <!--1-->
+                                <option value="lb">Pound</option>                <!--0.45359237-->
+                                <option value="hg">Hectogram</option>            <!--0.1-->
+                                <option value="oz">Ounce</option>                <!--0.028349523125-->
+                                <option value="dag">Dekagram</option>            <!--0.01-->
+                                <option value="g">Gram</option>                  <!--0.001-->
+                                <option value="dg">Decigram</option>             <!--0.0001-->
+                                <option value="cg">Centigram</option>            <!--0.00001-->
+                                <option value="mg">Milligram</option>            <!--0.000001-->
+                                <option value="μg">Microgram</option>            <!--0.000000001-->
+                                <option value="ng">Nanogram</option>             <!--0.000000000001-->
                             </select>
                         </div>
                         <div class="bubble unit">
                             <input type="number" id="massI2" name="massI2" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <select name="massU2" id="massU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="kg">Kilogram</option> <!--1-->
+                                <option value="tB">UK Ton (long ton)</option> <!--1016.0469088-->
+                                <option value="t">Ton</option>                <!--1000-->
+                                <option value="tU">US Ton (short ton)</option> <!--907.18474-->
+                                <option value="st">Stone</option>                <!--6.35029318-->
+                                <option value="kg">Kilogram</option>             <!--1-->
+                                <option value="lb">Pound</option>                <!--0.45359237-->
+                                <option value="hg">Hectogram</option>            <!--0.1-->
+                                <option value="oz">Ounce</option>                <!--0.028349523125-->
+                                <option value="dag">Dekagram</option>            <!--0.01-->
+                                <option value="g">Gram</option>                  <!--0.001-->
+                                <option value="dg">Decigram</option>             <!--0.0001-->
+                                <option value="cg">Centigram</option>            <!--0.00001-->
+                                <option value="mg">Milligram</option>            <!--0.000001-->
+                                <option value="μg">Microgram</option>            <!--0.000000001-->
+                                <option value="ng">Nanogram</option>             <!--0.000000000001-->
                             </select>
                         </div>
                     </div>
@@ -643,10 +671,38 @@
                             var massMM = 0;
                             var massV = Number(document.getElementById("massI1").value);
                             var fMassU = document.getElementById("massU1").value;
-                            if (fMassU == "kg") massMM = massV * 1;
+                            if (fMassU == "tB")       massMM = massV * 1016.0469088;
+                            else if (fMassU == "t")   massMM = massV * 1000;
+                            else if (fMassU == "tU")  massMM = massV *  907.18474;
+                            else if (fMassU == "st")  massMM = massV *    6.35029318;
+                            else if (fMassU == "kg")  massMM = massV *    1;
+                            else if (fMassU == "lb")  massMM = massV *    0.45359237;
+                            else if (fMassU == "hg")  massMM = massV *    0.1;
+                            else if (fMassU == "oz")  massMM = massV *    0.028349523125;
+                            else if (fMassU == "dag") massMM = massV *    0.01;
+                            else if (fMassU == "g")   massMM = massV *    0.001;
+                            else if (fMassU == "dg")  massMM = massV *    0.0001;
+                            else if (fMassU == "cg")  massMM = massV *    0.00001;
+                            else if (fMassU == "mg")  massMM = massV *    0.000001;
+                            else if (fMassU == "μg")  massMM = massV *    0.000000001;
+                            else if (fMassU == "ng")  massMM = massV *    0.000000000001;
 
                             var tMassU = document.getElementById("massU2").value;
-                            if (tMassU == "kg") massR = massMM / 1;
+                            if (tMassU == "tB")       massMM = massV / 1016.0469088;
+                            else if (tMassU == "t")   massMM = massV / 1000;
+                            else if (tMassU == "tU")  massMM = massV /  907.18474;
+                            else if (tMassU == "st")  massMM = massV /    6.35029318;
+                            else if (tMassU == "kg")  massMM = massV /    1;
+                            else if (tMassU == "lb")  massMM = massV /    0.45359237;
+                            else if (tMassU == "hg")  massMM = massV /    0.1;
+                            else if (tMassU == "oz")  massMM = massV /    0.028349523125;
+                            else if (tMassU == "dag") massMM = massV /    0.01;
+                            else if (tMassU == "g")   massMM = massV /    0.001;
+                            else if (tMassU == "dg")  massMM = massV /    0.0001;
+                            else if (tMassU == "cg")  massMM = massV /    0.00001;
+                            else if (tMassU == "mg")  massMM = massV /    0.000001;
+                            else if (tMassU == "μg")  massMM = massV /    0.000000001;
+                            else if (tMassU == "ng")  massMM = massV /    0.000000000001;
 
                             document.getElementById("massI2").value = massR;
                         }
@@ -654,10 +710,38 @@
                             var massMM = 0;
                             var massV = Number(document.getElementById("massI2").value);
                             var fMassU = document.getElementById("massU2").value;
-                            if (fMassU == "kg") massMM = ariaV * 1;
+                            if (fMassU == "tB")       massMM = massV * 1016.0469088;
+                            else if (fMassU == "t")   massMM = massV * 1000;
+                            else if (fMassU == "tU")  massMM = massV *  907.18474;
+                            else if (fMassU == "st")  massMM = massV *    6.35029318;
+                            else if (fMassU == "kg")  massMM = massV *    1;
+                            else if (fMassU == "lb")  massMM = massV *    0.45359237;
+                            else if (fMassU == "hg")  massMM = massV *    0.1;
+                            else if (fMassU == "oz")  massMM = massV *    0.028349523125;
+                            else if (fMassU == "dag") massMM = massV *    0.01;
+                            else if (fMassU == "g")   massMM = massV *    0.001;
+                            else if (fMassU == "dg")  massMM = massV *    0.0001;
+                            else if (fMassU == "cg")  massMM = massV *    0.00001;
+                            else if (fMassU == "mg")  massMM = massV *    0.000001;
+                            else if (fMassU == "μg")  massMM = massV *    0.000000001;
+                            else if (fMassU == "ng")  massMM = massV *    0.000000000001;
 
                             var tMassU = document.getElementById("massU1").value;
-                            if (tMassU == "kg") massR = massMM / 1;
+                            if (tMassU == "tB")       massMM = massV / 1016.0469088;
+                            else if (tMassU == "t")   massMM = massV / 1000;
+                            else if (tMassU == "tU")  massMM = massV /  907.18474;
+                            else if (tMassU == "st")  massMM = massV /    6.35029318;
+                            else if (tMassU == "kg")  massMM = massV /    1;
+                            else if (tMassU == "lb")  massMM = massV /    0.45359237;
+                            else if (tMassU == "hg")  massMM = massV /    0.1;
+                            else if (tMassU == "oz")  massMM = massV /    0.028349523125;
+                            else if (tMassU == "dag") massMM = massV /    0.01;
+                            else if (tMassU == "g")   massMM = massV /    0.001;
+                            else if (tMassU == "dg")  massMM = massV /    0.0001;
+                            else if (tMassU == "cg")  massMM = massV /    0.00001;
+                            else if (tMassU == "mg")  massMM = massV /    0.000001;
+                            else if (tMassU == "μg")  massMM = massV /    0.000000001;
+                            else if (tMassU == "ng")  massMM = massV /    0.000000000001;
 
                             document.getElementById("massI1").value = massR;
                         }
