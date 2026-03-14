@@ -213,7 +213,8 @@ nav {
 
 .toolbar {
     flex-grow: 0;
-    height: 100%;
+    flex: 1;
+    min-height: 100%;
     width: 160px;
     z-index: 1;
     color: #000;
