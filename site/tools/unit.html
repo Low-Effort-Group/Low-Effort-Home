@@ -233,9 +233,9 @@
                                 <option value="nmi2">Square nautical mile</option>     <!--3429904-->
                                 <option value="mi2">Square mile</option>               <!--2589988.110336-->
                                 <option value="km2">Square kilometer</option>          <!--1000000-->
-                                <option value="hm2">Square hectometer / Hectare</option> <!--10000-->
+                                <option value="hm2">Hectare / Square hectometer</option> <!--10000-->
                                 <option value="acre">Acre</option>                        <!--4046.8564224-->
-                                <option value="dam2">Square dekameter / Are</option>       <!--100-->
+                                <option value="dam2">Are / Square dekameter</option>       <!--100-->
                                 <option value="m2">Square meter</option>                     <!--1-->
                                 <option value="yd2">Square yard</option>                     <!--0.83612736-->
                                 <option value="ft2">Square foot</option>                     <!--0.09290304-->
@@ -254,9 +254,9 @@
                                 <option value="nmi2">Square nautical mile</option>     <!--3429904-->
                                 <option value="mi2">Square mile</option>               <!--2589988.110336-->
                                 <option value="km2">Square kilometer</option>          <!--1000000-->
-                                <option value="hm2">Square hectometer / Hectare</option> <!--10000-->
+                                <option value="hm2">Hectare / Square hectometer</option> <!--10000-->
                                 <option value="acre">Acre</option>                        <!--4046.8564224-->
-                                <option value="dam2">Square dekameter / Are</option>       <!--100-->
+                                <option value="dam2">Are / Square dekameter</option>       <!--100-->
                                 <option value="m2">Square meter</option>                     <!--1-->
                                 <option value="yd2">Square yard</option>                     <!--0.83612736-->
                                 <option value="ft2">Square foot</option>                     <!--0.09290304-->
@@ -395,14 +395,54 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
                             <select name="volumeU1" id="volumeU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m3">Cubic meter</option> <!--1-->
+                                <option value="m3">Cubic meter / Kiloliter</option>        <!--1-->
+                                <option value="yd3">Cubic yard</option>                    <!--0.764554857984-->
+                                <option value="bbl">Barrel</option>                        <!--0.158987294928-->
+                                <option value="hL">Hectoliter</option>                     <!--0.1-->
+                                <option value="ft3">Cubic foot</option>                    <!--0.028316846592-->
+                                <option value="daL">Dekaliter</option>                     <!--0.01-->
+                                <option value="gal">Gallon (US)</option>                   <!--0.003785411784-->
+                                <option value="dm3">Liter / Cubic decimeter</option>       <!--0.001-->
+                                <option value="qt">Quart (US)</option>                     <!--0.000946352946-->
+                                <option value="pt">Pint (US)</option>                      <!--0.000473176473-->
+                                <option value="cup">Cup (US)</option>                      <!--0.000236588236-->
+                                <option value="dL">Deciliter</option>                      <!--0.0001-->
+                                <option value="fl_oz">Fluid ounce (US)</option>            <!--0.000029573529-->
+                                <option value="in3">Cubic inch</option>                    <!--0.000016387064-->
+                                <option value="tbsp">Tablespoon</option>                   <!--0.000015-->
+                                <option value="tbspU">Tablespoon (US)</option>             <!--0.000014786765-->
+                                <option value="cL">Centiliter</option>                     <!--0.00001-->
+                                <option value="tsp">Teaspoon</option>                      <!--0.000005-->
+                                <option value="tspU">Teaspoon (US)</option>                <!--0.000004928922-->
+                                <option value="cm3">Milliliter / Cubic centimeter</option> <!--0.000001-->
+                                <option value="mm3">Cubic millimeter / Microliter</option> <!--0.000000001-->
                             </select>
                         </div>
                         <div class="bubble unit">
                             <input type="number" id="volumeI2" name="volumeI2" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <select name="volumeU2" id="volumeU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value="m3">Cubic meter</option> <!--1-->
+                                <option value="m3">Cubic meter / Kiloliter</option>        <!--1-->
+                                <option value="yd3">Cubic yard</option>                    <!--0.764554857984-->
+                                <option value="bbl">Barrel</option>                        <!--0.158987294928-->
+                                <option value="hL">Hectoliter</option>                     <!--0.1-->
+                                <option value="ft3">Cubic foot</option>                    <!--0.028316846592-->
+                                <option value="daL">Dekaliter</option>                     <!--0.01-->
+                                <option value="gal">Gallon (US)</option>                   <!--0.003785411784-->
+                                <option value="dm3">Liter / Cubic decimeter</option>       <!--0.001-->
+                                <option value="qt">Quart (US)</option>                     <!--0.000946352946-->
+                                <option value="pt">Pint (US)</option>                      <!--0.000473176473-->
+                                <option value="cup">Cup (US)</option>                      <!--0.000236588236-->
+                                <option value="dL">Deciliter</option>                      <!--0.0001-->
+                                <option value="fl_oz">Fluid ounce (US)</option>            <!--0.000029573529-->
+                                <option value="in3">Cubic inch</option>                    <!--0.000016387064-->
+                                <option value="tbsp">Tablespoon</option>                   <!--0.000015-->
+                                <option value="tbspU">Tablespoon (US)</option>             <!--0.000014786765-->
+                                <option value="cL">Centiliter</option>                     <!--0.00001-->
+                                <option value="tsp">Teaspoon</option>                      <!--0.000005-->
+                                <option value="tspU">Teaspoon (US)</option>                <!--0.000004928922-->
+                                <option value="cm3">Milliliter / Cubic centimeter</option> <!--0.000001-->
+                                <option value="mm3">Cubic millimeter / Microliter</option> <!--0.000000001-->
                             </select>
                         </div>
                     </div>
@@ -442,10 +482,50 @@
                             var volumeMM = 0;
                             var volumeV = Number(document.getElementById("volumeI1").value);
                             var fVolumeU = document.getElementById("volumeU1").value;
-                            if (fVolumeU == "m3") volumeMM = volumeV * 1;
+                            if (fVolumeU == "m3")         volumeMM = volumeV * 1;
+                            else if (fVolumeU == "yd3")   volumeMM = volumeV * 0.764554857984;
+                            else if (fVolumeU == "bbl")   volumeMM = volumeV * 0.158987294928;
+                            else if (fVolumeU == "hL")    volumeMM = volumeV * 0.1;
+                            else if (fVolumeU == "ft3")   volumeMM = volumeV * 0.028316846592;
+                            else if (fVolumeU == "daL")   volumeMM = volumeV * 0.01;
+                            else if (fVolumeU == "gal")   volumeMM = volumeV * 0.003785411784;
+                            else if (fVolumeU == "dm3")   volumeMM = volumeV * 0.001;
+                            else if (fVolumeU == "qt")    volumeMM = volumeV * 0.000946352946;
+                            else if (fVolumeU == "pt")    volumeMM = volumeV * 0.000473176473;
+                            else if (fVolumeU == "cup")   volumeMM = volumeV * 0.000236588236;
+                            else if (fVolumeU == "dL")    volumeMM = volumeV * 0.0001;
+                            else if (fVolumeU == "fl_oz") volumeMM = volumeV * 0.000029573529;
+                            else if (fVolumeU == "in3")   volumeMM = volumeV * 0.000016387064;
+                            else if (fVolumeU == "tbsp")  volumeMM = volumeV * 0.000015;
+                            else if (fVolumeU == "tbspU") volumeMM = volumeV * 0.000014786765;
+                            else if (fVolumeU == "cL")    volumeMM = volumeV * 0.00001;
+                            else if (fVolumeU == "tsp")   volumeMM = volumeV * 0.000005;
+                            else if (fVolumeU == "tspU")  volumeMM = volumeV * 0.000004928922;
+                            else if (fVolumeU == "cm3")   volumeMM = volumeV * 0.000001;
+                            else if (fVolumeU == "mm3")   volumeMM = volumeV * 0.000000001;
 
                             var tVolumeU = document.getElementById("volumeU2").value;
-                            if (tVolumeU == "m3") volumeR = volumeMM / 1;
+                            if (tVolumeU == "m3")         volumeR = volumeMM / 1;
+                            else if (tVolumeU == "yd3")   volumeR = volumeMM / 0.764554857984;
+                            else if (tVolumeU == "bbl")   volumeR = volumeMM / 0.158987294928;
+                            else if (tVolumeU == "hL")    volumeR = volumeMM / 0.1;
+                            else if (tVolumeU == "ft3")   volumeR = volumeMM / 0.028316846592;
+                            else if (tVolumeU == "daL")   volumeR = volumeMM / 0.01;
+                            else if (tVolumeU == "gal")   volumeR = volumeMM / 0.003785411784;
+                            else if (tVolumeU == "dm3")   volumeR = volumeMM / 0.001;
+                            else if (tVolumeU == "qt")    volumeR = volumeMM / 0.000946352946;
+                            else if (tVolumeU == "pt")    volumeR = volumeMM / 0.000473176473;
+                            else if (tVolumeU == "cup")   volumeR = volumeMM / 0.000236588236;
+                            else if (tVolumeU == "dL")    volumeR = volumeMM / 0.0001;
+                            else if (tVolumeU == "fl_oz") volumeR = volumeMM / 0.000029573529;
+                            else if (tVolumeU == "in3")   volumeR = volumeMM / 0.000016387064;
+                            else if (tVolumeU == "tbsp")  volumeR = volumeMM / 0.000015;
+                            else if (tVolumeU == "tbspU") volumeR = volumeMM / 0.000014786765;
+                            else if (tVolumeU == "cL")    volumeR = volumeMM / 0.00001;
+                            else if (tVolumeU == "tsp")   volumeR = volumeMM / 0.000005;
+                            else if (tVolumeU == "tspU")  volumeR = volumeMM / 0.000004928922;
+                            else if (tVolumeU == "cm3")   volumeR = volumeMM / 0.000001;
+                            else if (tVolumeU == "mm3")   volumeR = volumeMM / 0.000000001;
 
                             document.getElementById("volumeI2").value = volumeR;
                         }
@@ -453,10 +533,50 @@
                             var volumeMM = 0;
                             var volumeV = Number(document.getElementById("volumeI2").value);
                             var fVolumeU = document.getElementById("volumeU2").value;
-                            if (fVolumeU == "m3") volumeMM = ariaV * 1;
+                            if (fVolumeU == "m3")         volumeMM = volumeV * 1;
+                            else if (fVolumeU == "yd3")   volumeMM = volumeV * 0.764554857984;
+                            else if (fVolumeU == "bbl")   volumeMM = volumeV * 0.158987294928;
+                            else if (fVolumeU == "hL")    volumeMM = volumeV * 0.1;
+                            else if (fVolumeU == "ft3")   volumeMM = volumeV * 0.028316846592;
+                            else if (fVolumeU == "daL")   volumeMM = volumeV * 0.01;
+                            else if (fVolumeU == "gal")   volumeMM = volumeV * 0.003785411784;
+                            else if (fVolumeU == "dm3")   volumeMM = volumeV * 0.001;
+                            else if (fVolumeU == "qt")    volumeMM = volumeV * 0.000946352946;
+                            else if (fVolumeU == "pt")    volumeMM = volumeV * 0.000473176473;
+                            else if (fVolumeU == "cup")   volumeMM = volumeV * 0.000236588236;
+                            else if (fVolumeU == "dL")    volumeMM = volumeV * 0.0001;
+                            else if (fVolumeU == "fl_oz") volumeMM = volumeV * 0.000029573529;
+                            else if (fVolumeU == "in3")   volumeMM = volumeV * 0.000016387064;
+                            else if (fVolumeU == "tbsp")  volumeMM = volumeV * 0.000015;
+                            else if (fVolumeU == "tbspU") volumeMM = volumeV * 0.000014786765;
+                            else if (fVolumeU == "cL")    volumeMM = volumeV * 0.00001;
+                            else if (fVolumeU == "tsp")   volumeMM = volumeV * 0.000005;
+                            else if (fVolumeU == "tspU")  volumeMM = volumeV * 0.000004928922;
+                            else if (fVolumeU == "cm3")   volumeMM = volumeV * 0.000001;
+                            else if (fVolumeU == "mm3")   volumeMM = volumeV * 0.000000001;
 
                             var tVolumeU = document.getElementById("volumeU1").value;
-                            if (tVolumeU == "m3") volumeR = volumeMM / 1;
+                            if (tVolumeU == "m3")         volumeR = volumeMM / 1;
+                            else if (tVolumeU == "yd3")   volumeR = volumeMM / 0.764554857984;
+                            else if (tVolumeU == "bbl")   volumeR = volumeMM / 0.158987294928;
+                            else if (tVolumeU == "hL")    volumeR = volumeMM / 0.1;
+                            else if (tVolumeU == "ft3")   volumeR = volumeMM / 0.028316846592;
+                            else if (tVolumeU == "daL")   volumeR = volumeMM / 0.01;
+                            else if (tVolumeU == "gal")   volumeR = volumeMM / 0.003785411784;
+                            else if (tVolumeU == "dm3")   volumeR = volumeMM / 0.001;
+                            else if (tVolumeU == "qt")    volumeR = volumeMM / 0.000946352946;
+                            else if (tVolumeU == "pt")    volumeR = volumeMM / 0.000473176473;
+                            else if (tVolumeU == "cup")   volumeR = volumeMM / 0.000236588236;
+                            else if (tVolumeU == "dL")    volumeR = volumeMM / 0.0001;
+                            else if (tVolumeU == "fl_oz") volumeR = volumeMM / 0.000029573529;
+                            else if (tVolumeU == "in3")   volumeR = volumeMM / 0.000016387064;
+                            else if (tVolumeU == "tbsp")  volumeR = volumeMM / 0.000015;
+                            else if (tVolumeU == "tbspU") volumeR = volumeMM / 0.000014786765;
+                            else if (tVolumeU == "cL")    volumeR = volumeMM / 0.00001;
+                            else if (tVolumeU == "tsp")   volumeR = volumeMM / 0.000005;
+                            else if (tVolumeU == "tspU")  volumeR = volumeMM / 0.000004928922;
+                            else if (tVolumeU == "cm3")   volumeR = volumeMM / 0.000001;
+                            else if (tVolumeU == "mm3")   volumeR = volumeMM / 0.000000001;
 
                             document.getElementById("volumeI1").value = volumeR;
                         }
