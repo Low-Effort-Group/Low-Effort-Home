@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello-wasm example</title>
+  </head>
+  <body>
+    <input type="file" id="photo" name="photo">
+    <button id="exif">Read EXIF</button>
+    <pre id="result"></pre>
+    <script type="module">
+    import init, { exif } from "./pkg/le_exif.js";
+
+    init().then(() => {
+      document.getElementById("exif").addEventListener("click", function () {
+        const file = document.getElementById("photo").files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const arrayBuffer = e.target.result;
+          const bytes = new Uint8Array(arrayBuffer);
+          const result = exif(bytes); 
+          document.getElementById("result").textContent = result;
+        };
+        reader.readAsArrayBuffer(file); 
+      });
+    });
+  </script>
+  </body>
+</html>

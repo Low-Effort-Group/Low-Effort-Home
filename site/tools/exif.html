@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exif Reader</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exif reader - no ads!">
+    <meta name="author" content="Low Effort Group">
+  </head>
+  <body>
+    <!--#include file="/templates/nav.html" -->
+    <main>
+    <!--#include file="/templates/toolbar.html" -->
+        <div style="flex-grow: 1;">    
+            <div class="desc">
+                <p>Read EXIF data from images.</p>
+            </div>
+            <div class="bubble wrap purple">
+                <div class="bubble wrap">
+                    <input type="file" id="photo" name="photo">
+                    <button id="exif">Read EXIF</button>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module">
+                
+    import init, { exif } from "/pkg/le_exif.js";
+
+    init().then(() => {
+      document.getElementById("exif").addEventListener("click", function () {
+        const file = document.getElementById("photo").files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const arrayBuffer = e.target.result;
+          const bytes = new Uint8Array(arrayBuffer);
+          const result = exif(bytes); 
+          document.getElementById("result").textContent = result;
+        };
+        reader.readAsArrayBuffer(file); 
+      });
+    });
+  </script>
+  </body>
+</html>        
