@@ -7,8 +7,8 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [dependencies]
-image = { version = "0.25", features = ["jpeg", "png", "avif", "gif", "ico", "webp"] }
-wasm-bindgen = "0.2.114"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "avif", "gif"] }
+wasm-bindgen = { version = "0.2.114", default-features = false }
 
 [profile.release]
 opt-level = "z"
