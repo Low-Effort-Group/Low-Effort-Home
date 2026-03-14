@@ -18,9 +18,9 @@ fn jpeg_tiff(data: &[u8]) -> bool {
 }
 
 #[wasm_bindgen]
-pub fn exif(data: &[u8]) -> String {
+pub fn exif(data: &[u8]) -> Vec<String> {
     if !jpeg_tiff(data) {
-        return "Unsupported image format".to_string();
+        return vec!["Not a JPEG or TIFF file".to_string(), "".to_string()];
     }
 
     let mut cursor = Cursor::new(data);
@@ -29,16 +29,18 @@ pub fn exif(data: &[u8]) -> String {
 
     let exif = exifreader.read_from_container(&mut bufreader).unwrap(); 
 
-    let mut string: String = Default::default();
+    let mut vector: Vec<String> = Vec::new();
     for f in exif.fields() {
         let tag = f.tag.to_string();
         let val = f.display_value().to_string();
-        string.push_str(&format!("{}: {}\n", tag, val));
+        vector.push(tag);
+        vector.push(val);
     }
 
-    if string.is_empty() {
-        string.push_str("No EXIF fields found\n");
+    if vector.len() == 0 {
+        vector.push("No EXIF fields found\n".to_string());
+        vector.push("".to_string());
     }
 
-    return string;
+    return vector;
 }

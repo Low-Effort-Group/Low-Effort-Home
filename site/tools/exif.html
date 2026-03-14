@@ -21,6 +21,9 @@
                     <input type="file" id="photo" name="photo">
                     <button id="exif">Read EXIF</button>
                     <pre id="result"></pre>
+                </div><br>
+                <div class="bubble wrap">
+                    <div id="exif-data"></div>
                 </div>
             </div>
         </div>
@@ -36,10 +39,22 @@
 
         const reader = new FileReader();
         reader.onload = function(e) {
-          const arrayBuffer = e.target.result;
-          const bytes = new Uint8Array(arrayBuffer);
-          const result = exif(bytes); 
-          document.getElementById("result").textContent = result;
+            const arrayBuffer = e.target.result;
+            const bytes = new Uint8Array(arrayBuffer);
+            const result = exif(bytes);
+            let html = "";
+
+            for (let i = 0; i < result.length; i += 2) {
+                const label = result[i];
+                if (!label) continue;
+                const value = result[i + 1] || ""; 
+                const id = label.toLowerCase().replace(/\s+/g, "_");
+
+                html += `<label for="${id}">${label}</label>\n`;
+                html += `<input type="text" id="${id}" value="${value}" readonly><br>\n`;
+            }
+
+            document.getElementById("exif-data").innerHTML = html;
         };
         reader.readAsArrayBuffer(file); 
       });
