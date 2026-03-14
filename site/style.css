@@ -60,7 +60,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 main {
     display: flex;
-    height: 100vh;
     align-items: stretch;
 }
 
@@ -213,7 +212,6 @@ nav {
 
 .toolbar {
     flex-grow: 0;
-    height: calc(10%);
     width: 160px;
     z-index: 1;
     color: #000;
