@@ -759,87 +759,123 @@
                 </div>
             </div>
             <br>
-            <!--<div class="bubble big purple">
+            <div class="bubble big purple">
                 <div>
                     <h1 class="title">
-                        Temp Conversion
+                        Speed Conversion
                     </h1>
                     <br>
                     <div class="flex">
                         <div class="bubble unit">
-                            <input type="number" id="tempI1" name="tempI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <input type="number" id="speedI1" name="speedI1" style="width: calc(100% - 8px);" placeholder="0"><br>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
-                            <select name="tempU1" id="tempU1" style="width: 100%;">
+                            <select name="speedU1" id="speedU1" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value=""></option>
+                                <option value="km/s">Kilometers per second</option> <!--1000-->
+                                <option value="m/s">Meters per second</option>         <!--1-->
+                                <option value="kt">Knots</option>                      <!--0.51444...-->
+                                <option value="mph">Miles per hour</option>            <!--0.44704-->
+                                <option value="ft/s">Feet per second</option>          <!--0.3048-->
+                                <option value="km/h">Kilometers per hour</option>      <!--0.2777...-->
+                                <option value="cm/s">Centimeters per second</option>   <!--0.01-->
                             </select>
                         </div>
                         <div class="bubble unit">
-                            <input type="number" id="tempI2" name="tempI2" style="width: calc(100% - 8px);" placeholder="0"><br>
-                            <select name="tempU2" id="tempU2" style="width: 100%;">
+                            <input type="number" id="speedI2" name="speedI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="speedU2" id="speedU2" style="width: 100%;">
                                 <option value="">Select a unit!</option>
-                                <option value=""></option>
+                                <option value="km/s">Kilometers per second</option> <!--1000-->
+                                <option value="m/s">Meters per second</option>         <!--1-->
+                                <option value="kt">Knots</option>                      <!--0.51444...-->
+                                <option value="mph">Miles per hour</option>            <!--0.44704-->
+                                <option value="ft/s">Feet per second</option>          <!--0.3048-->
+                                <option value="km/h">Kilometers per hour</option>      <!--0.2777...-->
+                                <option value="cm/s">Centimeters per second</option>   <!--0.01-->
                             </select>
                         </div>
                     </div>
                     <script>
-                        document.getElementById("tempU1").addEventListener("change", tTempC1u)
-                        document.getElementById("tempU2").addEventListener("change", tTempC2u)
-                        document.getElementById("tempI1").addEventListener("input", tTempC1i)
-                        document.getElementById("tempI2").addEventListener("input", tTempC2i)
+                        document.getElementById("speedU1").addEventListener("change", tSpeedC1u)
+                        document.getElementById("speedU2").addEventListener("change", tSpeedC2u)
+                        document.getElementById("speedI1").addEventListener("input", tSpeedC1i)
+                        document.getElementById("speedI2").addEventListener("input", tSpeedC2i)
 
-                        function tTempC1u() {
-                            if (document.getElementById("tempU2").value == "") return;
-                            if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value == "") return;
-                            else if (document.getElementById("tempI1").value != "" && document.getElementById("tempI2").value != "") tempC2();
-                            else if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value != "") tempC2();
-                            else tempC1();
+                        function tSpeedC1u() {
+                            if (document.getElementById("speedU2").value == "") return;
+                            if (document.getElementById("speedI1").value == "" && document.getElementById("speedI2").value == "") return;
+                            else if (document.getElementById("speedI1").value != "" && document.getElementById("speedI2").value != "") speedC2();
+                            else if (document.getElementById("speedI1").value == "" && document.getElementById("speedI2").value != "") speedC2();
+                            else speedC1();
                         }
 
-                        function tTempC2u() {
-                            if (document.getElementById("tempU1").value == "") return;
-                            if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value == "") return;
-                            else if (document.getElementById("tempI2").value != "" && document.getElementById("tempI1").value != "") tempC1();
-                            else if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value != "") tempC1();
-                            else tempC2();
+                        function tSpeedC2u() {
+                            if (document.getElementById("speedU1").value == "") return;
+                            if (document.getElementById("speedI2").value == "" && document.getElementById("speedI1").value == "") return;
+                            else if (document.getElementById("speedI2").value != "" && document.getElementById("speedI1").value != "") speedC1();
+                            else if (document.getElementById("speedI2").value == "" && document.getElementById("speedI1").value != "") speedC1();
+                            else speedC2();
                         }
 
-                        function tTempC1i() {
-                            if (document.getElementById("tempU1").value == "" || document.getElementById("tempU2").value == "") return;
-                            tempC1();
+                        function tSpeedC1i() {
+                            if (document.getElementById("speedU1").value == "" || document.getElementById("speedU2").value == "") return;
+                            speedC1();
                         }
 
-                        function tTempC2i() {
-                            if (document.getElementById("tempU2").value == "" || document.getElementById("tempU1").value == "") return;
-                            else tempC2();
+                        function tSpeedC2i() {
+                            if (document.getElementById("speedU2").value == "" || document.getElementById("speedU1").value == "") return;
+                            else speedC2();
                         }
 
-                        function tempC1() {
-                            var tempMM = 0;
-                            var tempV = Number(document.getElementById("tempI1").value);
-                            var fTempU = document.getElementById("tempU1").value;
-                            if (fTempU == "") tempMM = tempV * ;
+                        function speedC1() {
+                            var speedMM = 0;
+                            var speedV = Number(document.getElementById("speedI1").value);
+                            var fSpeedU = document.getElementById("speedU1").value;
+                            if (fSpeedU == "km/s")      speedMM = speedV * 1000;
+                            else if (fSpeedU == "m/s")  speedMM = speedV * 1;
+                            else if (fSpeedU == "kt")   speedMM = speedV * 0.5144444444444444444444444444444444444;
+                            else if (fSpeedU == "mph")  speedMM = speedV * 0.44704;
+                            else if (fSpeedU == "ft/s") speedMM = speedV * 0.3048;
+                            else if (fSpeedU == "km/h") speedMM = speedV / 3.6;
+                            else if (fSpeedU == "cm/s") speedMM = speedV * 0.01;
 
-                            var tTempU = document.getElementById("tempU2").value;
-                            if (tTempU == "") tempR = tempMM / ;
+                            var tSpeedU = document.getElementById("speedU2").value;
+                            if (tSpeedU == "km/s")      speedR = speedMM / 1000;
+                            else if (tSpeedU == "m/s")  speedR = speedMM / 1;
+                            else if (tSpeedU == "kt")   speedR = speedMM / 0.5144444444444444444444444444444444444;
+                            else if (tSpeedU == "mph")  speedR = speedMM / 0.44704;
+                            else if (tSpeedU == "ft/s") speedR = speedMM / 0.3048;
+                            else if (tSpeedU == "km/h") speedR = speedMM * 3.6;
+                            else if (tSpeedU == "cm/s") speedR = speedMM / 0.01;
 
-                            document.getElementById("tempI2").value = tempR;
+                            document.getElementById("speedI2").value = speedR;
                         }
-                        function tempC2() {
-                            var tempMM = 0;
-                            var tempV = Number(document.getElementById("tempI2").value);
-                            var fTempU = document.getElementById("tempU2").value;
-                            if (fTempU == "") tempMM = ariaV * ;
+                        function speedC2() {
+                            var speedMM = 0;
+                            var speedV = Number(document.getElementById("speedI2").value);
+                            var fSpeedU = document.getElementById("speedU2").value;
+                            if (fSpeedU == "km/s")      speedMM = speedV * 1000;
+                            else if (fSpeedU == "m/s")  speedMM = speedV * 1;
+                            else if (fSpeedU == "kt")   speedMM = speedV * 0.5144444444444444444444444444444444444;
+                            else if (fSpeedU == "mph")  speedMM = speedV * 0.44704;
+                            else if (fSpeedU == "ft/s") speedMM = speedV * 0.3048;
+                            else if (fSpeedU == "km/h") speedMM = speedV / 3.6;
+                            else if (fSpeedU == "cm/s") speedMM = speedV * 0.01;
 
-                            var tTempU = document.getElementById("tempU1").value;
-                            if (tTempU == "") tempR = tempMM / ;
+                            var tSpeedU = document.getElementById("speedU1").value;
+                            if (tSpeedU == "km/s")      speedR = speedMM / 1000;
+                            else if (tSpeedU == "m/s")  speedR = speedMM / 1;
+                            else if (tSpeedU == "kt")   speedR = speedMM / 0.5144444444444444444444444444444444444;
+                            else if (tSpeedU == "mph")  speedR = speedMM / 0.44704;
+                            else if (tSpeedU == "ft/s") speedR = speedMM / 0.3048;
+                            else if (tSpeedU == "km/h") speedR = speedMM * 3.6;
+                            else if (tSpeedU == "cm/s") speedR = speedMM / 0.01;
 
-                            document.getElementById("tempI1").value = tempR;
+                            document.getElementById("speedI1").value = speedR;
                         }
                     </script>
                 </div>
-            </div>-->
+            </div>
         </div>
     </main>
 </body>
-</html>
+</html>sV *
