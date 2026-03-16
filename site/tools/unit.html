@@ -875,6 +875,104 @@
                     </script>
                 </div>
             </div>
+            <br>
+            <div class="bubble big purple">
+                <div>
+                    <h1 class="title">
+                        Temprature Conversion
+                    </h1>
+                    <br>
+                    <div class="flex">
+                        <div class="bubble unit">
+                            <input type="number" id="tempI1" name="tempI1" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+                            <select name="tempU1" id="tempU1" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="°C">Celsius</option>
+                                <option value="K">Kelvin</option>
+                                <option value="°F">Fahrenheit</option>
+                            </select>
+                        </div>
+                        <div class="bubble unit">
+                            <input type="number" id="tempI2" name="tempI2" style="width: calc(100% - 8px);" placeholder="0"><br>
+                            <select name="tempU2" id="tempU2" style="width: 100%;">
+                                <option value="">Select a unit!</option>
+                                <option value="°C">Celsius</option>
+                                <option value="K">Kelvin</option>
+                                <option value="°F">Fahrenheit</option>
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("tempU1").addEventListener("change", tTempC1u)
+                        document.getElementById("tempU2").addEventListener("change", tTempC2u)
+                        document.getElementById("tempI1").addEventListener("input", tTempC1i)
+                        document.getElementById("tempI2").addEventListener("input", tTempC2i)
+
+                        function tTempC1u() {
+                            if (document.getElementById("tempU2").value == "") return;
+                            if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value == "") return;
+                            else if (document.getElementById("tempI1").value != "" && document.getElementById("tempI2").value != "") tempC2();
+                            else if (document.getElementById("tempI1").value == "" && document.getElementById("tempI2").value != "") tempC2();
+                            else tempC1();
+                        }
+
+                        function tTempC2u() {
+                            if (document.getElementById("tempU1").value == "") return;
+                            if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value == "") return;
+                            else if (document.getElementById("tempI2").value != "" && document.getElementById("tempI1").value != "") tempC1();
+                            else if (document.getElementById("tempI2").value == "" && document.getElementById("tempI1").value != "") tempC1();
+                            else tempC2();
+                        }
+
+                        function tTempC1i() {
+                            if (document.getElementById("tempU1").value == "" || document.getElementById("tempU2").value == "") return;
+                            tempC1();
+                        }
+
+                        function tTempC2i() {
+                            if (document.getElementById("tempU2").value == "" || document.getElementById("tempU1").value == "") return;
+                            else tempC2();
+                        }
+
+                        function tempC1() {
+                            var tempMM = 0;
+                            var tempV = Number(document.getElementById("tempI1").value);
+                            var fTempU = document.getElementById("tempU1").value;
+                            var tTempU = document.getElementById("tempU2").value;
+                            
+                            if (fTempU == "K" && tTempU == "K")        tempR = tempV;
+                            else if (fTempU == "K" && tTempU == "°C")  tempR = tempV - 273.15;
+                            else if (fTempU == "K" && tTempU == "°F")  tempR = (tempV - 273.15) * (9 / 5) + 32;
+                            else if (fTempU == "°C" && tTempU == "°C") tempR = tempV;
+                            else if (fTempU == "°C" && tTempU == "K")  tempR = tempV + 273.15;
+                            else if (fTempU == "°C" && tTempU == "°F") tempR = tempV * (9 / 5) + 32;
+                            else if (fTempU == "°F" && tTempU == "°F") tempR = tempV;
+                            else if (fTempU == "°F" && tTempU == "K")  tempR = (tempV - 32) * (5 / 9) + 273.15;
+                            else if (fTempU == "°F" && tTempU == "°C") tempR = (tempV - 32) * (5 / 9);
+                            document.getElementById("tempI2").value = tempR;
+                        }
+                        function tempC2() {
+                            var tempMM = 0;
+                            var tempV = Number(document.getElementById("tempI2").value);
+                            var fTempU = document.getElementById("tempU2").value;
+                            var tTempU = document.getElementById("tempU1").value;
+                            
+                            if (fTempU == "K" && tTempU == "K")        tempR = tempV;
+                            else if (fTempU == "K" && tTempU == "°C")  tempR = tempV - 273.15;
+                            else if (fTempU == "K" && tTempU == "°F")  tempR = (tempV - 273.15) * (9 / 5) + 32;
+                            else if (fTempU == "°C" && tTempU == "°C") tempR = tempV;
+                            else if (fTempU == "°C" && tTempU == "K")  tempR = tempV + 273.15;
+                            else if (fTempU == "°C" && tTempU == "°F") tempR = tempV * (9 / 5) + 32;
+                            else if (fTempU == "°F" && tTempU == "°F") tempR = tempV;
+                            else if (fTempU == "°F" && tTempU == "K")  tempR = (tempV - 32) * (5 / 9) + 273.15;
+                            else if (fTempU == "°F" && tTempU == "°C") tempR = (tempV - 32) * (5 / 9);
+
+                            document.getElementById("tempI1").value = tempR;
+                        }
+                    </script>
+                </div>
+            </div>
         </div>
     </main>
 </body>
